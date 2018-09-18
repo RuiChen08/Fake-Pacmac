@@ -1,14 +1,14 @@
-# Retro Game - 1942
+# Retro Game - Pac-Man
 
 ## Team structure and roles 
 + Rui Chen u5958754 - Software Developer, Documentation Checker, Plan Designer
 + Weiwei Liang u6642464 - Software Developer, Note Taker, 
 + Ruiyi Sun u6233314 - Software Developer, 
 + Chucheng Qian u6451847 - Software Developer, Game Tester
-+ 
+
 ## Game Overview 
 
-1942 is a vertically scrolling shoot 'em up made by Capcom that was released for the arcade in 1984. It was the first game in the 19XX series.
+Pac-Man is an arcade game developed by Namco and first released in Japan as Puck Man in May 1980.[2][3] It was created by Japanese video game designer Toru Iwatani. It was licensed for distribution in the United States by Midway Games and released in October 1980. Immensely popular from its original release to the present day, Pac-Man is considered one of the classics of the medium, and an icon of 1980s popular culture.
 
 ## Design Documentation 
 + [Design Summary](designsummary)
