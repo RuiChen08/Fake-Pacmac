@@ -17,7 +17,7 @@ Pac-Man is an arcade game developed by Namco and first released in Japan as Puck
 
 ## Minuted Meetings
 + [Meeting 1 - 09/09/2018 - decide team structure and game](https://gitlab.cecs.anu.edu.au/u5958754/COMP2100-Assignment/wikis/meeting1)
-+ [Meeting 2 - date - divide up tasks](meeting2)
++ [Meeting 2 - date - divide up tasks](https://gitlab.cecs.anu.edu.au/u5958754/COMP2100-Assignment/wikis/meeting2)
 + [Meeting 3 - date - consider and plan extension aspects](meeting3)
 + [Meeting 4 - date - review and practice demo](meeting4)
 
