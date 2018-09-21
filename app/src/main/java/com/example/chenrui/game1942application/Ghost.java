@@ -5,6 +5,21 @@ package com.example.chenrui.game1942application;
  * Date: 19/09/2018
  */
 
-public interface Ghost {
+import android.graphics.Canvas;
+import android.graphics.Paint;
+
+abstract class Ghost {
     boolean blueMode = false;
+
+    void onDraw(Canvas canvas, Paint paint) {
+        if (blueMode){
+            // Todo, this should be the common-used code
+        }else{
+            // Todo
+        }
+    }
+
+    void step() {
+        //Todo, there should be common-used code both four ghost
+    }
 }

@@ -19,9 +19,15 @@ class Game {
 
     void onDraw(Canvas canvas, Paint paint) {
         pacman.onDraw(canvas, paint);
+        for (Ghost g : ghosts)
+            g.onDraw(canvas, paint);
+        foods.onDraw(canvas, paint);
     }
 
     void step() {
+        for (Ghost g : ghosts)
+            g.step();
+
     }
 
     void move(Pos.Direction direction){

@@ -57,6 +57,7 @@ public class GameView extends View implements Runnable, View.OnTouchListener{
             game.move(pre_pos.getDirection(post_pos));
             this.invalidate();
         }*/
+        //Todo, a better implementation
         return true;
     }
 

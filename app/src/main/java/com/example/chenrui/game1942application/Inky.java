@@ -8,5 +8,21 @@ package com.example.chenrui.game1942application;
  * Sometimes he chases Pac-Man aggressively like Blinky; other times he jumps ahead of Pac-Man as Pinky would.
  */
 
-public class Inky implements Ghost {
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+
+public class Inky extends Ghost {
+
+    @Override
+    void onDraw(Canvas canvas, Paint paint) {
+        paint.setColor(Color.BLUE);
+        super.onDraw(canvas, paint);
+    }
+
+    @Override
+    void step() {
+        super.step();
+        //Todo, Considering there are different AI for each ghost.
+    }
 }
