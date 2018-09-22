@@ -11,7 +11,18 @@ import static org.junit.Assert.*;
  */
 public class ExampleUnitTest {
     @Test
-    public void addition_isCorrect() throws Exception {
-        assertEquals(4, 2 + 2);
+    public void getDirection_test() throws Exception {
+        assertEquals(new Pos(1.0f, 1.0f).getDirection(new Pos(1.0f, 2.0f)), Pos.Direction.Down);
+        // Todo. some auto-generated test, however, it is not a good way for writing testing as we are writing test after implementation
+    }
+
+    @Test
+    public void aiChasing_test(){
+        //Todo
+    }
+
+    @Test
+    public void aiInFront_test(){
+        //Todo
     }
 }
