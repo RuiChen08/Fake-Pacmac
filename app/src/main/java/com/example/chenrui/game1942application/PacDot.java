@@ -34,6 +34,7 @@ class PacDot extends View implements Food{
         super.onDraw(canvas);
         paint = new Paint();
         paint.setColor(Color.YELLOW);// the PacDot should be a yellow dot
-        canvas.drawCircle(x,y,10,paint);
+        float radius = 0.05f * canvas.getWidth();
+        canvas.drawCircle(x,y,radius,paint);
     }
 }

@@ -19,11 +19,12 @@ import android.view.View;
  *Author: Ruiyi Sun
  * Date: 2018/09/22
  * add float x and y
- * finish the onDraw 
+ * finish the onDraw
  */
 public class PowerPellet extends View implements Food{
     float x;
     float y;
+
     public PowerPellet(Context context, @Nullable AttributeSet attrs,float x,float y) {
         super(context, attrs);
         this.x =x;
@@ -32,11 +33,12 @@ public class PowerPellet extends View implements Food{
 
     @Override
     public void onDraw(Canvas canvas, Paint paint) {
-        //Todo
+
         super.onDraw(canvas);
         paint = new Paint();
-        paint.setColor(Color.BLUE);
-        canvas.drawCircle(x,y,12,paint);
+        paint.setColor(Color.BLUE);//PowerPellet should be a blue dot
+        float radius = 0.05f * canvas.getWidth();
+        canvas.drawCircle(x,y,radius,paint);
 
     }
 }
