@@ -15,11 +15,12 @@ class PacMan {
     static final float STEP = 0.005f;
 
 
-    private Pos pos;
+    protected Pos pos;
     private float radius = 0.025f;
 
     PacMan() {
         this.pos = Game.START_POS;
+
     }
 
     void onDraw(Canvas canvas, Paint paint) {
@@ -49,4 +50,6 @@ class PacMan {
                 pos.x += PacMan.STEP;
         }
     }
+
+
 }

@@ -26,9 +26,10 @@ public class Foods extends ArrayList<Food> {
             this.add(new PowerPellet(pxs[i], pys[i]));
         }
     }
-
     public void onDraw(Canvas canvas, Paint paint) {
         for (Food f : this)
             f.onDraw(canvas, paint);
     }
+
+
 }

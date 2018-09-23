@@ -91,8 +91,10 @@ public class GameView extends View implements Runnable, View.OnTouchListener{
         if (pre_pos != null && post_pos != null){
             game.move(pre_pos.getDirection(post_pos));
         }
+        game.update();
         game.step();
         this.postDelayed(this, 25);
         this.invalidate();
     }
+
 }

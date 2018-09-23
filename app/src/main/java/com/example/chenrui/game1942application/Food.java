@@ -11,8 +11,8 @@ import android.graphics.Paint;
 
 abstract class Food {
 
-    private float x;
-    private float y;
+    float x;
+    float y;
     private final float radius;
 
     Food(float x, float y, float radius) {

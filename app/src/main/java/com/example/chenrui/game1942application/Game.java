@@ -9,6 +9,9 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.view.MotionEvent;
 
+import java.util.ArrayList;
+import java.util.ConcurrentModificationException;
+
 class Game {
 
     static final Pos START_POS= new Pos(0.5f,0.5f);
@@ -27,7 +30,9 @@ class Game {
         ghosts[2] = new Inky();
         ghosts[3] = new Pinky();
         foods = new Foods(dxs, dys, dxs.length, pxs, pys, pxs.length);
+
     }
+
 
     void onDraw(Canvas canvas, Paint paint) {
         pacman.onDraw(canvas, paint);
@@ -44,5 +49,23 @@ class Game {
 
     void move(Pos.Direction direction){
         pacman.move(direction);
+
+    }
+
+/*Author:Ruiyi Sun
+* Date : 23/09/2018
+* update the arraylist 'Foods'
+*********one problem is that the distance can not be specify because of the unknown radius ****************
+ */
+    public void update()  {
+        for(int i=0;i<foods.size();i++){
+            Food f = foods.get(i);
+            double distance = Math.sqrt(Math.pow(pacman.pos.x - f.x, 2) + Math.pow(pacman.pos.y - f.y, 2));
+            //ToDo : specify the radius to get the best destance
+            if (distance <= 0.001f) {
+                foods.remove(f);
+                i --;
+            }
+        }
     }
 }

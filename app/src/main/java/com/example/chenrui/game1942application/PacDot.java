@@ -14,9 +14,8 @@ class PacDot extends Food{
         super(x, y, 0.004f);
 
     }
-
     public void onDraw(Canvas canvas, Paint paint) {
-        paint.setColor(Color.YELLOW);// the PacDot should be a yellow dot
         super.onDraw(canvas, paint);
+        paint.setColor(Color.RED);// the PacDot should be a yellow dot
     }
 }
