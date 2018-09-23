@@ -17,6 +17,13 @@ class Game {
     PacMan pacman = new PacMan();
     Foods foods = new Foods();
 
+    public Game() {
+        ghosts[0] = new Blinky();
+        ghosts[1] = new Clyde();
+        ghosts[2] = new Inky();
+        ghosts[3] = new Pinky();
+    }
+
     void onDraw(Canvas canvas, Paint paint) {
         pacman.onDraw(canvas, paint);
         for (Ghost g : ghosts)
