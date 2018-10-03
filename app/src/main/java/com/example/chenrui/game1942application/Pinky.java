@@ -12,6 +12,9 @@ import android.graphics.Color;
 import android.graphics.Paint;
 
 public class Pinky extends Ghost {
+    Pinky(Pos pos){
+        super(pos);
+    }
 
     @Override
     void onDraw(Canvas canvas, Paint paint) {

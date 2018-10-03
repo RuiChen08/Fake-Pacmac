@@ -25,10 +25,15 @@ class Game {
     private Foods foods;
 
     Game() {
-        ghosts[0] = new Blinky();
-        ghosts[1] = new Clyde();
-        ghosts[2] = new Inky();
-        ghosts[3] = new Pinky();
+        /**
+         * set a default position for ghost
+         * @author Chucheng Qian
+         * @Date 3/10/2018
+         */
+        ghosts[0] = new Blinky(START_POS);
+        ghosts[1] = new Clyde(START_POS);
+        ghosts[2] = new Inky(START_POS);
+        ghosts[3] = new Pinky(START_POS);
         foods = new Foods(dxs, dys, dxs.length, pxs, pys, pxs.length);
 
     }

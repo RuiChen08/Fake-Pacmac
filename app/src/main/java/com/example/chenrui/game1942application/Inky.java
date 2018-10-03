@@ -14,6 +14,10 @@ import android.graphics.Paint;
 
 public class Inky extends Ghost {
 
+    Inky(Pos pos){
+        super(pos);
+    }
+
     @Override
     void onDraw(Canvas canvas, Paint paint) {
         paint.setColor(Color.BLUE);

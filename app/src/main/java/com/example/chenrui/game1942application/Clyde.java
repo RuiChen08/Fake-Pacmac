@@ -13,6 +13,10 @@ import android.graphics.Paint;
 
 public class Clyde extends Ghost {
 
+    Clyde(Pos pos){
+        super(pos);
+    }
+
     @Override
     void onDraw(Canvas canvas, Paint paint) {
         paint.setColor(Color.rgb(244, 167, 66)); // the orange one

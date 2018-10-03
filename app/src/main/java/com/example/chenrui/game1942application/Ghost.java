@@ -9,6 +9,12 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 
 abstract class Ghost {
+
+    Pos pos;
+    Ghost(Pos pos){
+        this.pos=pos;
+    }
+
     boolean blueMode = false;
 
     void onDraw(Canvas canvas, Paint paint) {
