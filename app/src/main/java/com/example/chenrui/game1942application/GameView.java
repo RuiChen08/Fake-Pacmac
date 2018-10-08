@@ -83,15 +83,15 @@ public class GameView extends View implements Runnable, View.OnTouchListener{
                 pre_pos = null;
                 post_pos = null;
         }
+        // Todo, following the instruction from meeting 3
+        if (pre_pos != null && post_pos != null){
+            game.move(pre_pos.getDirection(post_pos));
+        }
         return true;
     }
 
     @Override
     public void run() {
-        if (pre_pos != null && post_pos != null){
-            game.move(pre_pos.getDirection(post_pos));
-        }
-        game.update();
         game.step();
         this.postDelayed(this, 25);
         this.invalidate();

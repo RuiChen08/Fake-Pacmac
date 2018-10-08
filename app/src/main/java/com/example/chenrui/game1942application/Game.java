@@ -46,31 +46,17 @@ class Game {
         foods.onDraw(canvas, paint);
     }
 
+    /* Authors:Ruiyi Sun, Weiwei Liang
+     * Date : 08/10/2018
+     */
     void step() {
-        for (Ghost g : ghosts)
-            g.step();
+        for (Ghost g : ghosts) g.step();
+        foods.step(pacman.pos, pacman.radius);
 
     }
 
     void move(Pos.Direction direction){
         pacman.move(direction);
 
-    }
-
-/*Author:Ruiyi Sun
-* Date : 23/09/2018
-* update the arraylist 'Foods'
-*********one problem is that the distance can not be specify because of the unknown radius ****************
- */
-    public void update()  {
-        for(int i=0;i<foods.size();i++){
-            Food f = foods.get(i);
-            double distance = Math.sqrt(Math.pow(pacman.pos.x - f.x, 2) + Math.pow(pacman.pos.y - f.y, 2));
-            //ToDo : specify the radius to get the best destance
-            if (distance <= 0.001f) {
-                foods.remove(f);
-                i --;
-            }
-        }
     }
 }

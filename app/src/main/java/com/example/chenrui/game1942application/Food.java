@@ -11,21 +11,16 @@ import android.graphics.Paint;
 
 abstract class Food {
 
-    float x;
-    float y;
+    Pos pos;
     private final float radius;
 
     Food(float x, float y, float radius) {
-        this.x = x;
-        this.y = y;
+        pos = new Pos(x, y);
         this.radius = radius;
     }
 
     public void onDraw(Canvas canvas, Paint paint) {
-        canvas.drawCircle(x * canvas.getWidth(), y*canvas.getHeight(),radius * canvas.getWidth(),paint);
+        canvas.drawCircle(pos.x * canvas.getWidth(), pos.y*canvas.getHeight(),radius * canvas.getWidth(),paint);
     }
-
-
-
 
 }

@@ -14,8 +14,8 @@ public class Pos {
         this.y = y;
     }
 
-    public double getDistance(Pos pos){
-        return Math.sqrt(Math.pow(pos.x - x, 2) + Math.pow(pos.y - y, 2));
+    public float getDistance(Pos pos){
+        return (float) Math.sqrt(Math.pow(pos.x - x, 2) + Math.pow(pos.y - y, 2));
     }
 
     /*

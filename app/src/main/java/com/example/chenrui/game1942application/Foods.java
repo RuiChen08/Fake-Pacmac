@@ -4,6 +4,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Author: Rui Chen
@@ -31,5 +32,15 @@ public class Foods extends ArrayList<Food> {
             f.onDraw(canvas, paint);
     }
 
-
+    /*
+     * Author: Weiwei Liang
+     * Date : 08/10/2018
+     */
+    void step(Pos pos, float radius) {
+        Iterator<Food> i = iterator();
+        while (i.hasNext()){
+            Food f = (Food) i.next();
+            if (pos.getDistance(f.pos) <= radius) i.remove();
+        }
+    }
 }

@@ -15,8 +15,8 @@ class PacMan {
     static final float STEP = 0.005f;
 
 
-    protected Pos pos;
-    private float radius = 0.025f;
+    Pos pos;
+    float radius = 0.025f;
 
     PacMan() {
         this.pos = Game.START_POS;
