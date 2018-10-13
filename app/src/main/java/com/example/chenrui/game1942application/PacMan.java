@@ -16,6 +16,7 @@ class PacMan {
 
 
     Pos pos;
+    Pos.Direction direction = Pos.Direction.Stay;
     float radius = 0.025f;
 
     PacMan() {
@@ -30,12 +31,12 @@ class PacMan {
 
     /*
      * Author: Rui Chen
-     * Date: 22/09/2018
+     * Date: 12/10/2018
      *
      * Increase the x or y of pac-man's position according to direction. The origin is the left up connor of the canvas.
      */
-    void move(Pos.Direction direction){
-        switch (direction){
+    void step(){
+        switch (this.direction){
             case Up:
                 // minus because the left-up connor is the origin
                 pos.y -= PacMan.STEP;
@@ -48,8 +49,17 @@ class PacMan {
                 break;
             case Right:
                 pos.x += PacMan.STEP;
+                break;
+            case Stay:
+                break;
         }
     }
+
+    /*
+     * Author: Rui Chen
+     * Date: 12/10/2018
+     */
+    void changeDirection(Pos.Direction direction){ this.direction = direction; }
 
 
 }

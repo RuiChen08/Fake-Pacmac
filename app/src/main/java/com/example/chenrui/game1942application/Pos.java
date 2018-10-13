@@ -42,6 +42,6 @@ public class Pos {
     }
 
     static enum Direction {
-        Up, Down, Right, Left;
+        Up, Down, Right, Left, Stay;
     }
 }

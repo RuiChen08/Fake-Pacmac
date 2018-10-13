@@ -7,10 +7,6 @@ package com.example.chenrui.game1942application;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.view.MotionEvent;
-
-import java.util.ArrayList;
-import java.util.ConcurrentModificationException;
 
 class Game {
 
@@ -24,12 +20,12 @@ class Game {
     private PacMan pacman = new PacMan();
     private Foods foods;
 
+    /*
+     * set a default position for ghost
+     * @author Chucheng Qian
+     * @Date 3/10/2018
+     */
     Game() {
-        /**
-         * set a default position for ghost
-         * @author Chucheng Qian
-         * @Date 3/10/2018
-         */
         ghosts[0] = new Blinky(START_POS);
         ghosts[1] = new Clyde(START_POS);
         ghosts[2] = new Inky(START_POS);
@@ -46,17 +42,17 @@ class Game {
         foods.onDraw(canvas, paint);
     }
 
-    /* Authors:Ruiyi Sun, Weiwei Liang
-     * Date : 08/10/2018
+    /* Authors: Ruiyi Sun, Weiwei Liang
+     * Date: 08/10/2018
      */
     void step() {
         for (Ghost g : ghosts) g.step();
         foods.step(pacman.pos, pacman.radius);
-
+        pacman.step();
     }
 
     void move(Pos.Direction direction){
-        pacman.move(direction);
+        pacman.changeDirection(direction);
 
     }
 }

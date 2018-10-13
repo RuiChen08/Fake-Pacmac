@@ -68,7 +68,7 @@ public class GameView extends View implements Runnable, View.OnTouchListener{
      * Author: Rui Chen
      * Date: 22/09/2018
      *
-     * Pass Direction to game so that pac-man could move
+     * Pass Direction to game so that pac-man could changeDirection
      */
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
