@@ -14,7 +14,6 @@ class PacMan {
     // The step of each movement.
     static final float STEP = 0.005f;
 
-
     Pos pos;
     Pos.Direction direction = Pos.Direction.Stay;
     static float radius = 0.025f;

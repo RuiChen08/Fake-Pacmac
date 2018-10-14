@@ -13,7 +13,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 
-public class Blinky extends Ghost {
+class Blinky extends Ghost {
 
     /**
      * Add the constructor
