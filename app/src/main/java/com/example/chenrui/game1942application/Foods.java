@@ -7,19 +7,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
- * Author: Rui Chen
- * Date: 2018/9/22
+ * Author: Rui Chen, Chcuheng Qian, Ruiyi Sun, Weiwei Liang
+ * Date: 14/10/2018
  */
 
 public class Foods extends ArrayList<Food> {
-
-    /**
-     * add a int to store the mark
-     * Author: Chcuheng Qian
-     * Date: 14/10/2018
-     */
-
-
 
     /*
      * Author: Rui Chen
@@ -41,7 +33,7 @@ public class Foods extends ArrayList<Food> {
     }
 
     /*
-     * Author: Weiwei Liang,Ruiyi Sun
+     * Author: Weiwei Liang, Ruiyi Sun
      * Date : 08/10/2018
      */
     boolean step(Pos pos, float radius) {

@@ -9,6 +9,11 @@ public class Pos {
     float x;
     float y;
 
+    public Pos(Pos pos) {
+        this.x = pos.x;
+        this.y = pos.y;
+    }
+
     Pos(float x, float y) {
         this.x = x;
         this.y = y;
