@@ -1,7 +1,9 @@
 package com.example.chenrui.game1942application;
 
 /*
- * Authors: Rui Chen
+ * Authors: Rui Chen,Chucheng Qian
+ * add constructor,add situation that pacman "die"
+ *
  * Date: 19/09/2018
  */
 
@@ -26,6 +28,7 @@ abstract class Ghost {
     }
 
     void step(Pos pacManPos) {
+        if (pos.getDistance(pacManPos) <= PacMan.radius) PacMan.life--;
         //Todo, there should be common-used code both four ghost
     }
 }

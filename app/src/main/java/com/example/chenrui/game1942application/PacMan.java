@@ -18,6 +18,7 @@ class PacMan {
     Pos pos;
     Pos.Direction direction = Pos.Direction.Stay;
     static float radius = 0.025f;
+    static int life = 3;
 
     public PacMan(Pos pos) {
         this.pos = pos;

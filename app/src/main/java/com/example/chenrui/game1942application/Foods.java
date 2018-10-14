@@ -13,6 +13,14 @@ import java.util.Iterator;
 
 public class Foods extends ArrayList<Food> {
 
+    /**
+     * add a int to store the mark
+     * Author: Chcuheng Qian
+     * Date: 14/10/2018
+     */
+
+    int mark=0;
+
     /*
      * Author: Rui Chen
      * Date: 23/09/2018
@@ -40,7 +48,10 @@ public class Foods extends ArrayList<Food> {
         Iterator<Food> i = iterator();
         while (i.hasNext()){
             Food f = (Food) i.next();
-            if (pos.getDistance(f.pos) <= radius) i.remove();
+            if (pos.getDistance(f.pos) <= radius)
+            {i.remove();
+            mark++;
+            };
         }
     }
 }

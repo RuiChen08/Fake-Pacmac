@@ -75,6 +75,7 @@ public class Blinky extends Ghost {
         else if (AI.chasing(pacManPos, this.pos) == Pos.Direction.Left) {
             pos.x -= STEP;}
 
+
         /*if(ai.chasing(pos_default,pos)== Pos.Direction.Up){
             pos.y -= 0.005f;
         }
