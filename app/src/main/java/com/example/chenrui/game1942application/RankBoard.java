@@ -69,6 +69,21 @@ public class RankBoard {
         return res;
     }
 
+    public Document create(String filename) {
+        File f = new File(filename);
+        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+        DocumentBuilder db;
+        try {
+            db = dbf.newDocumentBuilder();
+            Document doc = db.newDocument();
+            return doc;}
+        catch (Exception e) {
+            System.err.println("Problem saving " + filename);
+            return null;
+        }
+    }
+
+
     public void save(String filename) {
         File f = new File(filename);
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -76,7 +91,8 @@ public class RankBoard {
         try {
             // make the xml tree
             db = dbf.newDocumentBuilder();
-            Document doc = db.newDocument();
+            Document doc = db.parse(f);
+
             Element player = doc.createElement(Player);
 
             Element en = doc.createElement(NAME);
@@ -111,7 +127,12 @@ public class RankBoard {
 
     public static void main(String[] args) {
         RankBoard data = new RankBoard("Hugh",10);
+        RankBoard data1 = new RankBoard("aHugh",6);
+        RankBoard data2 = new RankBoard("bHugh",5);
+        data.create("RankData.xml");
         data.save("RankData.xml");
+        data1.save("RankData.xml");
+        data2.save("RankData.xml");
         RankBoard dataload = load("RankData.xml");
         dataload.show();
     }
@@ -119,3 +140,4 @@ public class RankBoard {
 
 
 }
+

@@ -10,6 +10,8 @@ import android.graphics.Paint;
 
 class Game {
 
+    static int mark = 0;
+
     static final Pos START_POS= new Pos(0.5f,0.5f);
     static final Pos START_POS_Ghosts= new Pos(0.9f,0.9f);
     static final float[] dxs = {0.1f, 0.2f, 0.3f};

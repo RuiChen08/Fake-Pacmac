@@ -19,7 +19,7 @@ public class Foods extends ArrayList<Food> {
      * Date: 14/10/2018
      */
 
-    int mark=0;
+
 
     /*
      * Author: Rui Chen
@@ -54,6 +54,7 @@ public class Foods extends ArrayList<Food> {
                     eatPowerPellet = true;
                 }
                 i.remove();
+                Game.mark++;
             }
         }
         return eatPowerPellet;

@@ -13,7 +13,9 @@ import android.graphics.Paint;
 
 abstract class Ghost {
     /*
-     * Authors: Ruiyi Sun
+     * Authors: Ruiyi Sun,Rui Chen,Chucheng Qian
+     * add constructor,add situation that pacman "die"
+
      * Date: 14/10/2018
      */
     Pos pos;
@@ -38,6 +40,7 @@ abstract class Ghost {
 
     void step(Pos pacManPos) {
         //Todo, there should be common-used code both four ghost
+        if (pos.getDistance(pacManPos) <= PacMan.radius) PacMan.life--;
         if(blueMode){
             if (pacManPos.getDirection(this.pos) == Pos.Direction.Up) {
                 pos.y += STEP;}
