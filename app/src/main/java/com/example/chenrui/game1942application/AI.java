@@ -1,13 +1,6 @@
 package com.example.chenrui.game1942application;
 
-import java.util.List;
 import java.util.Random;
-
-import static com.example.chenrui.game1942application.Pos.Direction.Down;
-import static com.example.chenrui.game1942application.Pos.Direction.Left;
-import static com.example.chenrui.game1942application.Pos.Direction.Right;
-import static com.example.chenrui.game1942application.Pos.Direction.Stay;
-import static com.example.chenrui.game1942application.Pos.Direction.Up;
 
 /**
  * Author: Rui Chen
@@ -28,7 +21,7 @@ public class AI {
         if(posGhost.getDistance(posPacman)>=0.5f){
             Random random = new Random();
             int i=random.nextInt(4);
-            Pos.Direction[] dd = {Up, Down, Right, Left};
+            Pos.Direction[] dd = {Pos.Direction.Up, Pos.Direction.Down, Pos.Direction.Right, Pos.Direction.Left};
             d= dd[i];
         }else{
             d = posGhost.getDirection(posPacman);
@@ -38,7 +31,7 @@ public class AI {
     }
     Pos.Direction positionInFront(){
         //Todo, this is for ghost like Pinky
-        return Down;
+        return Pos.Direction.Down;
     }
 
 }
