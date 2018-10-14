@@ -41,17 +41,21 @@ public class Foods extends ArrayList<Food> {
     }
 
     /*
-     * Author: Weiwei Liang
+     * Author: Weiwei Liang,Ruiyi Sun
      * Date : 08/10/2018
      */
-    void step(Pos pos, float radius) {
+    boolean step(Pos pos, float radius) {
         Iterator<Food> i = iterator();
+        boolean eatPowerPellet = false;
         while (i.hasNext()){
             Food f = (Food) i.next();
-            if (pos.getDistance(f.pos) <= radius)
-            {i.remove();
-            mark++;
-            };
+            if (pos.getDistance(f.pos) <= radius) {
+                if(f instanceof PowerPellet){
+                    eatPowerPellet = true;
+                }
+                i.remove();
+            }
         }
+        return eatPowerPellet;
     }
 }

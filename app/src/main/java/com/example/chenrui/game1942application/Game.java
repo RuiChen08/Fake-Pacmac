@@ -52,7 +52,13 @@ class Game {
      * Date: 14/10/2018
      */
     void step() {
-        for (Ghost g : ghosts) g.step(pacman.pos);
+        if(foods.step(pacman.pos,pacman.radius)){
+            for (Ghost g : ghosts) {
+                g.blueMode = true;
+                g.step(pacman.pos);
+            }
+
+        }
         foods.step(pacman.pos, pacman.radius);
         pacman.step();
     }

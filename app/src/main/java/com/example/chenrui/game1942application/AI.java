@@ -33,11 +33,9 @@ public class AI {
         }else{
             d = posGhost.getDirection(posPacman);
         }
-
         //Todo, this is for ghost like Blinky that will chase pac-man
         return d;
     }
-
     Pos.Direction positionInFront(){
         //Todo, this is for ghost like Pinky
         return Down;

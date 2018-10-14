@@ -12,7 +12,6 @@ import android.graphics.Paint;
 class PacDot extends Food{
     PacDot(float x, float y) {
         super(x, y, 0.004f);
-
     }
     public void onDraw(Canvas canvas, Paint paint) {
         super.onDraw(canvas, paint);
