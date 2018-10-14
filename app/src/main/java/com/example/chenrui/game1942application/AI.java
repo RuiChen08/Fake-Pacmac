@@ -17,8 +17,8 @@ public class AI {
      * @Date 3/10/2018
      */
 
-    Pos.Direction chasing(Pos posPacman ,Pos posGhost){
-        Pos.Direction d =posGhost.getDirection(posPacman);
+    static Pos.Direction chasing(Pos posPacman ,Pos posGhost){
+        Pos.Direction d = posGhost.getDirection(posPacman);
 
         //Todo, this is for ghost like Blinky that will chase pac-man
         return d;

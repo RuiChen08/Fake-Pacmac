@@ -23,7 +23,7 @@ class Game {
     /*
      * set a default position for ghost
      * @author Chucheng Qian
-     * @Date 3/10/2018
+     * @Date 14/10/2018
      */
     Game() {
         ghosts[0] = new Blinky(new Pos(START_POS.x, START_POS.y));
@@ -47,8 +47,8 @@ class Game {
         foods.onDraw(canvas, paint);
     }
 
-    /* Authors: Ruiyi Sun, Weiwei Liang
-     * Date: 08/10/2018
+    /* Authors: Ruiyi Sun, Weiwei Liang,Chucheng Qian
+     * Date: 14/10/2018
      */
     void step() {
         for (Ghost g : ghosts) g.step(pacman.pos);
