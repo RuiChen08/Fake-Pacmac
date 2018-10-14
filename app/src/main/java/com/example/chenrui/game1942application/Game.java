@@ -17,7 +17,7 @@ class Game {
     static final float[] pys = {0.4f, 0.5f, 0.6f};
 
     private Ghost[] ghosts = new Ghost[4];
-    private PacMan pacman = new PacMan();
+    private PacMan pacman;
     private Foods foods;
 
     /*
@@ -26,16 +26,21 @@ class Game {
      * @Date 3/10/2018
      */
     Game() {
-        ghosts[0] = new Blinky(START_POS);
-        ghosts[1] = new Clyde(START_POS);
-        ghosts[2] = new Inky(START_POS);
-        ghosts[3] = new Pinky(START_POS);
+        ghosts[0] = new Blinky(new Pos(START_POS.x, START_POS.y));
+        ghosts[1] = new Clyde(new Pos(START_POS.x, START_POS.y));
+        ghosts[2] = new Inky(new Pos(START_POS.x, START_POS.y));
+        ghosts[3] = new Pinky(new Pos(START_POS.x, START_POS.y));
+        pacman = new PacMan(new Pos(START_POS.x, START_POS.y));
         foods = new Foods(dxs, dys, dxs.length, pxs, pys, pxs.length);
 
     }
 
 
+    /* Authors: Ruiyi Sun, Weiwei Liang
+     * Date: 08/10/2018
+     */
     void onDraw(Canvas canvas, Paint paint) {
+        for (Ghost g : ghosts) g.onDraw(canvas, paint);
         pacman.onDraw(canvas, paint);
         for (Ghost g : ghosts)
             g.onDraw(canvas, paint);
@@ -46,7 +51,7 @@ class Game {
      * Date: 08/10/2018
      */
     void step() {
-        for (Ghost g : ghosts) g.step();
+        for (Ghost g : ghosts) g.step(pacman.pos);
         foods.step(pacman.pos, pacman.radius);
         pacman.step();
     }

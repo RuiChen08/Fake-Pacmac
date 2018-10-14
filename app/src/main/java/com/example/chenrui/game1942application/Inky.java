@@ -25,8 +25,8 @@ public class Inky extends Ghost {
     }
 
     @Override
-    void step() {
-        super.step();
+    void step(Pos pacManPos) {
+        super.step(pacManPos);
         //Todo, Considering there are different AI for each ghost.
     }
 }

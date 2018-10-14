@@ -25,7 +25,7 @@ abstract class Ghost {
         }
     }
 
-    void step() {
+    void step(Pos pacManPos) {
         //Todo, there should be common-used code both four ghost
     }
 }

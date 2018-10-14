@@ -34,7 +34,6 @@ public class Blinky extends Ghost {
     }
 
     AI ai;
-    Pos pos_default =new Pos(5.0f,5.0f);
 
    // Bitmap myImage;
 
@@ -58,12 +57,16 @@ public class Blinky extends Ghost {
         return mResources;
     }*/
 
-    @Override
-    void step() {
-        /*if(ai.chasing(pos,pos_default)== Pos.Direction.Up){
+    void step(Pos pacManPos) {
+        super.step(pacManPos);
+
+        if (ai.chasing(pacManPos, this.pos) == Pos.Direction.Up) {
             pos.y -= 0.005f;
-        }
-        /*else if(ai.chasing(pos,pos_default)== Pos.Direction.Down){
+
+        /*if(ai.chasing(pos_default,pos)== Pos.Direction.Up){
+            pos.y -= 0.005f;
+        }*/
+       /* else if(ai.chasing(pos,pos_default)== Pos.Direction.Down){
             pos.y += 0.005f;
         }
         else if(ai.chasing(pos,pos_default)== Pos.Direction.Right){
@@ -72,7 +75,9 @@ public class Blinky extends Ghost {
         else if(ai.chasing(pos,pos_default)== Pos.Direction.Left){
             pos.x -= 0.005f;
         }*/
-        //Todo, Considering there are different AI for each ghost.
-        super.step();
+            //Todo, Considering there are different AI for each ghost.
+
+        }
     }
 }
+

@@ -19,9 +19,8 @@ class PacMan {
     Pos.Direction direction = Pos.Direction.Stay;
     float radius = 0.025f;
 
-    PacMan() {
-        this.pos = Game.START_POS;
-
+    public PacMan(Pos pos) {
+        this.pos = pos;
     }
 
     void onDraw(Canvas canvas, Paint paint) {
