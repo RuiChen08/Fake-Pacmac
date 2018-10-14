@@ -17,14 +17,13 @@ public class Blinky extends Ghost {
 
     /**
      * Add the constructor
-     * fill the step method(comment because there are bugs while running,it controls the pacman.... )
+     * fill the step method
+     * draw the red ghost
      *
      * @Problem tried to use bitmap to paint the red ghost,but the "getresource" method cannot be used in normal java class(非activity)？.
-     * @Problem need to pass the position of pacman to the ghost class
-     *
      *
      * @author Chucheng Qian
-     * @Date 3/10/2018
+     * @Date 14/10/2018
      */
 
 
@@ -34,8 +33,12 @@ public class Blinky extends Ghost {
     }
 
 
+    static final float STEP = 0.005f;
 
-   // Bitmap myImage;
+
+
+
+    // Bitmap myImage;
 
     @Override
     void onDraw(Canvas canvas, Paint paint) {
@@ -45,9 +48,12 @@ public class Blinky extends Ghost {
         p.setColor(Color.BLUE);
         p.setStrokeWidth(10.0f);
         canvas.drawBitmap(myImage, pos.x, pos.y, p);*/
+        super.onDraw(canvas, paint);
 
         paint.setColor(Color.RED);
-        super.onDraw(canvas, paint);
+        canvas.drawCircle(pos.x * canvas.getWidth(), pos.y * canvas.getHeight(), canvas.getHeight() * 0.025f, paint);
+
+
     }
 
     /*private Resources getResources() {
@@ -61,13 +67,13 @@ public class Blinky extends Ghost {
         super.step(pacManPos);
 
         if (AI.chasing(pacManPos, this.pos) == Pos.Direction.Up) {
-            pos.y -= 0.005f;}
+            pos.y -= STEP;}
         else if (AI.chasing(pacManPos, this.pos) == Pos.Direction.Down) {
-            pos.y += 0.005f;}
+            pos.y += STEP;}
         else if (AI.chasing(pacManPos, this.pos) == Pos.Direction.Right) {
-            pos.x += 0.005f;}
+            pos.x += STEP;}
         else if (AI.chasing(pacManPos, this.pos) == Pos.Direction.Left) {
-            pos.x -= 0.005f;}
+            pos.x -= STEP;}
 
         /*if(ai.chasing(pos_default,pos)== Pos.Direction.Up){
             pos.y -= 0.005f;

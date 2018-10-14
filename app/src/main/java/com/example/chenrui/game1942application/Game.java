@@ -11,6 +11,7 @@ import android.graphics.Paint;
 class Game {
 
     static final Pos START_POS= new Pos(0.5f,0.5f);
+    static final Pos START_POS_Ghosts= new Pos(0.9f,0.9f);
     static final float[] dxs = {0.1f, 0.2f, 0.3f};
     static final float[] dys = {0.1f, 0.2f, 0.3f};
     static final float[] pxs = {0.4f, 0.5f, 0.6f};
@@ -21,15 +22,15 @@ class Game {
     private Foods foods;
 
     /*
-     * set a default position for ghost
+     * set an initial position for ghost
      * @author Chucheng Qian
      * @Date 14/10/2018
      */
     Game() {
-        ghosts[0] = new Blinky(new Pos(START_POS.x, START_POS.y));
-        ghosts[1] = new Clyde(new Pos(START_POS.x, START_POS.y));
-        ghosts[2] = new Inky(new Pos(START_POS.x, START_POS.y));
-        ghosts[3] = new Pinky(new Pos(START_POS.x, START_POS.y));
+        ghosts[0] = new Blinky(new Pos(START_POS_Ghosts.x, START_POS_Ghosts.y));
+        ghosts[1] = new Clyde(new Pos(START_POS_Ghosts.x, START_POS_Ghosts.y));
+        ghosts[2] = new Inky(new Pos(START_POS_Ghosts.x, START_POS_Ghosts.y));
+        ghosts[3] = new Pinky(new Pos(START_POS_Ghosts.x, START_POS_Ghosts.y));
         pacman = new PacMan(new Pos(START_POS.x, START_POS.y));
         foods = new Foods(dxs, dys, dxs.length, pxs, pys, pxs.length);
 
