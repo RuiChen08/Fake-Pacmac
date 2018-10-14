@@ -22,7 +22,7 @@ public class GameView extends View implements Runnable, View.OnTouchListener{
 
     Paint paint;
     Game game;
-
+    Maze maze = new Maze();
     public GameView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         paint = new Paint();
@@ -34,6 +34,7 @@ public class GameView extends View implements Runnable, View.OnTouchListener{
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        maze.onDraw(canvas,paint);
         if (pre_pos != null && post_pos != null) {
             drawVirtualKeys(canvas);
         }
