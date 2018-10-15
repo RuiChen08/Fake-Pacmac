@@ -13,7 +13,7 @@ import android.view.View;
  * Date: 2018/10/12
  */
 
-public class Maze extends View{
+public class Maze{
 
     private float widthSize;
     private float heightSize;
@@ -51,21 +51,17 @@ public class Maze extends View{
      * Author: Rui Chen
      * Date: 15/10/2018
      */
-    public Maze(Context context, @Nullable AttributeSet attrs) {
-        super(context, attrs);
+    public Maze() {
         this.heightSize = maze.length;
         this.widthSize = maze[0].length;
         offsetW = (Game.ScreenWidth - widthSize * 2 * PacMan.Radius * Game.ScreenHeight) / (2 * Game.ScreenWidth);  // This is adjustment is for screen width
-
-        paint = new Paint();
     }
 
     /*
      * Author: Rui Chen
      * Date: 15/10/2018
      */
-    @Override
-    protected void onDraw(Canvas canvas) {
+    protected void onDraw(Canvas canvas, Paint paint) {
         for (int r = 0; r < maze.length; r++) {
             for (int c = 0; c < maze[0].length; c++) {
                 switch (maze[r][c]) {
