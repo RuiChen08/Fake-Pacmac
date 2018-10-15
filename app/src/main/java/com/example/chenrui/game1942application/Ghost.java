@@ -1,10 +1,8 @@
 package com.example.chenrui.game1942application;
 
 /*
- * Authors: Rui Chen,Chucheng Qian
- * add constructor,add situation that pacman "die"
- *
- * Date: 19/09/2018
+ * Authors: Rui Chen,Chucheng Qian, Ruiyi Sun
+ * Date: 14/10/2018
  */
 
 import android.graphics.Canvas;
@@ -12,44 +10,54 @@ import android.graphics.Color;
 import android.graphics.Paint;
 
 abstract class Ghost {
-    /*
-     * Authors: Ruiyi Sun,Rui Chen,Chucheng Qian
-     * add constructor,add situation that pacman "die"
 
-     * Date: 14/10/2018
-     */
+    static final float STEP = 0.005f;
+    static final float Radius = 0.025f;
+    static final int timeInBlue = 500;
+
+    boolean blueMode = false;
+    int time = timeInBlue;
     Pos pos;
+
     Ghost(Pos pos){
         this.pos=pos;
     }
 
-    boolean blueMode = false;
-    int time = 500;
+    /*
+     * Authors: Rui Chen,Chucheng Qian, Ruiyi Sun
+     * Date: 14/10/2018
+     */
     void onDraw(Canvas canvas, Paint paint) {
         if (blueMode){
-            // Todo, this should be the common-used code
             paint.setColor(Color.BLUE);
-            canvas.drawCircle(pos.x * canvas.getWidth(), pos.y * canvas.getHeight(), canvas.getHeight() * 0.025f, paint);
-            time--;
-            if(time == 0) blueMode = false;
-        }else{
-            // Todo
+            blueMode = time-- != 0;
         }
+        canvas.drawCircle(pos.x * canvas.getWidth(), pos.y * canvas.getHeight(), canvas.getHeight() * Radius, paint);
     }
-    static final float STEP = 0.005f;
 
+    /*
+     * Authors: Rui Chen,Chucheng Qian, Ruiyi Sun
+     * Date: 14/10/2018
+     */
     void step(Pos pacManPos) {
-        //Todo, there should be common-used code both four ghost
-        if (pos.getDistance(pacManPos) <= PacMan.radius) PacMan.life--;
-        if(blueMode){
-            if (pacManPos.getDirection(this.pos) == Pos.Direction.Up) {
-                pos.y += STEP;}
-            else if (pacManPos.getDirection(this.pos) == Pos.Direction.Down) {
-                pos.y -= STEP;}
-            else if (pacManPos.getDirection(this.pos) == Pos.Direction.Right) {
-                pos.x -= STEP;}
-            else if (pacManPos.getDirection(this.pos) == Pos.Direction.Left) {
-                pos.x += STEP;}
-        }
+        if (pos.getDistance(pacManPos) <= PacMan.Radius + Radius) PacMan.life--;
+        if(blueMode) getMove(pacManPos.getDirection(this.pos));
+    }
+
+    /*
+     * Author: Rui Chen
+     * Date: 15/10/2018
+     *
+     * Common-Used codes
+     */
+    void getMove(Pos.Direction direction){
+        if (direction == Pos.Direction.Up) {
+            pos.y -= STEP;}
+        else if (direction == Pos.Direction.Down) {
+            pos.y += STEP;}
+        else if (direction == Pos.Direction.Right) {
+            pos.x += STEP;}
+        else if (direction == Pos.Direction.Left) {
+            pos.x -= STEP;}
     }
 }

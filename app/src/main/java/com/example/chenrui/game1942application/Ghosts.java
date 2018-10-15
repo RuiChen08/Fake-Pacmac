@@ -33,9 +33,20 @@ class Ghosts extends ArrayList<Ghost>{
 
     /*
      * Author: Rui Chen
-     * Date: 14/10/2018
+     * Date: 15/10/2018
      */
     void inBlue() {
-        for (Ghost g : this) g.blueMode = true;
+        for (Ghost g : this) {
+            g.blueMode = true;
+            g.time = Ghost.timeInBlue;
+        }
+    }
+
+    /*
+     * Author: Rui Chen
+     * Date: 15/10/2018
+     */
+    public void step(Pos pos) {
+        for (Ghost g : this) g.step(pos);
     }
 }

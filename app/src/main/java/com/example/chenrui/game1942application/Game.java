@@ -16,8 +16,8 @@ class Game {
     static final Pos START_POS_Ghosts= new Pos(0.9f,0.9f);
     static final float[] dxs = {0.1f, 0.2f, 0.3f};
     static final float[] dys = {0.1f, 0.2f, 0.3f};
-    static final float[] pxs = {0.4f, 0.5f, 0.6f};
-    static final float[] pys = {0.4f, 0.5f, 0.6f};
+    static final float[] pxs = {};
+    static final float[] pys = {};
 
     private Ghosts ghosts;
     private PacMan pacman;
@@ -48,14 +48,14 @@ class Game {
      * Date: 14/10/2018
      */
     void step() {
-        if(foods.step(pacman.pos, PacMan.radius)){
+        if(foods.step(pacman.pos, PacMan.Radius)){
             ghosts.inBlue();
         }
+        ghosts.step(pacman.pos);
         pacman.step();
     }
 
     void move(Pos.Direction direction){
         pacman.changeDirection(direction);
-
     }
 }
