@@ -6,6 +6,8 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
+import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -25,7 +27,8 @@ public class GameView extends View implements Runnable, View.OnTouchListener{
     public GameView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         paint = new Paint();
-        game = new Game();
+        DisplayMetrics metrics = getResources().getDisplayMetrics();
+        game = new Game(metrics.widthPixels, metrics.heightPixels);
         setOnTouchListener(this);
         this.postDelayed(this, 25);
     }
