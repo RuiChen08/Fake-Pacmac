@@ -12,7 +12,7 @@ import android.graphics.Paint;
 abstract class Ghost {
 
     static final float STEP = 0.005f;
-    static final float Radius = 0.025f;
+    static final float Radius = PacMan.Radius * Game.ScreenHeight;
     static final int timeInBlue = 500;
 
     boolean blueMode = false;
@@ -20,7 +20,7 @@ abstract class Ghost {
     Pos pos;
 
     Ghost(Pos pos){
-        this.pos=pos;
+        this.pos = pos;
     }
 
     /*
@@ -32,7 +32,7 @@ abstract class Ghost {
             paint.setColor(Color.BLUE);
             blueMode = time-- != 0;
         }
-        canvas.drawCircle(pos.x * canvas.getWidth(), pos.y * canvas.getHeight(), canvas.getHeight() * Radius, paint);
+        canvas.drawCircle(pos.x * canvas.getWidth(), pos.y * canvas.getHeight(), Radius, paint);
     }
 
     /*

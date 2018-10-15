@@ -1,84 +1,70 @@
 package com.example.chenrui.game1942application;
 
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 
-import java.util.ArrayList;
-
 /**
- * Author: Rui Chen
+ * Author: Rui Chen, Ruiyi Sun, Weiwei Liang
  * Date: 2018/10/12
  */
 
 public class Maze {
-    /**
-     * Author: Ruiyi Sun
-     * Date: 2018/10/14
-     * draw a maze and add some blocks
+
+    private float widthSize;
+    private float heightSize;
+    private float offsetW;
+    private float offsetH;
+    short[][] maze = new short[][] {
+            {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3},
+            {3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3},
+            {3, 1, 3, 3, 1, 1, 3, 3, 1, 1, 3, 3, 1, 3},
+            {3, 1, 3, 1, 1, 1, 3, 3, 1, 1, 1, 3, 1, 3},
+            {3, 1, 3, 1, 3, 1, 3, 3, 1, 3, 1, 3, 1, 3},
+            {3, 1, 3, 1, 3, 1, 1, 1, 1, 3, 1, 3, 1, 3},
+            {3, 1, 3, 1, 3, 3, 3, 3, 3, 3, 1, 3, 1, 3},
+            {3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3},
+            {3, 1, 3, 1, 3, 3, 3, 3, 3, 3, 1, 3, 1, 3},
+            {3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3},
+            {3, 1, 3, 1, 3, 3, 1, 1, 3, 3, 1, 3, 1, 3},
+            {3, 1, 3, 1, 3, 1, 1, 1, 1, 3, 1, 3, 1, 3},
+            {3, 1, 3, 1, 3, 3, 3, 3, 3, 3, 1, 3, 1, 3},
+            {3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3},
+            {3, 1, 3, 1, 3, 3, 3, 3, 3, 3, 1, 3, 1, 3},
+            {3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3},
+            {3, 1, 3, 1, 3, 3, 3, 3, 3, 3, 1, 3, 1, 3},
+            {3, 1, 3, 1, 3, 1, 1, 1, 1, 3, 1, 3, 1, 3},
+            {3, 1, 3, 1, 3, 1, 3, 3, 1, 3, 1, 3, 1, 3},
+            {3, 1, 3, 1, 1, 1, 3, 3, 1, 1, 1, 3, 1, 3},
+            {3, 1, 3, 3, 3, 1, 3, 3, 1, 3, 3, 3, 1, 3},
+            {3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3},
+            {3, 1, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 1, 3},
+            {3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3},
+            {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3},
+    };
+
+    Maze() {
+        this.heightSize = maze.length;
+        this.widthSize = maze[0].length;
+        offsetW = (Game.ScreenWidth - widthSize * 2 * PacMan.Radius * Game.ScreenHeight) / (2 * Game.ScreenWidth);  // This is adjustment is for screen width
+    }
+
+    void onDraw(Canvas canvas, Paint paint){
+        for (int r = 0; r < maze.length; r++){
+            for (int c = 0; c < maze[0].length; c++){
+                switch (maze[r][c]){
+                    case 1:
+                        Food.drawPacDot(canvas, paint, new Pos(offsetW + c / widthSize, PacMan.Radius + r / heightSize));
+                        break;
+                    case 2:
+                }
+            }
+        }
+    }
+
+    /*
+     * Author: Rui Chen
+     * Date: 15/10/2018
      */
-    ArrayList<Block> maze = new ArrayList<>();
-    public class Block{
-        Pos pos;
-        Block(float x,float y){
-            pos = new Pos(x,y);
-        }
-        public void drawGrid(Canvas canvas,Paint paint){
-            paint.setColor(Color.BLACK);
-            float  RECTTHICKNESS = canvas.getHeight() * PacMan.radius *2 ;// this is also the diameter of the PacMan
-            float REMINDWIDTH = canvas.getWidth()%RECTTHICKNESS;
-            float REMINDHEIGHT = canvas.getHeight()%RECTTHICKNESS;
-            canvas.drawRect(REMINDWIDTH/2 + RECTTHICKNESS*pos.x,REMINDHEIGHT/2+RECTTHICKNESS*pos.y,REMINDWIDTH/2+RECTTHICKNESS*(pos.x+1),REMINDHEIGHT/2+RECTTHICKNESS*(pos.y+1),paint);
-        }
+    public void step(Pos pos) {
     }
-
-    public void onDraw(Canvas canvas, Paint paint) {
-        paint.setColor(Color.BLACK);
-        float  RECTTHICKNESS = canvas.getHeight() * PacMan.radius *2 ;// this is also the diameter of the PacMan
-        float REMINDWIDTH = canvas.getWidth()%RECTTHICKNESS;
-        float REMINDHEIGHT = canvas.getHeight()%RECTTHICKNESS;
-        /*
-        // set the outside block
-        // this is the left bound
-        canvas.drawRect(REMINDWIDTH/2,REMINDHEIGHT/2,REMINDWIDTH/2 + RECTTHICKNESS,canvas.getHeight()-REMINDHEIGHT/2,paint);
-        // this is the top bound
-        canvas.drawRect(REMINDWIDTH/2,REMINDHEIGHT/2, canvas.getWidth()-REMINDWIDTH/2,REMINDHEIGHT/2 + RECTTHICKNESS,paint);
-        // this is the right bound
-        canvas.drawRect(canvas.getWidth()-REMINDWIDTH/2-RECTTHICKNESS,REMINDHEIGHT/2,canvas.getWidth()-REMINDWIDTH/2,canvas.getHeight()-REMINDHEIGHT/2,paint);
-        // this is the bottom bound
-        canvas.drawRect(REMINDWIDTH/2,canvas.getHeight()-REMINDHEIGHT/2,canvas.getWidth()-REMINDWIDTH/2,canvas.getHeight()-REMINDHEIGHT/2-RECTTHICKNESS,paint);
-        // this is the ghost center
-        paint.setColor(Color.BLACK);
-        canvas.drawRect(canvas.getWidth()/2-RECTTHICKNESS*3,canvas.getHeight()/2-RECTTHICKNESS*2,canvas.getWidth()/2+RECTTHICKNESS*3,canvas.getHeight()/2+RECTTHICKNESS*2,paint);
-        paint.setColor(Color.WHITE);
-        canvas.drawRect(canvas.getWidth()/2-RECTTHICKNESS*2,canvas.getHeight()/2-RECTTHICKNESS,canvas.getWidth()/2+RECTTHICKNESS*2,canvas.getHeight()/2+RECTTHICKNESS,paint);
-        canvas.drawRect(canvas.getWidth()/2-RECTTHICKNESS,canvas.getHeight()/2-RECTTHICKNESS*2,canvas.getWidth()/2+RECTTHICKNESS,canvas.getHeight()/2+RECTTHICKNESS*2,paint);
-
-        //draw the other block
-        paint.setColor(Color.BLACK);
-        canvas.drawRect(REMINDWIDTH/2+RECTTHICKNESS*3,REMINDHEIGHT/2+RECTTHICKNESS*3,REMINDWIDTH/2 + RECTTHICKNESS*8,REMINDHEIGHT/2+RECTTHICKNESS*2,paint);
-        canvas.drawRect(REMINDWIDTH/2+RECTTHICKNESS*2,canvas.getHeight()/5,REMINDWIDTH/2+RECTTHICKNESS,canvas.getHeight()*0.5f,paint );
-        canvas.drawRect(REMINDWIDTH/2+RECTTHICKNESS*4,REMINDHEIGHT/2+RECTTHICKNESS*5,REMINDWIDTH/2 + RECTTHICKNESS*12,REMINDHEIGHT/2+RECTTHICKNESS*6,paint);
-        canvas.drawRect(canvas.getWidth()-(REMINDWIDTH/2+RECTTHICKNESS*2),canvas.getHeight()-REMINDHEIGHT/2-RECTTHICKNESS*3,REMINDWIDTH/2 + RECTTHICKNESS*8,canvas.getHeight()-REMINDHEIGHT/2-RECTTHICKNESS*2,paint);
-        canvas.drawRect(canvas.getWidth()-(REMINDWIDTH/2+RECTTHICKNESS*8),canvas.getHeight()-REMINDHEIGHT/2-RECTTHICKNESS*5,REMINDWIDTH/2 + RECTTHICKNESS*2 ,canvas.getHeight()-REMINDHEIGHT/2-RECTTHICKNESS*6,paint);
-
-        canvas.drawRect(canvas.getWidth()-(REMINDWIDTH/2+RECTTHICKNESS*5),canvas.getHeight()-REMINDHEIGHT/2-RECTTHICKNESS*4,REMINDWIDTH/2+ RECTTHICKNESS*2  ,canvas.getHeight()-REMINDHEIGHT/2-RECTTHICKNESS*3,paint);
-        */
-        float numberY =canvas.getHeight()/RECTTHICKNESS;
-        float  numberX =  canvas.getWidth()/RECTTHICKNESS;
-        for(int i = 0;i<(int ) numberX;i++){
-            maze.add(new Block(i,0));
-            maze.add(new Block(i,(int)numberY));
-        }
-        for(int k =0;k<(int)numberY;k++){
-            maze.add(new Block(0,k));
-            maze.add(new Block((int)numberX,k));
-        }
-        //maze.add(new Block(numberX/2-2,numberY/2-2));
-        for(Block b:maze){
-            b.drawGrid(canvas,paint);
-        }
-
-    }
-
 }
