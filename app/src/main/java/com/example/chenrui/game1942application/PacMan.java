@@ -16,7 +16,7 @@ class PacMan {
 
     Pos pos;
     Pos.Direction direction = Pos.Direction.Stay;
-    static float Radius = 0.025f;
+    static float Radius = 0.02f;
     static int life = 3;
 
     public PacMan(Pos pos) {
@@ -25,7 +25,7 @@ class PacMan {
 
     void onDraw(Canvas canvas, Paint paint) {
         paint.setColor(Color.rgb(244, 164, 66));
-        canvas.drawCircle(pos.x * canvas.getWidth(), pos.y * canvas.getHeight(), canvas.getHeight() * Radius, paint);
+        canvas.drawCircle(pos.x * canvas.getWidth(), pos.y * canvas.getHeight(), Radius * canvas.getHeight(), paint);
     }
 
     /*

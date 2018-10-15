@@ -14,8 +14,11 @@ import android.graphics.Paint;
 
 public class Inky extends Ghost {
 
+    static float I_STEP = 0.004f;
+
     Inky(Pos pos){
         super(pos);
+        STEP = I_STEP;
     }
 
     @Override
@@ -24,9 +27,12 @@ public class Inky extends Ghost {
         super.onDraw(canvas, paint);
     }
 
-    @Override
+    /*
+     * Authors: Rui Chen, Chucheng Qian
+     * Date: 14/10/2019
+     */
     void step(Pos pacManPos) {
         super.step(pacManPos);
-        //Todo, Considering there are different AI for each ghost.
+        if (!blueMode) getMove(AI.chasing(pacManPos, this.pos));
     }
 }

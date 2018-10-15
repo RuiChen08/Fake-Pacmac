@@ -11,16 +11,19 @@ import android.graphics.Paint;
 
 abstract class Food {
 
-    Pos pos;
-    private final float radius;
+    private static float dotRadius = 0.004f;
+    private static float pelletRadius = 0.008f;
 
-    Food(float x, float y, float radius) {
-        pos = new Pos(x, y);
-        this.radius = radius;
+    public static void drawPacDot(Canvas canvas, Paint paint, float x, float y) {
+        paint.setColor(Color.RED);// the PacDot should be a yellow dot
+        canvas.drawCircle(x * canvas.getWidth(), y * canvas.getHeight(), dotRadius * canvas.getHeight(), paint);
     }
 
-    public void onDraw(Canvas canvas, Paint paint) {
-        canvas.drawCircle(pos.x * canvas.getWidth(), pos.y*canvas.getHeight(),radius * canvas.getWidth(),paint);
+    public static void drawPowerPellet(Canvas canvas, Paint paint, Pos pos) {
+        paint.setColor(Color.BLUE);// the PacDot should be a yellow dot
+        canvas.drawCircle(pos.x * canvas.getWidth(), pos.y*canvas.getHeight(), pelletRadius * canvas.getHeight(), paint);
     }
+
+
 
 }

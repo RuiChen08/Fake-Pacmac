@@ -7,6 +7,7 @@ package com.example.chenrui.game1942application;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.Rect;
 
 class Game {
 
@@ -14,24 +15,22 @@ class Game {
 
     static final Pos START_POS= new Pos(0.5f,0.5f);
     static final Pos START_POS_Ghosts= new Pos(0.9f,0.9f);
-    static final float[] dxs = {0.1f, 0.2f, 0.3f};
-    static final float[] dys = {0.1f, 0.2f, 0.3f};
-    static final float[] pxs = {};
-    static final float[] pys = {};
+    static int ScreenWidth;
+    static int ScreenHeight;
 
     private Ghosts ghosts;
     private PacMan pacman;
-    private Foods foods;
 
     /*
      * set an initial position for ghost
      * @author Chucheng Qian, Rui Chen
      * @Date 14/10/2018
      */
-    Game() {
+    Game(int widthPixels, int heightPixels) {
+        ScreenHeight = heightPixels;
+        ScreenWidth = widthPixels;
         ghosts = new Ghosts();
         pacman = new PacMan(new Pos(START_POS));
-        foods = new Foods(dxs, dys, dxs.length, pxs, pys, pxs.length);
     }
 
 
@@ -41,18 +40,15 @@ class Game {
     void onDraw(Canvas canvas, Paint paint) {
         ghosts.onDraw(canvas, paint);
         pacman.onDraw(canvas, paint);
-        foods.onDraw(canvas, paint);
     }
 
     /* Authors: Ruiyi Sun, Weiwei Liang,Chucheng Qian, Rui Chen
      * Date: 14/10/2018
      */
     void step() {
-        if(foods.step(pacman.pos, PacMan.Radius)){
-            ghosts.inBlue();
-        }
         ghosts.step(pacman.pos);
         pacman.step();
+        //maze.step(pacman.pos);
     }
 
     void move(Pos.Direction direction){
