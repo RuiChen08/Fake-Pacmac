@@ -4,9 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GameActivity">
+    tools:context=".GameActivity"
+    android:background="@drawable/maze10">
 
     <com.example.chenrui.game1942application.GameView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.example.chenrui.game1942application.Maze
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
