@@ -14,9 +14,9 @@ abstract class Food {
     private static float dotRadius = 0.004f;
     private static float pelletRadius = 0.008f;
 
-    public static void drawPacDot(Canvas canvas, Paint paint, Pos pos) {
+    public static void drawPacDot(Canvas canvas, Paint paint, float x, float y) {
         paint.setColor(Color.RED);// the PacDot should be a yellow dot
-        canvas.drawCircle(pos.x * canvas.getWidth(), pos.y*canvas.getHeight(), dotRadius * canvas.getHeight(), paint);
+        canvas.drawCircle(x * canvas.getWidth(), y * canvas.getHeight(), dotRadius * canvas.getHeight(), paint);
     }
 
     public static void drawPowerPellet(Canvas canvas, Paint paint, Pos pos) {

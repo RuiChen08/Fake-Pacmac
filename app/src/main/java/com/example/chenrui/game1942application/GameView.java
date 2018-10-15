@@ -4,10 +4,10 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Rect;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
-import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -55,7 +55,7 @@ public class GameView extends View implements Runnable, View.OnTouchListener{
         float r = 0.1f * canvas.getWidth();
         canvas.drawCircle(pre_pos.x, pre_pos.y, r, paint);
 
-        float l = (float) pre_pos.getDistance(post_pos);
+        float l = pre_pos.getDistance(post_pos);
         // If the small circle is not inside the large circle
         if (l >= r){
             // Adjust the coordinate so that the post pos is inside the large circle
@@ -94,8 +94,12 @@ public class GameView extends View implements Runnable, View.OnTouchListener{
     @Override
     public void run() {
         game.step();
+        this.invalidate(0, 0, 1, 1);
         this.postDelayed(this, 25);
-        this.invalidate();
+    }
+
+    private void invalidateHelper(Rect[] rects) {
+        for (Rect r : rects) this.invalidate(r);
     }
 
 }

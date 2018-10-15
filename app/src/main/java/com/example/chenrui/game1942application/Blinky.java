@@ -15,11 +15,12 @@ import android.graphics.Paint;
 
 class Blinky extends Ghost {
 
+    static float B_STEP = 0.005f;
+
     Blinky(Pos pos) {
         super(pos);
+        STEP = B_STEP;
     }
-
-    static final float STEP = 0.005f;
 
     /*
      * Authors: Rui Chen, Chucheng Qian

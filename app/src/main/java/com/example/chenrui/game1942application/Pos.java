@@ -5,6 +5,9 @@ package com.example.chenrui.game1942application;
  * Date: 19/09/2018
  */
 
+import android.graphics.Rect;
+import android.graphics.RectF;
+
 public class Pos {
     float x;
     float y;
@@ -19,7 +22,7 @@ public class Pos {
         this.y = y;
     }
 
-    public float getDistance(Pos pos){
+    float getDistance(Pos pos){
         return (float) Math.sqrt(Math.pow(pos.x - x, 2) + Math.pow(pos.y - y, 2));
     }
 

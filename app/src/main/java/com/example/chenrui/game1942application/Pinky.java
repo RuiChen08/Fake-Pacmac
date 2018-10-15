@@ -12,8 +12,12 @@ import android.graphics.Color;
 import android.graphics.Paint;
 
 public class Pinky extends Ghost {
+
+    static float P_STEP = 0.0035f;
+
     Pinky(Pos pos){
         super(pos);
+        STEP = P_STEP;
     }
 
     @Override
@@ -22,9 +26,12 @@ public class Pinky extends Ghost {
         super.onDraw(canvas, paint);
     }
 
-    @Override
+    /*
+     * Authors: Rui Chen, Chucheng Qian
+     * Date: 14/10/2019
+     */
     void step(Pos pacManPos) {
         super.step(pacManPos);
-        //Todo, Considering there are different AI for each ghost.
+        if (!blueMode) getMove(AI.chasing(pacManPos, this.pos));
     }
 }

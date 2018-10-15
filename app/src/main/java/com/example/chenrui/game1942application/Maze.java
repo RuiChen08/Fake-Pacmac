@@ -1,59 +1,76 @@
 package com.example.chenrui.game1942application;
 
+import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.support.annotation.Nullable;
+import android.util.AttributeSet;
+import android.view.SurfaceView;
+import android.view.View;
 
 /**
  * Author: Rui Chen, Ruiyi Sun, Weiwei Liang
  * Date: 2018/10/12
  */
 
-public class Maze {
+public class Maze extends View{
 
     private float widthSize;
     private float heightSize;
     private float offsetW;
-    private float offsetH;
     short[][] maze = new short[][] {
             {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3},
-            {3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3},
-            {3, 1, 3, 3, 1, 1, 3, 3, 1, 1, 3, 3, 1, 3},
-            {3, 1, 3, 1, 1, 1, 3, 3, 1, 1, 1, 3, 1, 3},
-            {3, 1, 3, 1, 3, 1, 3, 3, 1, 3, 1, 3, 1, 3},
-            {3, 1, 3, 1, 3, 1, 1, 1, 1, 3, 1, 3, 1, 3},
-            {3, 1, 3, 1, 3, 3, 3, 3, 3, 3, 1, 3, 1, 3},
-            {3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3},
-            {3, 1, 3, 1, 3, 3, 3, 3, 3, 3, 1, 3, 1, 3},
-            {3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3},
-            {3, 1, 3, 1, 3, 3, 1, 1, 3, 3, 1, 3, 1, 3},
-            {3, 1, 3, 1, 3, 1, 1, 1, 1, 3, 1, 3, 1, 3},
-            {3, 1, 3, 1, 3, 3, 3, 3, 3, 3, 1, 3, 1, 3},
-            {3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3},
-            {3, 1, 3, 1, 3, 3, 3, 3, 3, 3, 1, 3, 1, 3},
-            {3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3},
-            {3, 1, 3, 1, 3, 3, 3, 3, 3, 3, 1, 3, 1, 3},
-            {3, 1, 3, 1, 3, 1, 1, 1, 1, 3, 1, 3, 1, 3},
-            {3, 1, 3, 1, 3, 1, 3, 3, 1, 3, 1, 3, 1, 3},
-            {3, 1, 3, 1, 1, 1, 3, 3, 1, 1, 1, 3, 1, 3},
-            {3, 1, 3, 3, 3, 1, 3, 3, 1, 3, 3, 3, 1, 3},
-            {3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3},
-            {3, 1, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 1, 3},
-            {3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3},
+            {3, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 3},
+            {3, 0, 3, 3, 1, 0, 3, 3, 0, 1, 3, 3, 0, 3},
+            {3, 1, 3, 1, 0, 1, 3, 3, 0, 1, 0, 3, 1, 3},
+            {3, 0, 3, 0, 3, 0, 3, 3, 1, 3, 1, 3, 0, 3},
+            {3, 1, 3, 1, 3, 1, 0, 1, 0, 3, 0, 3, 1, 3},
+            {3, 0, 3, 0, 3, 3, 3, 3, 3, 3, 1, 3, 0, 3},
+            {3, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 3},
+            {3, 0, 3, 0, 3, 3, 3, 3, 3, 3, 1, 3, 0, 3},
+            {3, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 3},
+            {3, 0, 3, 0, 3, 3, 0, 0, 3, 3, 1, 3, 0, 3},
+            {3, 1, 3, 1, 3, 0, 0, 0, 0, 3, 0, 3, 1, 3},
+            {3, 0, 3, 0, 3, 3, 3, 3, 3, 3, 1, 3, 0, 3},
+            {3, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 3},
+            {3, 0, 3, 0, 3, 3, 3, 3, 3, 3, 1, 3, 0, 3},
+            {3, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 3},
+            {3, 0, 3, 0, 3, 3, 3, 3, 3, 3, 1, 3, 0, 3},
+            {3, 1, 3, 1, 3, 1, 0, 1, 0, 3, 0, 3, 1, 3},
+            {3, 0, 3, 0, 3, 0, 3, 3, 1, 3, 1, 3, 0, 3},
+            {3, 1, 3, 1, 0, 1, 3, 3, 0, 1, 1, 3, 1, 3},
+            {3, 0, 3, 3, 3, 0, 3, 3, 1, 3, 3, 3, 0, 3},
+            {3, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 3},
+            {3, 0, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 0, 3},
+            {3, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 3},
             {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3},
     };
+    private Paint paint;
 
-    Maze() {
+    /*
+     * Author: Rui Chen
+     * Date: 15/10/2018
+     */
+    public Maze(Context context, @Nullable AttributeSet attrs) {
+        super(context, attrs);
         this.heightSize = maze.length;
         this.widthSize = maze[0].length;
         offsetW = (Game.ScreenWidth - widthSize * 2 * PacMan.Radius * Game.ScreenHeight) / (2 * Game.ScreenWidth);  // This is adjustment is for screen width
+
+        paint = new Paint();
     }
 
-    void onDraw(Canvas canvas, Paint paint){
-        for (int r = 0; r < maze.length; r++){
-            for (int c = 0; c < maze[0].length; c++){
-                switch (maze[r][c]){
+    /*
+     * Author: Rui Chen
+     * Date: 15/10/2018
+     */
+    @Override
+    protected void onDraw(Canvas canvas) {
+        for (int r = 0; r < maze.length; r++) {
+            for (int c = 0; c < maze[0].length; c++) {
+                switch (maze[r][c]) {
                     case 1:
-                        Food.drawPacDot(canvas, paint, new Pos(offsetW + c / widthSize, PacMan.Radius + r / heightSize));
+                        Food.drawPacDot(canvas, paint, offsetW + c / widthSize, PacMan.Radius + r / heightSize);
                         break;
                     case 2:
                 }
