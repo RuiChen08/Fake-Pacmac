@@ -18,17 +18,18 @@ public class AI {
 
     static Pos.Direction chasing(Pos posPacman ,Pos posGhost){
         Pos.Direction d;
-        if(posGhost.getDistance(posPacman)>=0.5f){
+        //Todo This is not good enough, looking for better implementation
+        /*if(posGhost.getDistance(posPacman)>=0.5f){
             Random random = new Random();
             int i=random.nextInt(4);
             Pos.Direction[] dd = {Pos.Direction.Up, Pos.Direction.Down, Pos.Direction.Right, Pos.Direction.Left};
             d= dd[i];
-        }else{
+        }else{*/
             d = posGhost.getDirection(posPacman);
-        }
-        //Todo, this is for ghost like Blinky that will chase pac-man
+        //}
         return d;
     }
+
     Pos.Direction positionInFront(){
         //Todo, this is for ghost like Pinky
         return Pos.Direction.Down;
