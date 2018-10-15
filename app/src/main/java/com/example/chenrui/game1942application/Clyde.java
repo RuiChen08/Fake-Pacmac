@@ -13,11 +13,8 @@ import android.graphics.Paint;
 
 public class Clyde extends Ghost {
 
-    static float C_STEP = 0.0045f;
-
     Clyde(Pos pos){
         super(pos);
-        STEP = C_STEP;
     }
 
     @Override

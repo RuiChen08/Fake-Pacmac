@@ -11,12 +11,9 @@ import android.graphics.Paint;
 
 class PacMan {
 
-    // The step of each movement.
-    static final float STEP = 0.005f;
-
     Pos pos;
     Pos.Direction direction = Pos.Direction.Stay;
-    static float Radius = 0.02f;
+    static float Radius = Math.min(Maze.offsetW * Game.ScreenWidth, Maze.offsetH * Game.ScreenHeight) - 10f;
     static int life = 3;
 
     public PacMan(Pos pos) {
@@ -25,7 +22,7 @@ class PacMan {
 
     void onDraw(Canvas canvas, Paint paint) {
         paint.setColor(Color.rgb(244, 164, 66));
-        canvas.drawCircle(pos.x * canvas.getWidth(), pos.y * canvas.getHeight(), Radius * canvas.getHeight(), paint);
+        canvas.drawCircle(pos.x * canvas.getWidth(), pos.y * canvas.getHeight(), Radius, paint);
     }
 
     /*
@@ -35,22 +32,18 @@ class PacMan {
      * Increase the x or y of pac-man's position according to direction. The origin is the left up connor of the canvas.
      */
     void step(){
-        switch (this.direction){
-            case Up:
-                // minus because the left-up connor is the origin
-                pos.y -= PacMan.STEP;
-                break;
-            case Down:
-                pos.y += PacMan.STEP;
-                break;
-            case Left:
-                pos.x -= PacMan.STEP;
-                break;
-            case Right:
-                pos.x += PacMan.STEP;
-                break;
-            case Stay:
-                break;
+        // Save ths original pos in case getting into the wall.
+        Pos p = new Pos(this.pos);
+
+        if (direction == Pos.Direction.Up) pos.y -= Maze.offsetH * 2;
+        else if (direction == Pos.Direction.Down) pos.y += Maze.offsetH * 2;
+        else if (direction == Pos.Direction.Right) pos.x += Maze.offsetW * 2;
+        else if (direction == Pos.Direction.Left) pos.x -= Maze.offsetW * 2;
+
+        // backing up the original position if current position is inside the wall
+        if (Maze.maze[(int) (this.pos.y / (2 * Maze.offsetH))][(int) (this.pos.x / (2*Maze.offsetW))] == 3) {
+            this.pos = p;
+            this.direction = Pos.Direction.Stay;
         }
     }
 
@@ -58,7 +51,23 @@ class PacMan {
      * Author: Rui Chen
      * Date: 12/10/2018
      */
-    void changeDirection(Pos.Direction direction){ this.direction = direction; }
+    void changeDirection(Pos.Direction direction){
+        switch (direction){
+            case Up:
+                // minus because the left-up connor is the origin
+                if (Maze.maze[(int) (this.pos.y / (2 * Maze.offsetH)) - 1][(int) (this.pos.x / (2*Maze.offsetW))] != 3) this.direction = direction;
+                break;
+            case Down:
+                if (Maze.maze[(int) (this.pos.y / (2 * Maze.offsetH)) + 1][(int) (this.pos.x / (2*Maze.offsetW))] != 3) this.direction = direction;
+                break;
+            case Left:
+                if (Maze.maze[(int) (this.pos.y / (2 * Maze.offsetH))][(int) (this.pos.x / (2*Maze.offsetW)) - 1] != 3) this.direction = direction;
+                break;
+            case Right:
+                if (Maze.maze[(int) (this.pos.y / (2 * Maze.offsetH))][(int) (this.pos.x / (2*Maze.offsetW)) + 1] != 3) this.direction = direction;
+                break;
+        }
+    }
 
 
 }

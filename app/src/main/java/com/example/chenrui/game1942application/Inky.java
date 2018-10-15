@@ -14,11 +14,8 @@ import android.graphics.Paint;
 
 public class Inky extends Ghost {
 
-    static float I_STEP = 0.004f;
-
     Inky(Pos pos){
         super(pos);
-        STEP = I_STEP;
     }
 
     @Override

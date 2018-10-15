@@ -13,26 +13,23 @@ class Game {
 
     static int mark = 0;
 
-    static final Pos START_POS= new Pos(0.5f,0.5f);
-    static final Pos START_POS_Ghosts= new Pos(0.9f,0.9f);
-    static int ScreenWidth;
-    static int ScreenHeight;
+    static final Pos START_POS= new Pos(13 * Maze.offsetW,15 * Maze.offsetH);
+    static float ScreenWidth;
+    static float ScreenHeight;
 
     private Ghosts ghosts;
     private PacMan pacman;
-    private Maze maze;
 
     /*
      * set an initial position for ghost
      * @author Chucheng Qian, Rui Chen
      * @Date 14/10/2018
      */
-    Game(int widthPixels, int heightPixels) {
-        ScreenHeight = heightPixels;
+    Game(int heightPixels, int widthPixels) {
         ScreenWidth = widthPixels;
-        ghosts = new Ghosts();
+        ScreenHeight = heightPixels;
         pacman = new PacMan(new Pos(START_POS));
-        maze = new Maze();
+        ghosts = new Ghosts();
     }
 
 
@@ -42,17 +39,16 @@ class Game {
     void onDraw(Canvas canvas, Paint paint) {
         ghosts.onDraw(canvas, paint);
         pacman.onDraw(canvas, paint);
-        maze.onDraw(canvas, paint);
+        Maze.onDraw(canvas, paint);
     }
 
     /* Authors: Ruiyi Sun, Weiwei Liang,Chucheng Qian, Rui Chen
      * Date: 14/10/2018
      */
     void step() {
-        ghosts.step(pacman.pos);
+        //ghosts.step(pacman.pos);
         pacman.step();
-        maze.step(pacman.pos);
-        //maze.step(pacman.pos);
+        Maze.step(pacman.pos);
     }
 
     void move(Pos.Direction direction){

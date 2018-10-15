@@ -11,7 +11,6 @@ import android.graphics.Paint;
 
 abstract class Ghost {
 
-    float STEP;
     static final float Radius = PacMan.Radius;
     static final int timeInBlue = 500;
 
@@ -32,7 +31,7 @@ abstract class Ghost {
             paint.setColor(Color.BLUE);
             blueMode = time-- != 0;
         }
-        canvas.drawCircle(pos.x * canvas.getWidth(), pos.y * canvas.getHeight(), Radius * canvas.getHeight(), paint);
+        canvas.drawCircle(pos.x * canvas.getWidth(), pos.y * canvas.getHeight(), Radius, paint);
     }
 
     /*
@@ -51,13 +50,9 @@ abstract class Ghost {
      * Common-Used codes
      */
     void getMove(Pos.Direction direction){
-        if (direction == Pos.Direction.Up) {
-            pos.y -= STEP;}
-        else if (direction == Pos.Direction.Down) {
-            pos.y += STEP;}
-        else if (direction == Pos.Direction.Right) {
-            pos.x += STEP;}
-        else if (direction == Pos.Direction.Left) {
-            pos.x -= STEP;}
+        if (direction == Pos.Direction.Up) pos.y -= Maze.offsetH * 2;
+        else if (direction == Pos.Direction.Down) pos.y += Maze.offsetH * 2;
+        else if (direction == Pos.Direction.Right) pos.x += Maze.offsetW * 2;
+        else if (direction == Pos.Direction.Left) pos.x -= Maze.offsetW * 2;
     }
 }

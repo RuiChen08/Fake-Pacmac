@@ -13,11 +13,8 @@ import android.graphics.Paint;
 
 public class Pinky extends Ghost {
 
-    static float P_STEP = 0.0035f;
-
     Pinky(Pos pos){
         super(pos);
-        STEP = P_STEP;
     }
 
     @Override

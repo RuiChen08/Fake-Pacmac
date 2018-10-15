@@ -4,8 +4,8 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Rect;
 import android.support.annotation.Nullable;
+import android.support.constraint.solver.Metrics;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.view.MotionEvent;
@@ -28,17 +28,15 @@ public class GameView extends View implements Runnable, View.OnTouchListener{
         super(context, attrs);
         paint = new Paint();
         DisplayMetrics metrics = getResources().getDisplayMetrics();
-        game = new Game(metrics.widthPixels, metrics.heightPixels);
+        game = new Game(metrics.heightPixels, metrics.widthPixels);
         setOnTouchListener(this);
-        this.postDelayed(this, 25);
+        this.postDelayed(this, 500);
+        this.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (pre_pos != null && post_pos != null) {
-            drawVirtualKeys(canvas);
-        }
         game.onDraw(canvas, paint);
     }
 
@@ -94,12 +92,12 @@ public class GameView extends View implements Runnable, View.OnTouchListener{
     @Override
     public void run() {
         game.step();
-        this.invalidate(0, 0, 1, 1);
-        this.postDelayed(this, 25);
+        this.invalidate();
+        this.postDelayed(this, 500);
     }
 
-    private void invalidateHelper(Rect[] rects) {
+    /*private void invalidateHelper(Rect[] rects) {
         for (Rect r : rects) this.invalidate(r);
-    }
+    }*/
 
 }
