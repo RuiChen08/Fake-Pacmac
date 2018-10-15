@@ -4,6 +4,8 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 
+import java.util.ArrayList;
+
 /**
  * Author: Rui Chen
  * Date: 2018/10/12
@@ -13,15 +15,29 @@ public class Maze {
     /**
      * Author: Ruiyi Sun
      * Date: 2018/10/14
-     * draw a maze that should be like the classic one
+     * draw a maze and add some blocks
      */
-
+    ArrayList<Block> maze = new ArrayList<>();
+    public class Block{
+        Pos pos;
+        Block(float x,float y){
+            pos = new Pos(x,y);
+        }
+        public void drawGrid(Canvas canvas,Paint paint){
+            paint.setColor(Color.BLACK);
+            float  RECTTHICKNESS = canvas.getHeight() * PacMan.radius *2 ;// this is also the diameter of the PacMan
+            float REMINDWIDTH = canvas.getWidth()%RECTTHICKNESS;
+            float REMINDHEIGHT = canvas.getHeight()%RECTTHICKNESS;
+            canvas.drawRect(REMINDWIDTH/2 + RECTTHICKNESS*pos.x,REMINDHEIGHT/2+RECTTHICKNESS*pos.y,REMINDWIDTH/2+RECTTHICKNESS*(pos.x+1),REMINDHEIGHT/2+RECTTHICKNESS*(pos.y+1),paint);
+        }
+    }
 
     public void onDraw(Canvas canvas, Paint paint) {
         paint.setColor(Color.BLACK);
         float  RECTTHICKNESS = canvas.getHeight() * PacMan.radius *2 ;// this is also the diameter of the PacMan
         float REMINDWIDTH = canvas.getWidth()%RECTTHICKNESS;
         float REMINDHEIGHT = canvas.getHeight()%RECTTHICKNESS;
+        /*
         // set the outside block
         // this is the left bound
         canvas.drawRect(REMINDWIDTH/2,REMINDHEIGHT/2,REMINDWIDTH/2 + RECTTHICKNESS,canvas.getHeight()-REMINDHEIGHT/2,paint);
@@ -47,5 +63,22 @@ public class Maze {
         canvas.drawRect(canvas.getWidth()-(REMINDWIDTH/2+RECTTHICKNESS*8),canvas.getHeight()-REMINDHEIGHT/2-RECTTHICKNESS*5,REMINDWIDTH/2 + RECTTHICKNESS*2 ,canvas.getHeight()-REMINDHEIGHT/2-RECTTHICKNESS*6,paint);
 
         canvas.drawRect(canvas.getWidth()-(REMINDWIDTH/2+RECTTHICKNESS*5),canvas.getHeight()-REMINDHEIGHT/2-RECTTHICKNESS*4,REMINDWIDTH/2+ RECTTHICKNESS*2  ,canvas.getHeight()-REMINDHEIGHT/2-RECTTHICKNESS*3,paint);
+        */
+        float numberY =canvas.getHeight()/RECTTHICKNESS;
+        float  numberX =  canvas.getWidth()/RECTTHICKNESS;
+        for(int i = 0;i<(int ) numberX;i++){
+            maze.add(new Block(i,0));
+            maze.add(new Block(i,(int)numberY));
+        }
+        for(int k =0;k<(int)numberY;k++){
+            maze.add(new Block(0,k));
+            maze.add(new Block((int)numberX,k));
+        }
+        //maze.add(new Block(numberX/2-2,numberY/2-2));
+        for(Block b:maze){
+            b.drawGrid(canvas,paint);
+        }
+
     }
+
 }

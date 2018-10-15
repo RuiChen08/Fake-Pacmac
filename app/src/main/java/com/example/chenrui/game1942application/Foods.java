@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
- * Author: Rui Chen
- * Date: 2018/9/22
+ * Author: Rui Chen, Chcuheng Qian, Ruiyi Sun, Weiwei Liang
+ * Date: 14/10/2018
  */
 
 public class Foods extends ArrayList<Food> {
@@ -33,14 +33,22 @@ public class Foods extends ArrayList<Food> {
     }
 
     /*
-     * Author: Weiwei Liang
+     * Author: Weiwei Liang, Ruiyi Sun
      * Date : 08/10/2018
      */
-    void step(Pos pos, float radius) {
+    boolean step(Pos pos, float radius) {
         Iterator<Food> i = iterator();
+        boolean eatPowerPellet = false;
         while (i.hasNext()){
             Food f = (Food) i.next();
-            if (pos.getDistance(f.pos) <= radius) i.remove();
+            if (pos.getDistance(f.pos) <= radius) {
+                if(f instanceof PowerPellet){
+                    eatPowerPellet = true;
+                }
+                i.remove();
+                Game.mark++;
+            }
         }
+        return eatPowerPellet;
     }
 }
