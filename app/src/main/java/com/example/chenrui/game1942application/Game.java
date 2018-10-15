@@ -20,6 +20,7 @@ class Game {
 
     private Ghosts ghosts;
     private PacMan pacman;
+    private Maze maze;
 
     /*
      * set an initial position for ghost
@@ -31,6 +32,7 @@ class Game {
         ScreenWidth = widthPixels;
         ghosts = new Ghosts();
         pacman = new PacMan(new Pos(START_POS));
+        maze = new Maze();
     }
 
 
@@ -40,6 +42,7 @@ class Game {
     void onDraw(Canvas canvas, Paint paint) {
         ghosts.onDraw(canvas, paint);
         pacman.onDraw(canvas, paint);
+        maze.onDraw(canvas, paint);
     }
 
     /* Authors: Ruiyi Sun, Weiwei Liang,Chucheng Qian, Rui Chen
@@ -48,6 +51,7 @@ class Game {
     void step() {
         ghosts.step(pacman.pos);
         pacman.step();
+        maze.step(pacman.pos);
         //maze.step(pacman.pos);
     }
 
