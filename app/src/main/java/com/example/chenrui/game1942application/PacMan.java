@@ -32,6 +32,7 @@ class PacMan {
      * Increase the x or y of pac-man's position according to direction. The origin is the left up connor of the canvas.
      */
     void step(){
+
         // Save ths original pos in case getting into the wall.
         Pos p = new Pos(this.pos);
 
@@ -44,7 +45,7 @@ class PacMan {
         if (Maze.maze[(int) (this.pos.y / (2 * Maze.offsetH))][(int) (this.pos.x / (2*Maze.offsetW))] == 3) {
             this.pos = p;
             this.direction = Pos.Direction.Stay;
-        }
+        } else Maze.maze[(int) (this.pos.y / (2 * Maze.offsetH))][(int) (this.pos.x / (2*Maze.offsetW))] = 0;
     }
 
     /*
@@ -52,22 +53,9 @@ class PacMan {
      * Date: 12/10/2018
      */
     void changeDirection(Pos.Direction direction){
-        switch (direction){
-            case Up:
-                // minus because the left-up connor is the origin
-                if (Maze.maze[(int) (this.pos.y / (2 * Maze.offsetH)) - 1][(int) (this.pos.x / (2*Maze.offsetW))] != 3) this.direction = direction;
-                break;
-            case Down:
-                if (Maze.maze[(int) (this.pos.y / (2 * Maze.offsetH)) + 1][(int) (this.pos.x / (2*Maze.offsetW))] != 3) this.direction = direction;
-                break;
-            case Left:
-                if (Maze.maze[(int) (this.pos.y / (2 * Maze.offsetH))][(int) (this.pos.x / (2*Maze.offsetW)) - 1] != 3) this.direction = direction;
-                break;
-            case Right:
-                if (Maze.maze[(int) (this.pos.y / (2 * Maze.offsetH))][(int) (this.pos.x / (2*Maze.offsetW)) + 1] != 3) this.direction = direction;
-                break;
-        }
+        if (direction == Pos.Direction.Up && Maze.maze[(int) (this.pos.y / (2 * Maze.offsetH)) - 1][(int) (this.pos.x / (2*Maze.offsetW))] != 3) this.direction = direction;
+        else if (direction == Pos.Direction.Down && Maze.maze[(int) (this.pos.y / (2 * Maze.offsetH)) + 1][(int) (this.pos.x / (2*Maze.offsetW))] != 3) this.direction = direction;
+        else if (direction == Pos.Direction.Left && Maze.maze[(int) (this.pos.y / (2 * Maze.offsetH))][(int) (this.pos.x / (2*Maze.offsetW)) - 1] != 3) this.direction = direction;
+        else if (direction == Pos.Direction.Right && Maze.maze[(int) (this.pos.y / (2 * Maze.offsetH))][(int) (this.pos.x / (2*Maze.offsetW)) + 1] != 3) this.direction = direction;
     }
-
-
 }

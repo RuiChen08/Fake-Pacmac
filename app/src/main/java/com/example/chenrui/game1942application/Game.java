@@ -46,11 +46,14 @@ class Game {
      * Date: 14/10/2018
      */
     void step() {
-        //ghosts.step(pacman.pos);
+        ghosts.step(pacman.pos);
         pacman.step();
         Maze.step(pacman.pos);
     }
 
+    /* Authors: Rui Chen
+     * Date: 14/10/2018
+     */
     void move(Pos.Direction direction){
         pacman.changeDirection(direction);
     }

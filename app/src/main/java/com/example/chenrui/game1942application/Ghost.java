@@ -12,9 +12,9 @@ import android.graphics.Paint;
 abstract class Ghost {
 
     static final float Radius = PacMan.Radius;
-    static final int timeInBlue = 500;
+    static final int timeInBlue = 5;
 
-    boolean blueMode = false;
+    boolean blueMode = true;
     int time = timeInBlue;
     Pos pos;
 
@@ -50,9 +50,16 @@ abstract class Ghost {
      * Common-Used codes
      */
     void getMove(Pos.Direction direction){
+        Pos p = new Pos(this.pos);
+
         if (direction == Pos.Direction.Up) pos.y -= Maze.offsetH * 2;
         else if (direction == Pos.Direction.Down) pos.y += Maze.offsetH * 2;
         else if (direction == Pos.Direction.Right) pos.x += Maze.offsetW * 2;
         else if (direction == Pos.Direction.Left) pos.x -= Maze.offsetW * 2;
+
+        // backing up the original position if current position is inside the wall
+        if (Maze.maze[(int) (this.pos.y / (2 * Maze.offsetH))][(int) (this.pos.x / (2*Maze.offsetW))] == 3) {
+            this.pos = p;
+        }
     }
 }
