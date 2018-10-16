@@ -18,9 +18,9 @@ abstract class Maze{
 
     static short[][] maze = new short[][] {
             {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3},
-            {3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3},
+            {3, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 3},
             {3, 1, 3, 3, 3, 1, 3, 3, 1, 3, 3, 3, 1, 3},
-            {3, 1, 3, 1, 1, 1, 3, 3, 1, 1, 1, 3, 1, 3},
+            {3, 1, 3, 2, 1, 1, 3, 3, 1, 1, 2, 3, 1, 3},
             {3, 1, 3, 1, 3, 1, 3, 3, 1, 3, 1, 3, 1, 3},
             {3, 1, 3, 1, 3, 1, 1, 1, 1, 3, 1, 3, 1, 3},
             {3, 1, 3, 1, 3, 3, 3, 3, 3, 3, 1, 3, 1, 3},
@@ -30,17 +30,17 @@ abstract class Maze{
             {3, 1, 3, 1, 3, 3, 0, 0, 3, 3, 1, 3, 1, 3},
             {3, 1, 3, 1, 3, 0, 0, 0, 0, 3, 1, 3, 1, 3},
             {3, 1, 3, 1, 3, 3, 3, 3, 3, 3, 1, 3, 1, 3},
-            {3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3},
+            {3, 1, 1, 2, 1, 1, 1, 1, 1, 1, 2, 1, 1, 3},
             {3, 1, 3, 1, 3, 3, 3, 3, 3, 3, 1, 3, 1, 3},
             {3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3},
             {3, 1, 3, 1, 3, 3, 3, 3, 3, 3, 1, 3, 1, 3},
             {3, 1, 3, 1, 3, 1, 1, 1, 1, 3, 1, 3, 1, 3},
             {3, 1, 3, 1, 3, 1, 3, 3, 1, 3, 1, 3, 1, 3},
-            {3, 1, 3, 1, 1, 1, 3, 3, 1, 1, 1, 3, 1, 3},
+            {3, 1, 3, 2, 1, 1, 3, 3, 1, 1, 2, 3, 1, 3},
             {3, 1, 3, 3, 3, 1, 3, 3, 1, 3, 3, 3, 1, 3},
             {3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3},
             {3, 1, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 1, 3},
-            {3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3},
+            {3, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 3},
             {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3},
     };
     static float widthSize = maze[0].length;
@@ -59,6 +59,9 @@ abstract class Maze{
                     case 1:
                         Food.drawPacDot(canvas, paint, offsetW + c / widthSize, offsetH + r / heightSize);
                         break;
+                    case 2:
+                        Food.drawPowerPellet(canvas, paint, offsetW + c / widthSize, offsetH + r / heightSize);
+                        break;
                     case 3:
                         paint.setColor(Color.BLUE);
                         canvas.drawRect(c / widthSize * canvas.getWidth(), r / heightSize * canvas.getHeight(),
@@ -72,6 +75,9 @@ abstract class Maze{
      * Author: Rui Chen
      * Date: 15/10/2018
      */
-    static void step(Pos pos) {
+    static boolean step(Pos pos) {
+        int v = maze[(int) (pos.y / (2 * Maze.offsetH))][(int) (pos.x / (2*Maze.offsetW))];
+        maze[(int) (pos.y / (2 * Maze.offsetH))][(int) (pos.x / (2*Maze.offsetW))] = 0;
+        return v == 2;
     }
 }

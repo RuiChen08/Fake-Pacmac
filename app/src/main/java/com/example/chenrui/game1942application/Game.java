@@ -8,12 +8,13 @@ package com.example.chenrui.game1942application;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.view.View;
 
 class Game {
 
     static int mark = 0;
 
-    static final Pos START_POS= new Pos(13 * Maze.offsetW,15 * Maze.offsetH);
+    static final Pos START_POS= new Pos(13 * Maze.offsetW,47 * Maze.offsetH);
     static float ScreenWidth;
     static float ScreenHeight;
 
@@ -48,7 +49,7 @@ class Game {
     void step() {
         ghosts.step(pacman.pos);
         pacman.step();
-        Maze.step(pacman.pos);
+        if (Maze.step(pacman.pos)) ghosts.inBlue();
     }
 
     /* Authors: Rui Chen

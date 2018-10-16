@@ -12,9 +12,9 @@ import android.graphics.Paint;
 abstract class Ghost {
 
     static final float Radius = PacMan.Radius;
-    static final int timeInBlue = 5;
+    static final int timeInBlue = 20;
 
-    boolean blueMode = true;
+    boolean blueMode = false;
     int time = timeInBlue;
     Pos pos;
 
