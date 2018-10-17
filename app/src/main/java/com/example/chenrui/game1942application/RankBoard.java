@@ -123,7 +123,10 @@ public class RankBoard {
             // make the xml tree
             db = dbf.newDocumentBuilder();
             Document doc = db.parse(f);
-            Element root =  doc.getDocumentElement();
+
+            Element rank =  doc.getDocumentElement();
+
+
 
             Element player = doc.createElement(Player);
 
@@ -135,7 +138,49 @@ public class RankBoard {
             ea.appendChild(doc.createTextNode(Integer.toString(mark)));
             player.appendChild(ea);
 
-            root.appendChild(player);
+
+            NodeList players=rank.getChildNodes();
+
+            if(players.getLength()==0){
+                rank.appendChild(player);
+
+            }else if (players.getLength()==1){
+
+                Node n0 = players.item(0);
+
+
+                NodeList attributes0 = n0.getChildNodes();
+                int  m1 = Integer.parseInt(attributes0.item(1).getTextContent());
+                if(mark>=m1) {
+                    rank.insertBefore(player, n0);
+                }else{
+                    rank.appendChild(player);
+                }
+
+
+            }
+
+            for(int i=0;i<players.getLength()-1;i++){
+                Node n1 = players.item(i);
+                Node n2 = players.item(i+1);
+
+                NodeList attributes1 = n1.getChildNodes();
+                NodeList attributes2 = n2.getChildNodes();
+
+                int  m1 = Integer.parseInt(attributes1.item(1).getTextContent());
+                int  m2 = Integer.parseInt(attributes2.item(1).getTextContent());
+
+                if (mark<=m1 && mark >=m2) {
+                    rank.insertBefore(player,n2);
+                    }else if(mark<=m2){
+                    rank.appendChild(player);
+                }
+
+
+            }
+
+
+
             // save the xml file
             TransformerFactory transformerFactory = TransformerFactory
                     .newInstance();
@@ -169,7 +214,7 @@ public class RankBoard {
         for (int i =0;i<dataload.size();i++){
             dataload.get(i).show();
         }
-        //dataload.show();
+
     }
 
 
