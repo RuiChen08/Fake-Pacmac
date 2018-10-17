@@ -39,7 +39,7 @@ public class AI {
         intPos current = root;
         searching_status[root.x][root.y] = 1;
         while(true) {
-            if (current.closeTo(destination)) break;
+            if (root.x == current.x && root.y == current.y) break;
             // Searching the 4 adjacent cell of the root coordinate
             if (Maze.maze[current.x - 1][current.y] <= 2 && searching_status[current.x - 1][current.y] == null){
                 queue.offer(new intPos(current.x - 1, current.y, current == root ? null : current));

@@ -1,15 +1,20 @@
 package com.example.chenrui.game1942application;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
 public class RankActivity extends AppCompatActivity {
+
+    TextView textView;
+    String message;
 
     /**
      * @author Chucheng Qian
@@ -21,6 +26,13 @@ public class RankActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rank);
 
+        Intent intent = getIntent();
+        message = intent.getStringExtra(GameOverActivity.EXTRA_MESSAGE);
+
+        // Capture the layout's TextView and set the string as its text
+        /*textView = findViewById(R.id.thetextView);
+        textView.setText("Hello "+message);
+*/
         TextView textView = findViewById(R.id.textView4);
         textView.setText(names(result()));
 
@@ -41,7 +53,12 @@ public class RankActivity extends AppCompatActivity {
     public ArrayList<RankBoard> result (){
         String path = this.getExternalFilesDir(Environment.DIRECTORY_NOTIFICATIONS) + "/RankData";
         RankBoard.create(path);
-        RankBoard data = new RankBoard("Hugh",88);
+
+
+
+
+
+        RankBoard data = new RankBoard(message,Game.mark);
         //RankBoard data1 = new RankBoard("Hugh",Game.mark);
 
         data.save(path);

@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 
 public class GameOverActivity extends AppCompatActivity {
 
@@ -19,6 +20,7 @@ public class GameOverActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_over);
     }
+    public static final String EXTRA_MESSAGE ="com.example.chenrui.game1942application.MESSAGE";
 
 
     public void backButtonPressed(View view) {
@@ -32,6 +34,9 @@ public class GameOverActivity extends AppCompatActivity {
         Log.d("gameover", "rank button pressed");
 
         Intent intent = new Intent(this, RankActivity.class);
+        EditText editText = (EditText) findViewById(R.id.editText2);
+        String message = editText.getText().toString();
+        intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
     }
 }

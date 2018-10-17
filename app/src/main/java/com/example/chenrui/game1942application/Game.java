@@ -21,6 +21,7 @@ class Game {
     private Ghosts ghosts;
     private PacMan pacman;
     private Observer observer;
+    private boolean gameNotFinish = true;
 
     /*
 
@@ -60,7 +61,10 @@ class Game {
         ghosts.step(pacman.pos);
         pacman.step();
         if (Maze.step(pacman.pos)) ghosts.inBlue();
-        if (life == 0) observer.update();
+        if (life <= 0 && gameNotFinish){
+            gameNotFinish = false;
+            observer.update();
+        }
     }
 
     /* Authors: Rui Chen
