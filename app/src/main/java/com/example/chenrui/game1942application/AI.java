@@ -26,32 +26,17 @@ public class AI {
 
         // If the ghost is too far away to from pac-man, it will try to get to different probing position until finding pac-man
         if (Math.abs(pac_man_r - ghost_r) <= 3 && Math.abs(pac_man_c - ghost_c) <= 3) {
-            return BST(new intPos(ghost_r, ghost_c), new intPos(pac_man_r, pac_man_c));
+            return BST(new intPos(ghost_r, ghost_c), new intPos(pac_man_r, pac_man_c), Maze.maze);
         }
         else{
-            Random random = new Random();
+            //Randomly choose a probing position
             while ((probingPos.x == ghost_r && probingPos.y == ghost_c) || Maze.maze[probingPos.x][probingPos.y] >= 3) {
+                Random random = new Random();
                 probingPos.x = random.nextInt(Maze.maze.length);
                 probingPos.y = random.nextInt(Maze.maze[0].length);
             }
-            return BST(new intPos(ghost_r, ghost_c), probingPos);
+            return BST(new intPos(ghost_r, ghost_c), probingPos, Maze.maze);
         }
-    }
-
-    /*
-     * Author: Rui Chen, Ruiyi Sun
-     * Date: 17/10/2018
-     *
-     * Predicting the position of pac-man and move in front to the pac-man
-     */
-    static  Pos.Direction positionInFront(Pos posPacman, Pos posGhost){
-
-        int pac_man_r = (int) (posPacman.y / (2 * Maze.offsetH));
-        int pac_man_c = (int) (posPacman.x / (2 * Maze.offsetW)) -((Maze.maze[0].length-(int) (posPacman.x / (2 * Maze.offsetW)))/5);
-        int ghost_r = (int) (posGhost.y / (2 * Maze.offsetH));
-        int ghost_c = (int) (posGhost.x / (2 * Maze.offsetW));
-
-        return BST(new intPos(ghost_r, ghost_c), new intPos(pac_man_r, pac_man_c));
     }
 
     /*
@@ -60,28 +45,28 @@ public class AI {
      *
      * Description: Using the breadth first searching algorithm for find the path from ghost to pacman
      */
-    static Pos.Direction BST(intPos root, intPos destination){
+    private static Pos.Direction BST(intPos root, intPos destination, short[][] maze){
         Queue<intPos> queue = new LinkedList<>();
-        Short[][] searching_status = new Short[Maze.maze.length][Maze.maze[0].length];
+        Short[][] searching_status = new Short[maze.length][maze[0].length];
 
         intPos current = root;
         searching_status[root.x][root.y] = 1;
         while(true) {
             if (destination.x == current.x && destination.y == current.y) break;
-            // Searching the 4 adjacent cell of the root coordinate
-            if (Maze.maze[current.x - 1][current.y] <= 2 && searching_status[current.x - 1][current.y] == null){
+            // Searching the 4 adjacent cells of the root coordinate
+            if (maze[current.x - 1][current.y] <= 2 && searching_status[current.x - 1][current.y] == null){
                 queue.offer(new intPos(current.x - 1, current.y, current == root ? null : current));
                 searching_status[current.x - 1][current.y] = 1;
             }
-            if (Maze.maze[current.x + 1][current.y] <= 2 && searching_status[current.x + 1][current.y] == null){
+            if (maze[current.x + 1][current.y] <= 2 && searching_status[current.x + 1][current.y] == null){
                 queue.offer(new intPos(current.x + 1, current.y, current == root ? null : current));
                 searching_status[current.x + 1][current.y] = 1;
             }
-            if (Maze.maze[current.x][current.y + 1] <= 2 && searching_status[current.x][current.y + 1] == null){
+            if (maze[current.x][current.y + 1] <= 2 && searching_status[current.x][current.y + 1] == null){
                 queue.offer(new intPos(current.x, current.y + 1, current == root ? null : current));
                 searching_status[current.x][current.y + 1] = 1;
             }
-            if (Maze.maze[current.x][current.y - 1] <= 2 && searching_status[current.x][current.y - 1] == null){
+            if (maze[current.x][current.y - 1] <= 2 && searching_status[current.x][current.y - 1] == null){
                 queue.offer(new intPos(current.x, current.y - 1, current == root ? null : current));
                 searching_status[current.x][current.y - 1] = 1;
             }
@@ -95,7 +80,7 @@ public class AI {
      * Author: Rui Chen
      * Date: 17/10/2018
      *
-     * This is helping the BST algorithm for searching
+     * This class is for helping the BST algorithm for searching
      */
     static class intPos{
         int x;
@@ -111,13 +96,6 @@ public class AI {
             this.x = x;
             this.y = y;
             this.parent = parent;
-        }
-
-        boolean closeTo(intPos destination) {
-            return ((x + 1 == destination.x && y == destination.y) ||
-                    (x - 1 == destination.x && y == destination.y) ||
-                    (x == destination.x && y + 1 == destination.y) ||
-                    (x == destination.x && y - 1 == destination.y));
         }
     }
 }

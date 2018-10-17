@@ -19,7 +19,7 @@ public class Clyde extends Ghost {
 
     @Override
     void onDraw(Canvas canvas, Paint paint) {
-        paint.setColor(Color.rgb(244, 167, 66)); // the orange one
+        paint.setColor(Color.rgb(244, 155, 66)); // the orange one
         super.onDraw(canvas, paint);
     }
 
