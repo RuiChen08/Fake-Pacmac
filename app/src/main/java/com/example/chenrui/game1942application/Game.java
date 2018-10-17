@@ -21,7 +21,7 @@ class Game {
     private Ghosts ghosts;
     private PacMan pacman;
     private Observer observer;
-    private boolean gameNotFinish = true;
+    protected static boolean gameNotFinish = true;
 
     /*
 
