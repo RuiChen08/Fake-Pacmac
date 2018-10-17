@@ -13,6 +13,7 @@ import android.view.View;
 class Game {
 
     static int mark = 0;
+    static int life = 3;
 
     static final Pos START_POS= new Pos(13 * Maze.offsetW,47 * Maze.offsetH);
     static float ScreenWidth;
@@ -22,7 +23,7 @@ class Game {
     private PacMan pacman;
 
     /*
-     * set an initial position for ghost
+
      * @author Chucheng Qian, Rui Chen
      * @Date 14/10/2018
      */
@@ -59,3 +60,4 @@ class Game {
         pacman.changeDirection(direction);
     }
 }
+

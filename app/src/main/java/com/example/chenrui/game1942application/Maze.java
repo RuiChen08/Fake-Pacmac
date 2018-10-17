@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.SurfaceView;
 import android.view.View;
@@ -83,6 +82,8 @@ abstract class Maze{
     static boolean step(Pos pos) {
         int v = maze[(int) (pos.y / (2 * Maze.offsetH))][(int) (pos.x / (2*Maze.offsetW))];
         maze[(int) (pos.y / (2 * Maze.offsetH))][(int) (pos.x / (2*Maze.offsetW))] = 0;
+        if (v == 1) Game.mark += 1;
+        if (v == 2) Game.mark += 5;
         return v == 2;
     }
 }

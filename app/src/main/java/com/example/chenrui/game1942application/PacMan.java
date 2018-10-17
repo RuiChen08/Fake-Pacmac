@@ -14,7 +14,8 @@ class PacMan {
     Pos pos;
     Pos.Direction direction = Pos.Direction.Stay;
     static float Radius = Math.min(Maze.offsetW * Game.ScreenWidth, Maze.offsetH * Game.ScreenHeight) - 10f;
-    static int life = 3;
+    //static int life = 3;
+
 
     public PacMan(Pos pos) {
         this.pos = pos;
@@ -23,6 +24,7 @@ class PacMan {
     void onDraw(Canvas canvas, Paint paint) {
         paint.setColor(Color.rgb(244, 164, 66));
         canvas.drawCircle(pos.x * canvas.getWidth(), pos.y * canvas.getHeight(), Radius, paint);
+
     }
 
     /*
@@ -59,3 +61,4 @@ class PacMan {
         else if (direction == Pos.Direction.Right && Maze.maze[(int) (this.pos.y / (2 * Maze.offsetH))][(int) (this.pos.x / (2*Maze.offsetW)) + 1] < 3) this.direction = direction;
     }
 }
+
