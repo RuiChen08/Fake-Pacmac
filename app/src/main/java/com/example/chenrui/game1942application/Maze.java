@@ -77,6 +77,8 @@ abstract class Maze{
     static boolean step(Pos pos) {
         int v = maze[(int) (pos.y / (2 * Maze.offsetH))][(int) (pos.x / (2*Maze.offsetW))];
         maze[(int) (pos.y / (2 * Maze.offsetH))][(int) (pos.x / (2*Maze.offsetW))] = 0;
+        if (v == 1) Game.mark += 1;
+        if (v == 2) Game.mark += 5;
         return v == 2;
     }
 }
