@@ -18,7 +18,7 @@ public class GameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game);
 
 
-        if (Game.life==0){
+        if (Game.life<=0){
             Log.d("finish", "game over");
 
             Intent intent = new Intent(this, GameOverActivity.class);
