@@ -30,6 +30,6 @@ public class Pinky extends Ghost {
      */
     void step(Pos pacManPos) {
         super.step(pacManPos);
-        if (!blueMode) getMove(AI.positionInFront(pacManPos, this.pos));
+        if (!blueMode) getMove(AI.chasing(pacManPos, this.pos, probingPos));
     }
 }

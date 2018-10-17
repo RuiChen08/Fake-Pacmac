@@ -7,8 +7,6 @@ package com.example.chenrui.game1942application;
  * Blinky is one of the Ghosts: Blinky, is a red ghost who, in the original arcade game, follows behind Pac-Man. He is considered the leader of the ghosts.
  */
 
-import android.content.res.Resources;
-import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -35,7 +33,7 @@ class Blinky extends Ghost {
      */
     void step(Pos pacManPos) {
         super.step(pacManPos);
-        if (!blueMode) getMove(AI.chasing(pacManPos, this.pos));
+        if (!blueMode) getMove(AI.chasing(pacManPos, this.pos, probingPos));
     }
 }
 

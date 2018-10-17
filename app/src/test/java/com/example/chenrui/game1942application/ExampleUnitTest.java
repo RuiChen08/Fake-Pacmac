@@ -4,7 +4,6 @@ import org.junit.Test;
 
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertTrue;
-import static org.junit.Assert.*;
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -32,7 +31,7 @@ public class ExampleUnitTest {
 
     @Test
     public void aiChasing_test(){
-        assertTrue("The direction should be UP,but is "+AI.chasing(new Pos(1.0f, 1.0f),new Pos(1.0f, 2.0f)), AI.chasing(new Pos(1.0f, 1.0f),new Pos(1.0f, 2.0f)) == Pos.Direction.Up);
+        assertTrue("The direction should be UP,but is "+AI.chasing(new Pos(1.0f, 1.0f),new Pos(1.0f, 2.0f), probingPos), AI.chasing(new Pos(1.0f, 1.0f),new Pos(1.0f, 2.0f), probingPos) == Pos.Direction.Up);
         //Todo
     }
 
