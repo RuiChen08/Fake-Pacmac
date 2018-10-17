@@ -5,10 +5,12 @@ import android.content.Intent;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class RankActivity extends AppCompatActivity {
@@ -29,10 +31,7 @@ public class RankActivity extends AppCompatActivity {
         Intent intent = getIntent();
         message = intent.getStringExtra(GameOverActivity.EXTRA_MESSAGE);
 
-        // Capture the layout's TextView and set the string as its text
-        /*textView = findViewById(R.id.thetextView);
-        textView.setText("Hello "+message);
-*/
+
         TextView textView = findViewById(R.id.textView4);
         textView.setText(names(result()));
 
@@ -40,19 +39,15 @@ public class RankActivity extends AppCompatActivity {
         textView2.setText(marks(result()));
     }
 
-   /* public static void main(String[] args) {
-        RankBoard.create("RankData.xml");
-        RankBoard data = new RankBoard("Hugh",Game.mark);
 
-        data.save("RankData.xml");
-        ArrayList<RankBoard> dataload = RankBoard.load("RankData.xml");
-
-
-    }*/
 
     public ArrayList<RankBoard> result (){
         String path = this.getExternalFilesDir(Environment.DIRECTORY_NOTIFICATIONS) + "/RankData";
-        RankBoard.create(path);
+        File f = new File(path);
+        if(f==null){
+            RankBoard.create(path);
+        }
+
 
 
 
@@ -84,6 +79,13 @@ public class RankActivity extends AppCompatActivity {
             namess += "\n" + dataload.get(i).mark + "\n";
         }
         return namess;
+    }
+
+    public void back2ButtonPressed(View view) {
+        Log.d("back", "back button pressed");
+
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 
 
