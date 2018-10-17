@@ -66,6 +66,11 @@ abstract class Maze{
                         paint.setColor(Color.BLUE);
                         canvas.drawRect(c / widthSize * canvas.getWidth(), r / heightSize * canvas.getHeight(),
                                 (2 * offsetW + c / widthSize) * canvas.getWidth(), (2 * offsetH + r / heightSize) * canvas.getHeight(), paint);
+                        break;
+                    case 4:
+                        paint.setColor(Color.GREEN);
+                        canvas.drawRect(c / widthSize * canvas.getWidth(), r / heightSize * canvas.getHeight(),
+                                (2 * offsetW + c / widthSize) * canvas.getWidth(), (2 * offsetH + r / heightSize) * canvas.getHeight(), paint);
                 }
             }
         }

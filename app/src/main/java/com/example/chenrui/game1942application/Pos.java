@@ -47,7 +47,7 @@ public class Pos {
             if (x - pos.x > y - pos.y) return Direction.Left;
             else return Direction.Up;
         } else {
-            if (x - pos.x >= pos.y - y) return Direction.Left;
+            if (x - pos.x > pos.y - y) return Direction.Left;
             else return Direction.Down;
         }
     }

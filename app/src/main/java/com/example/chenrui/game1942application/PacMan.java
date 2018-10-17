@@ -53,9 +53,9 @@ class PacMan {
      * Date: 12/10/2018
      */
     void changeDirection(Pos.Direction direction){
-        if (direction == Pos.Direction.Up && Maze.maze[(int) (this.pos.y / (2 * Maze.offsetH)) - 1][(int) (this.pos.x / (2*Maze.offsetW))] != 3) this.direction = direction;
-        else if (direction == Pos.Direction.Down && Maze.maze[(int) (this.pos.y / (2 * Maze.offsetH)) + 1][(int) (this.pos.x / (2*Maze.offsetW))] != 3) this.direction = direction;
-        else if (direction == Pos.Direction.Left && Maze.maze[(int) (this.pos.y / (2 * Maze.offsetH))][(int) (this.pos.x / (2*Maze.offsetW)) - 1] != 3) this.direction = direction;
-        else if (direction == Pos.Direction.Right && Maze.maze[(int) (this.pos.y / (2 * Maze.offsetH))][(int) (this.pos.x / (2*Maze.offsetW)) + 1] != 3) this.direction = direction;
+        if (direction == Pos.Direction.Up && Maze.maze[(int) (this.pos.y / (2 * Maze.offsetH)) - 1][(int) (this.pos.x / (2*Maze.offsetW))] < 3) this.direction = direction;
+        else if (direction == Pos.Direction.Down && Maze.maze[(int) (this.pos.y / (2 * Maze.offsetH)) + 1][(int) (this.pos.x / (2*Maze.offsetW))] < 3) this.direction = direction;
+        else if (direction == Pos.Direction.Left && Maze.maze[(int) (this.pos.y / (2 * Maze.offsetH))][(int) (this.pos.x / (2*Maze.offsetW)) - 1] < 3) this.direction = direction;
+        else if (direction == Pos.Direction.Right && Maze.maze[(int) (this.pos.y / (2 * Maze.offsetH))][(int) (this.pos.x / (2*Maze.offsetW)) + 1] < 3) this.direction = direction;
     }
 }
