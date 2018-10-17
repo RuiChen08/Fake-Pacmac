@@ -22,7 +22,7 @@ class Game {
     private PacMan pacman;
 
     /*
-     * set an initial position for ghost
+
      * @author Chucheng Qian, Rui Chen
      * @Date 14/10/2018
      */

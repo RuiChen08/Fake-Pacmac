@@ -6,6 +6,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import java.io.File;
+import java.util.ArrayList;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -20,11 +21,12 @@ import javax.xml.transform.stream.StreamResult;
  *
  * Use PersistantDataXML load and store the Mark Rank
  * @author Chucheng Qian
- * @Date 14/10/2018
+ * @Date 17/10/2018
  */
 
 
 public class RankBoard {
+    private static final String Rank = "rank";
     private static final String Player = "player";
     private static final String Mark = "mark";
     private static final String NAME = "name";
@@ -39,11 +41,12 @@ public class RankBoard {
 
     }
 
-    static public RankBoard load(String filename) {
+    static public ArrayList<RankBoard> load(String filename) {
         File f = new File(filename);
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         DocumentBuilder db;
-        RankBoard res = new RankBoard();
+
+        ArrayList<RankBoard> rankList = new ArrayList<>();
 
         try {
             // load the xml tree
@@ -51,22 +54,36 @@ public class RankBoard {
             Document doc = db.parse(f);
 
             // parse the tree and obtain the player info
-            Node player = doc.getFirstChild();
+            Node rank = doc.getFirstChild();
 
-            NodeList nl = player.getChildNodes();
+            NodeList nl = rank.getChildNodes();
             for (int i =0;i< nl.getLength();i++) {
+                RankBoard res = new RankBoard();
                 Node n = nl.item(i);
-                if (n.getNodeName().equals(NAME)) {
-                    res.name = n.getTextContent();
-                } else if (n.getNodeName().equals(Mark)) {
-                    res.mark = Integer.parseInt(n.getTextContent());
+
+
+                NodeList nll = n.getChildNodes();
+                for (int ii =0;ii< nll.getLength();ii++) {
+                    Node nn = nll.item(ii);
+
+
+                    if (nn.getNodeName().equals(NAME)) {
+                        res.name = nn.getTextContent();
+                    } else if (nn.getNodeName().equals(Mark)) {
+                        res.mark = Integer.parseInt(nn.getTextContent());
+                    }
+
                 }
+                rankList.add(res);
+
+
+
             }
 
         } catch (Exception e) {
             System.err.println("Problem loading " + filename);
         }
-        return res;
+        return rankList;
     }
 
     public Document create(String filename) {
@@ -76,6 +93,20 @@ public class RankBoard {
         try {
             db = dbf.newDocumentBuilder();
             Document doc = db.newDocument();
+            Element rank = doc.createElement(Rank);
+            doc.appendChild(rank);
+            // set xml encoding to utf-8
+            TransformerFactory transformerFactory = TransformerFactory
+                    .newInstance();
+            Transformer transformer = transformerFactory.newTransformer();
+
+
+            transformer.setOutputProperty(OutputKeys.ENCODING,"utf-8");
+
+            DOMSource source = new DOMSource(doc);
+            StreamResult result = new StreamResult(f);
+            transformer.transform(source, result);
+
             return doc;}
         catch (Exception e) {
             System.err.println("Problem saving " + filename);
@@ -92,6 +123,7 @@ public class RankBoard {
             // make the xml tree
             db = dbf.newDocumentBuilder();
             Document doc = db.parse(f);
+            Element root =  doc.getDocumentElement();
 
             Element player = doc.createElement(Player);
 
@@ -103,7 +135,7 @@ public class RankBoard {
             ea.appendChild(doc.createTextNode(Integer.toString(mark)));
             player.appendChild(ea);
 
-            doc.appendChild(player);
+            root.appendChild(player);
             // save the xml file
             TransformerFactory transformerFactory = TransformerFactory
                     .newInstance();
@@ -126,15 +158,18 @@ public class RankBoard {
     }
 
     public static void main(String[] args) {
-        RankBoard data = new RankBoard("Hugh",10);
+        RankBoard data = new RankBoard("Hugh",100);
         RankBoard data1 = new RankBoard("aHugh",6);
         RankBoard data2 = new RankBoard("bHugh",5);
         data.create("RankData.xml");
         data.save("RankData.xml");
         data1.save("RankData.xml");
         data2.save("RankData.xml");
-        RankBoard dataload = load("RankData.xml");
-        dataload.show();
+        ArrayList<RankBoard> dataload = load("RankData.xml");
+        for (int i =0;i<dataload.size();i++){
+            dataload.get(i).show();
+        }
+        //dataload.show();
     }
 
 
