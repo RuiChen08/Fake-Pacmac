@@ -86,7 +86,7 @@ public class RankBoard {
         return rankList;
     }
 
-    public Document create(String filename) {
+    public static Document create(String filename) {
         File f = new File(filename);
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         DocumentBuilder db;
@@ -109,7 +109,7 @@ public class RankBoard {
 
             return doc;}
         catch (Exception e) {
-            System.err.println("Problem saving " + filename);
+            System.err.println("Problem creating " + filename);
             return null;
         }
     }
@@ -202,9 +202,9 @@ public class RankBoard {
         System.out.println("Mark : " + mark);
     }
 
-    public static void main(String[] args) {
-        RankBoard data = new RankBoard("Hugh",100);
-        RankBoard data1 = new RankBoard("aHugh",6);
+   /* public static void main(String[] args) {
+        RankBoard data = new RankBoard("Hugh",10);
+        RankBoard data1 = new RankBoard("aHugh",60);
         RankBoard data2 = new RankBoard("bHugh",5);
         data.create("RankData.xml");
         data.save("RankData.xml");
@@ -215,7 +215,7 @@ public class RankBoard {
             dataload.get(i).show();
         }
 
-    }
+    }*/
 
 
 
