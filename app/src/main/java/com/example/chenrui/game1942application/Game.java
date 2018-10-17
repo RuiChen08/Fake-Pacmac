@@ -6,9 +6,8 @@ package com.example.chenrui.game1942application;
  */
 
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Rect;
-import android.view.View;
 
 class Game {
 
@@ -42,6 +41,14 @@ class Game {
         ghosts.onDraw(canvas, paint);
         pacman.onDraw(canvas, paint);
         Maze.onDraw(canvas, paint);
+
+        // Drawing the marks and life counter
+        Paint pp = new Paint(Color.RED);
+        pp.setTextSize(40);
+        canvas.drawText("LIFE:", Maze.offsetW * canvas.getWidth(), Maze.offsetH * canvas.getHeight(), pp);
+        canvas.drawText("MARK:",ScreenWidth - Maze.offsetW * canvas.getWidth() * 6, Maze.offsetH * canvas.getHeight(), pp);
+        canvas.drawText(""+Game.life,150 + Maze.offsetW * canvas.getWidth(),Maze.offsetH * canvas.getHeight(),pp);
+        canvas.drawText(""+Game.mark, 150 + ScreenWidth - Maze.offsetW * canvas.getWidth() * 6,Maze.offsetH * canvas.getHeight(),pp);
     }
 
     /* Authors: Ruiyi Sun, Weiwei Liang,Chucheng Qian, Rui Chen
