@@ -41,8 +41,11 @@ public class GameView extends View implements Runnable, View.OnTouchListener{
         Paint pp = new Paint(Color.RED);
         pp.setTextSize(40);
 
-        canvas.drawText(""+Game.mark,1000,1550,pp);
-        canvas.drawText(""+Game.life,50,1550,pp);
+        canvas.drawText("LIFE:",50,1570,pp);
+        canvas.drawText("MARK:",850,1570,pp);
+
+        canvas.drawText(""+Game.mark,1000,1570,pp);
+        canvas.drawText(""+Game.life,150,1570,pp);
     }
 
     /*
