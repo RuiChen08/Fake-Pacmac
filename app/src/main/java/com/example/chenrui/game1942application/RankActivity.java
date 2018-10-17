@@ -1,5 +1,7 @@
 package com.example.chenrui.game1942application;
 
+import android.content.Context;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,15 +21,11 @@ public class RankActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rank);
 
-
-
         TextView textView = findViewById(R.id.textView4);
         textView.setText(names(result()));
 
         TextView textView2 = findViewById(R.id.textView5);
         textView2.setText(marks(result()));
-
-
     }
 
    /* public static void main(String[] args) {
@@ -41,14 +39,15 @@ public class RankActivity extends AppCompatActivity {
     }*/
 
     public ArrayList<RankBoard> result (){
-        RankBoard.create("RankData.xml");
+        String path = this.getExternalFilesDir(Environment.DIRECTORY_NOTIFICATIONS) + "/RankData";
+        RankBoard.create(path);
         RankBoard data = new RankBoard("Hugh",88);
         //RankBoard data1 = new RankBoard("Hugh",Game.mark);
 
-        data.save("RankData.xml");
+        data.save(path);
         //data1.save("RankData.xml");
 
-        ArrayList<RankBoard> dataload = RankBoard.load("RankData.xml");
+        ArrayList<RankBoard> dataload = RankBoard.load(path);
         return dataload;
     }
 
@@ -56,15 +55,16 @@ public class RankActivity extends AppCompatActivity {
     public String names (ArrayList<RankBoard> dataload){
         String namess="";
         for (int i =0;i<dataload.size();i++){
-            namess=namess + "\n"+ dataload.get(i).name+"\n";
+            namess += "\n" + dataload.get(i).name + "\n";
         }
         System.out.println(namess);
         return namess;
     }
+
     public String marks (ArrayList<RankBoard> dataload){
         String namess="";
         for (int i =0;i<dataload.size();i++){
-            namess=namess + "\n"+ dataload.get(i).mark+"\n";
+            namess += "\n" + dataload.get(i).mark + "\n";
         }
         return namess;
     }

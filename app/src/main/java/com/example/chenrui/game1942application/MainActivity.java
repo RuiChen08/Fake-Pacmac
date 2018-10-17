@@ -22,10 +22,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-    * @author Chucheng Qian
+     * @author Chucheng Qian
      * @Date 17/10/2018
+     *
+     * Showing the rank of previous players, previous players marks should be stored when game is finished
      */
-    // Showing the rank of previous players, previous players marks should be stored when game is finished
     public void rankButtonPressed(View view) {
         Log.d("rank", "rank button pressed");
 

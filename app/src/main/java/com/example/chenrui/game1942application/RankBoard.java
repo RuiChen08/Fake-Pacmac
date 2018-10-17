@@ -10,8 +10,11 @@ import java.util.ArrayList;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
+import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
@@ -33,15 +36,15 @@ public class RankBoard {
     String name;
     int mark;
 
-    public RankBoard(String name, int mark) {
+    RankBoard(String name, int mark) {
         this.name = name;
         this.mark = mark;
     }
-    public RankBoard() {
+    RankBoard() {}
 
-    }
 
-    static public ArrayList<RankBoard> load(String filename) {
+
+    static ArrayList<RankBoard> load(String filename) {
         File f = new File(filename);
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         DocumentBuilder db;
@@ -75,9 +78,6 @@ public class RankBoard {
 
                 }
                 rankList.add(res);
-
-
-
             }
 
         } catch (Exception e) {
@@ -86,7 +86,7 @@ public class RankBoard {
         return rankList;
     }
 
-    public static Document create(String filename) {
+    static Document create(String filename) {
         File f = new File(filename);
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         DocumentBuilder db;
@@ -107,11 +107,15 @@ public class RankBoard {
             StreamResult result = new StreamResult(f);
             transformer.transform(source, result);
 
-            return doc;}
-        catch (Exception e) {
-            System.err.println("Problem creating " + filename);
-            return null;
+            return doc;
+        } catch (TransformerConfigurationException e) {
+            e.printStackTrace();
+        } catch (TransformerException e) {
+            e.printStackTrace();
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
         }
+        return null;
     }
 
 
@@ -202,7 +206,7 @@ public class RankBoard {
         System.out.println("Mark : " + mark);
     }
 
-   /* public static void main(String[] args) {
+   /*public static void main(String[] args) {
         RankBoard data = new RankBoard("Hugh",10);
         RankBoard data1 = new RankBoard("aHugh",60);
         RankBoard data2 = new RankBoard("bHugh",5);
@@ -214,7 +218,6 @@ public class RankBoard {
         for (int i =0;i<dataload.size();i++){
             dataload.get(i).show();
         }
-
     }*/
 
 
