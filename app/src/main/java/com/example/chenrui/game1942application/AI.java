@@ -64,12 +64,21 @@ public class AI {
     }
 
     /*
-     * Author: Rui Chen
+     * Author: Rui Chen, Ruiyi Sun
+     * add some code to try to thing about the front of ghost
      * Date: 17/10/2018
      */
-    Pos.Direction positionInFront(){
+    static  Pos.Direction positionInFront(Pos posPacman,Pos posGhost){
         //Todo, this is for ghost like Pinky
-        return Pos.Direction.Down;
+        // Todo: there are some problem in these pac_man, I am a little confused about BST
+
+        int pac_man_r = (int) (posPacman.y / (2 * Maze.offsetH));
+        int pac_man_c = (int) (posPacman.x / (2 * Maze.offsetW)) -((Maze.maze[0].length-(int) (posPacman.x / (2 * Maze.offsetW)))/5);
+        int ghost_r = (int) (posGhost.y / (2 * Maze.offsetH));
+        int ghost_c = (int) (posGhost.x / (2 * Maze.offsetW));
+
+        return BST(new intPos(ghost_r, ghost_c), new intPos(pac_man_r, pac_man_c));
+       // return Pos.Direction.Down;
     }
 
     /*
