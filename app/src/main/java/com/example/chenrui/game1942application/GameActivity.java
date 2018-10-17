@@ -10,21 +10,22 @@ import android.util.Log;
  * Date: 17/10/2018
  */
 
-public class GameActivity extends AppCompatActivity {
+public class GameActivity extends AppCompatActivity implements Observer{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-
-
-        if (Game.life<=0){
-            Log.d("finish", "game over");
-
-            Intent intent = new Intent(this, GameOverActivity.class);
-            startActivity(intent);
-        }
+        GameView gameView = findViewById(R.id.Game_View);
+        gameView.registerObserver(this);
     }
 
 
+    @Override
+    public void update() {
+        Log.d("finish", "game over");
+
+        Intent intent = new Intent(this, GameOverActivity.class);
+        startActivity(intent);
+    }
 }

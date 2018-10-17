@@ -5,6 +5,6 @@ package com.example.chenrui.game1942application;
  * Date: 19/09/2018
  */
 
-public abstract class Observer {
-    public void update(){};
+interface Observer {
+    public abstract void update();
 }

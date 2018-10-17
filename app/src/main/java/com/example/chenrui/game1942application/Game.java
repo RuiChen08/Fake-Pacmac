@@ -20,17 +20,19 @@ class Game {
 
     private Ghosts ghosts;
     private PacMan pacman;
+    private Observer observer;
 
     /*
 
      * @author Chucheng Qian, Rui Chen
      * @Date 14/10/2018
      */
-    Game(int heightPixels, int widthPixels) {
+    Game(int heightPixels, int widthPixels, Observer observer) {
         ScreenWidth = widthPixels;
         ScreenHeight = heightPixels;
         pacman = new PacMan(new Pos(START_POS));
         ghosts = new Ghosts();
+        this.observer = observer;
     }
 
 
@@ -58,6 +60,7 @@ class Game {
         ghosts.step(pacman.pos);
         pacman.step();
         if (Maze.step(pacman.pos)) ghosts.inBlue();
+        if (life == 0) observer.update();
     }
 
     /* Authors: Rui Chen

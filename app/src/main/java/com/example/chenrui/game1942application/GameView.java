@@ -5,7 +5,6 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.support.annotation.Nullable;
-import android.support.constraint.solver.Metrics;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.view.MotionEvent;
@@ -16,7 +15,7 @@ import android.view.View;
  * Date: 22/09/2018
  */
 
-public class GameView extends View implements Runnable, View.OnTouchListener{
+public class GameView extends View implements Runnable, View.OnTouchListener, Observer{
 
     //This field records the position when screen was touched. (namely ACTION_DOWN)
     Pos pre_pos;
@@ -24,11 +23,13 @@ public class GameView extends View implements Runnable, View.OnTouchListener{
 
     Paint paint;
     Game game;
+    Observer observer;
+
     public GameView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         paint = new Paint();
         DisplayMetrics metrics = getResources().getDisplayMetrics();
-        game = new Game(metrics.heightPixels, metrics.widthPixels);
+        game = new Game(metrics.heightPixels, metrics.widthPixels, this);
         setOnTouchListener(this);
         this.postDelayed(this, 500);
         this.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
@@ -38,14 +39,6 @@ public class GameView extends View implements Runnable, View.OnTouchListener{
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         game.onDraw(canvas, paint);
-        Paint pp = new Paint(Color.RED);
-        pp.setTextSize(40);
-
-        canvas.drawText("LIFE:",50,1570,pp);
-        canvas.drawText("MARK:",850,1570,pp);
-
-        canvas.drawText(""+Game.mark,1000,1570,pp);
-        canvas.drawText(""+Game.life,150,1570,pp);
     }
 
     /*
@@ -102,6 +95,15 @@ public class GameView extends View implements Runnable, View.OnTouchListener{
         game.step();
         this.invalidate();
         this.postDelayed(this, 500);
+    }
+
+    void registerObserver(Observer observer) {
+        this.observer = observer;
+    }
+
+    @Override
+    public void update() {
+        observer.update();
     }
 
     /*private void invalidateHelper(Rect[] rects) {
