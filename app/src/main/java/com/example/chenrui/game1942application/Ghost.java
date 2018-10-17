@@ -39,7 +39,9 @@ abstract class Ghost {
      * Date: 14/10/2018
      */
     void step(Pos pacManPos) {
-        if (pos.getDistance(pacManPos) <= PacMan.Radius + Radius) PacMan.life--;
+        Pos gg = new Pos(pos.x * Game.ScreenWidth, pos.y*Game.ScreenHeight);
+        Pos pp = new Pos(pacManPos.x * Game.ScreenWidth, pacManPos.y*Game.ScreenHeight);
+        if (gg.getDistance(pp) <= PacMan.Radius+Radius ){ Game.life--;}
         if(blueMode) getMove(pacManPos.getDirection(this.pos));
     }
 
@@ -71,7 +73,7 @@ abstract class Ghost {
      */
 
     void changeDirection(Pos.Direction PacManDirection){
-       Pos.Direction[] directions = new Pos.Direction[] {Pos.Direction.Up,Pos.Direction.Down ,Pos.Direction.Left,Pos.Direction.Right};
+        Pos.Direction[] directions = new Pos.Direction[] {Pos.Direction.Up,Pos.Direction.Down ,Pos.Direction.Left,Pos.Direction.Right};
         for(int i = 0;i<directions.length;i++){
             if(PacManDirection != directions[i] && this.direction != directions[i]){
                 this.direction = directions[i] ;
@@ -84,10 +86,10 @@ abstract class Ghost {
     }
 
     /*Author :Ruiyi Sun
-    *Date: 17/10/2018
-    *
-    * this is just copy and paste the PacMan code If anyone can help me fix this problem!!!!!!!!!!
-    *
+     *Date: 17/10/2018
+     *
+     * this is just copy and paste the PacMan code If anyone can help me fix this problem!!!!!!!!!!
+     *
      */
     void run(){
         //Todo : simplify this code copied from PacMan!!
@@ -105,3 +107,4 @@ abstract class Ghost {
     }
 
 }
+
