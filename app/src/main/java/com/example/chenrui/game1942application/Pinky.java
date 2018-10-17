@@ -24,11 +24,12 @@ public class Pinky extends Ghost {
     }
 
     /*
-     * Authors: Rui Chen, Chucheng Qian
-     * Date: 14/10/2019
+     * Authors: Rui Chen, Chucheng Qian, Ruiyi Sun
+     * Date: 17/10/2019
+     * just change the AI
      */
     void step(Pos pacManPos) {
         super.step(pacManPos);
-        if (!blueMode) getMove(AI.chasing(pacManPos, this.pos));
+        if (!blueMode) getMove(AI.positionInFront(pacManPos, this.pos));
     }
 }

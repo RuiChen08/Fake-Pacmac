@@ -12,12 +12,14 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 
+import java.util.Random;
+
 public class Inky extends Ghost {
 
     Inky(Pos pos){
         super(pos);
     }
-
+    int timer = 40;
     @Override
     void onDraw(Canvas canvas, Paint paint) {
         paint.setColor(Color.BLUE);
@@ -25,11 +27,28 @@ public class Inky extends Ghost {
     }
 
     /*
-     * Authors: Rui Chen, Chucheng Qian
-     * Date: 14/10/2019
+     * Authors: Rui Chen, Chucheng Qian,Ruiyi Sun
+     * Date: 17/10/2018
+     * add some code to move Inky
      */
     void step(Pos pacManPos) {
+
         super.step(pacManPos);
-        if (!blueMode) getMove(AI.chasing(pacManPos, this.pos));
+
+
+        timer--;
+        Random random = new Random(10);
+        if(timer == 0){
+            int tose = random.nextInt();
+            if (!blueMode){
+                if(tose>=5){
+                    getMove(AI.chasing(pacManPos, this.pos));}
+                    else{
+                    getMove(AI.positionInFront(pacManPos, this.pos));
+                }
+            }
+        }
+
+        }
     }
-}
+

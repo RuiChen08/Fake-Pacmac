@@ -41,7 +41,7 @@ abstract class Ghost {
     void step(Pos pacManPos) {
         Pos ghost = new Pos(pos.x * Game.ScreenWidth, pos.y*Game.ScreenHeight);
         Pos pacman = new Pos(pacManPos.x * Game.ScreenWidth, pacManPos.y*Game.ScreenHeight);
-        if (ghost.getDistance(pacman) <= PacMan.Radius+Radius ){ Game.life--;}
+        if (ghost.getDistance(pacman) <= PacMan.Radius+Radius && !blueMode){ Game.life--;}// in the blue mode the player will not loss life
         if(blueMode) getMove(pacManPos.getDirection(this.pos));
     }
 
