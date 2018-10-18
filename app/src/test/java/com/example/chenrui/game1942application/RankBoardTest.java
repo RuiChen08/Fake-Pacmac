@@ -8,6 +8,12 @@ import static com.example.chenrui.game1942application.RankBoard.*;
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertTrue;
 
+/*
+ *White board test
+ * Authors: Chucheng Qian, Rui Chen
+ * Date: 18/10/2018
+ */
+
 public class RankBoardTest {
     public ArrayList<RankBoard> getResults()  {
         RankBoard data1 = new RankBoard("a",10);
