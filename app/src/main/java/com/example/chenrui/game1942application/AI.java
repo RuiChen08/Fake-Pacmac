@@ -29,11 +29,9 @@ public class AI {
                 probingPos.y = pac_man_c;
             }
         } else if (strategy.equals("escaping")){
-            if (Math.abs(pac_man_r - ghost_r) <= 10 && Math.abs(pac_man_c - ghost_c) <= 10) {
-                Pos.Direction d = posGhost.getDirection(posPacman);
-                for (Pos.Direction ds : Pos.Direction.values()){
-                    if (ds != d && ds != Pos.Direction.Stay && new intPos(ghost_r, ghost_c).moveJudge(ds, Maze.maze)) return ds;
-                }
+            if (Math.abs(pac_man_r - ghost_r) <= 3 && Math.abs(pac_man_c - ghost_c) <= 3) {
+                probingPos.x = pac_man_r > ghost_r ? 1 : Maze.maze.length - 2;
+                probingPos.y = pac_man_c > ghost_c ? 1 : Maze.maze[0].length - 2;
             }
         }
 

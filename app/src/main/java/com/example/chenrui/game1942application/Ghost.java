@@ -44,7 +44,7 @@ abstract class Ghost {
         Pos realGhost = new Pos(pos.x * Game.ScreenWidth, pos.y * Game.ScreenHeight);
         Pos realPacman = new Pos(pacManPos.x * Game.ScreenWidth, pacManPos.y * Game.ScreenHeight);
         // in the blue mode the player will not loss life
-        if (realGhost.getDistance(realPacman) <= PacMan.Radius+Radius && !blueMode){ pacMan.life--;}
+        if (realGhost.getDistance(realPacman) <= PacMan.Radius+Radius && !blueMode){ pacMan.life--; pacMan.reset();}
         if(blueMode) getMove(AI.movingAI(pacManPos, this.pos, probingPos, "escaping"));
     }
 

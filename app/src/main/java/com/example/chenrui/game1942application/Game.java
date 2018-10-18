@@ -47,7 +47,7 @@ class Game {
 
         // Drawing the marks and life counter
         Paint pp = new Paint(Color.RED);
-        pp.setTextSize(40);
+        pp.setTextSize(50);
         canvas.drawText("LIFE:", Maze.offsetW * canvas.getWidth(), Maze.offsetH * canvas.getHeight(), pp);
         canvas.drawText("MARK:",ScreenWidth - Maze.offsetW * canvas.getWidth() * 6, Maze.offsetH * canvas.getHeight(), pp);
         canvas.drawText(""+pacman.life,150 + Maze.offsetW * canvas.getWidth(),Maze.offsetH * canvas.getHeight(),pp);

@@ -33,6 +33,7 @@ public class GameView extends View implements Runnable, View.OnTouchListener, Ob
         game = new Game(metrics.heightPixels, metrics.widthPixels, this);
         setOnTouchListener(this);
         this.postDelayed(this, 500);
+        // This is for resolving the acceleration problem
         this.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
     }
 

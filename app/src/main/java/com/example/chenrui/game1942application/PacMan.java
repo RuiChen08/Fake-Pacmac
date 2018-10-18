@@ -55,5 +55,7 @@ class PacMan {
         else if (direction == Pos.Direction.Left && Maze.maze[(int) (this.pos.y / (2 * Maze.offsetH))][(int) (this.pos.x / (2*Maze.offsetW)) - 1] < 3) this.direction = direction;
         else if (direction == Pos.Direction.Right && Maze.maze[(int) (this.pos.y / (2 * Maze.offsetH))][(int) (this.pos.x / (2*Maze.offsetW)) + 1] < 3) this.direction = direction;
     }
+
+    void reset() { this.pos = new Pos(START_POS);}
 }
 
