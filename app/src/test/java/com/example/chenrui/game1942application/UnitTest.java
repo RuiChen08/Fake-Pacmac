@@ -11,7 +11,7 @@ public class UnitTest {
 
     /*
      * Authors: Chucheng Qian, Rui Chen,weiwei Liang
-     * Date: 14/10/2018
+     * Date: 18/10/2018
      */
     @Test
     public void getDirection_test() throws Exception {
@@ -64,5 +64,32 @@ public class UnitTest {
             assertTrue("The direction should be Right, but is " + pc.direction, pc.direction == Pos.Direction.Right);
 
         }
+    }
+
+
+    @Test
+    public void getMoveTest() throws Exception {
+        Clyde g = new Clyde();
+        g.pos.x=1.0f;
+        g.pos.y=1.0f;
+        g.getMove(Pos.Direction.Up);
+        g.getMove(Pos.Direction.Up);
+        assertEquals(1.0f, g.pos.x);
+        assertEquals(0.91999996f, g.pos.y);
+        g.getMove(Pos.Direction.Left);
+        assertEquals(0.9285714f, g.pos.x);
+        assertEquals(0.91999996f, g.pos.y);
+        g.getMove(Pos.Direction.Right);
+        assertEquals(1.0f, g.pos.x);
+        assertEquals(0.91999996f, g.pos.y);
+        g.getMove(Pos.Direction.Down);
+        assertEquals(g.pos.x, 1.0f);
+        assertEquals(g.pos.y, 0.96f);
+
+        /*g.pos.x=0.12f;
+        g.pos.y=0.00f;
+        g.getMove(Pos.Direction.Right);
+        System.out.println(g.pos.x);*/
+
     }
 }
