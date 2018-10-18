@@ -89,7 +89,6 @@ public class GameView extends View implements Runnable, View.OnTouchListener, Ob
         }
     }
 
-
     /*
      * Author: ChuCheng Qian
      * Date: 18/10/2018

@@ -29,16 +29,6 @@ class Blinky extends Ghost {
         paint.setColor(Color.parseColor("#460000"));
         super.onDraw(canvas, paint);
     }
-
-    /*
-     * Authors: Rui Chen, Chucheng Qian
-     * Date: 14/10/2019
-     */
-    void step(PacMan pacMan) {
-        super.step(pacMan);
-        AI ai = new AI();
-        if (!blueMode) getMove(ai.movingAI(pacMan.pos, this.pos, probingPos, "chasing"));
-    }
 }
 
 

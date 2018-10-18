@@ -19,7 +19,7 @@ public class AITest {
      * The maze is assumed to have walls surrounded outsides !!
      * */
     @Test
-    public void BSF_Test(){
+    public void BFS_Test(){
         //  the branch coverage test
         //1: if player not move ,the ghost will not move
         short[][] maze = new short[][]{

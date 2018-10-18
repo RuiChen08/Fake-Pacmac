@@ -14,7 +14,7 @@ import android.graphics.Paint;
 
 import java.util.Random;
 
-public class Inky extends Ghost {
+class Inky extends Ghost {
 
     static final Pos START_POS = new Pos(15 * Maze.offsetW,23 * Maze.offsetH);
     int timer = 40;
@@ -31,17 +31,6 @@ public class Inky extends Ghost {
     void onDraw(Canvas canvas, Paint paint) {
         paint.setColor(Color.parseColor("#00FFFF"));
         super.onDraw(canvas, paint);
-    }
-
-    /*
-     * Authors: Rui Chen, Chucheng Qian, Ruiyi Sun
-     * Date: 17/10/2018
-     * add some code to move Inky
-     */
-    void step(PacMan pacMan) {
-        super.step(pacMan);
-        AI ai = new AI();
-        if (!blueMode) getMove(ai.movingAI(pacMan.pos, this.pos, probingPos, "chasing"));
     }
 }
 
