@@ -43,7 +43,9 @@ public class RankBoard {
         this.name = name;
         this.mark = mark;
     }
-    RankBoard() {}
+
+    RankBoard() {
+    }
 
 
     /*
@@ -66,13 +68,13 @@ public class RankBoard {
             Node rank = doc.getFirstChild();
 
             NodeList nl = rank.getChildNodes();
-            for (int i =0;i< nl.getLength();i++) {
+            for (int i = 0; i < nl.getLength(); i++) {
                 RankBoard res = new RankBoard();
                 Node n = nl.item(i);
 
 
                 NodeList nll = n.getChildNodes();
-                for (int ii =0;ii< nll.getLength();ii++) {
+                for (int ii = 0; ii < nll.getLength(); ii++) {
                     Node nn = nll.item(ii);
 
 
@@ -111,7 +113,7 @@ public class RankBoard {
             Transformer transformer = transformerFactory.newTransformer();
 
 
-            transformer.setOutputProperty(OutputKeys.ENCODING,"utf-8");
+            transformer.setOutputProperty(OutputKeys.ENCODING, "utf-8");
 
             DOMSource source = new DOMSource(doc);
             StreamResult result = new StreamResult(f);
@@ -142,8 +144,7 @@ public class RankBoard {
             db = dbf.newDocumentBuilder();
             Document doc = db.parse(f);
 
-            Element rank =  doc.getDocumentElement();
-
+            Element rank = doc.getDocumentElement();
 
 
             Element player = doc.createElement(Player);
@@ -157,21 +158,21 @@ public class RankBoard {
             player.appendChild(ea);
 
 
-            NodeList players=rank.getChildNodes();
+            NodeList players = rank.getChildNodes();
 
-            if(players.getLength()==0){
+            if (players.getLength() == 0) {
                 rank.appendChild(player);
 
-            }else if (players.getLength()==1){
+            } else if (players.getLength() == 1) {
 
                 Node n0 = players.item(0);
 
 
                 NodeList attributes0 = n0.getChildNodes();
-                int  m1 = Integer.parseInt(attributes0.item(1).getTextContent());
-                if(mark>=m1) {
+                int m1 = Integer.parseInt(attributes0.item(1).getTextContent());
+                if (mark >= m1) {
                     rank.insertBefore(player, n0);
-                }else{
+                } else {
                     rank.appendChild(player);
                 }
             }
@@ -188,10 +189,17 @@ public class RankBoard {
 
                 if (mark<=m1 && mark >=m2) {
                     rank.insertBefore(player,n2);
-                    }else if(mark<=m2){
+                    break;
+                }else if(mark>m1){
+                    rank.insertBefore(player,n1);
+                    break;
+                }
+
+                if(i==players.getLength()-2 && mark<m2 ){
                     rank.appendChild(player);
                 }
             }
+
 
             // save the xml file
             TransformerFactory transformerFactory = TransformerFactory
@@ -199,7 +207,7 @@ public class RankBoard {
             Transformer transformer = transformerFactory.newTransformer();
 
             // set xml encoding to utf-8
-            transformer.setOutputProperty(OutputKeys.ENCODING,"utf-8");
+            transformer.setOutputProperty(OutputKeys.ENCODING, "utf-8");
 
             DOMSource source = new DOMSource(doc);
             StreamResult result = new StreamResult(f);
@@ -209,27 +217,4 @@ public class RankBoard {
         }
     }
 
-    /*
-     * @author: ChuCheng Qian
-     * @date: 18/10/2018
-     */
-    public void show() {
-        System.out.println("Name : " + name);
-        System.out.println("Mark : " + mark);
-    }
-
-   /*public static void main(String[] args) {
-        RankBoard data = new RankBoard("Hugh",10);
-        RankBoard data1 = new RankBoard("aHugh",60);
-        RankBoard data2 = new RankBoard("bHugh",5);
-        data.create("RankData.xml");
-        data.save("RankData.xml");
-        data1.save("RankData.xml");
-        data2.save("RankData.xml");
-        ArrayList<RankBoard> dataload = load("RankData.xml");
-        for (int i =0;i<dataload.size();i++){
-            dataload.get(i).show();
-        }
-    }*/
 }
-
