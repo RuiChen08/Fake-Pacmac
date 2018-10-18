@@ -11,7 +11,7 @@
 Pac-Man is an arcade game developed by Namco and first released in Japan as Puck Man in May 1980.[2][3] It was created by Japanese video game designer Toru Iwatani. It was licensed for distribution in the United States by Midway Games and released in October 1980. Immensely popular from its original release to the present day, Pac-Man is considered one of the classics of the medium, and an icon of 1980s popular culture.
 
 ## Design Documentation 
-+ [Design Summary](https://gitlab.cecs.anu.edu.au/u5958754/RetroGame2018s2/wikis/The-PacMan-Design-Summary)
++ [Design Summary](https://gitlab.cecs.anu.edu.au/u5958754/RetroGame2018s2/wikis/Design-Summary)
 + [UML Diagram](https://gitlab.cecs.anu.edu.au/u5958754/RetroGame2018s2/wikis/UML-diagram)
 + [Testing Summary](testingsummary)
 + [Game Summary](https://gitlab.cecs.anu.edu.au/u5958754/RetroGame2018s2/wikis/Game-Summary)
