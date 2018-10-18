@@ -26,8 +26,7 @@ public class GameOverActivity extends AppCompatActivity {
     public void backButtonPressed(View view) {
         Log.d("gameover", "back button pressed");
 
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+        finish();
     }
 
     public void rankButtonPressed(View view) {
