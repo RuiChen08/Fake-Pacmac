@@ -15,9 +15,7 @@ public class AI {
      * Authors: Chucheng Qian, Rui Chen
      * Date: 17/10/2018
      */
-    static Pos.Direction chasing(Pos posPacman, Pos posGhost, intPos probingPos){
-        Pos.Direction d;
-
+    static Pos.Direction movingAI(Pos posPacman, Pos posGhost, intPos probingPos, String strategy){
         // Get the coordinate of pacman and ghost
         int pac_man_r = (int) (posPacman.y / (2 * Maze.offsetH));
         int pac_man_c = (int) (posPacman.x / (2 * Maze.offsetW));
@@ -25,18 +23,26 @@ public class AI {
         int ghost_c = (int) (posGhost.x / (2 * Maze.offsetW));
 
         // If the ghost is too far away to from pac-man, it will try to get to different probing position until finding pac-man
-        if (Math.abs(pac_man_r - ghost_r) <= 3 && Math.abs(pac_man_c - ghost_c) <= 3) {
-            return BST(new intPos(ghost_r, ghost_c), new intPos(pac_man_r, pac_man_c), Maze.maze);
-        }
-        else{
-            //Randomly choose a probing position
-            while ((probingPos.x == ghost_r && probingPos.y == ghost_c) || Maze.maze[probingPos.x][probingPos.y] >= 3) {
-                Random random = new Random();
-                probingPos.x = random.nextInt(Maze.maze.length);
-                probingPos.y = random.nextInt(Maze.maze[0].length);
+        if (strategy.equals("chasing")) {
+            if (Math.abs(pac_man_r - ghost_r) <= 3 && Math.abs(pac_man_c - ghost_c) <= 3) {
+                return BST(new intPos(ghost_r, ghost_c), new intPos(pac_man_r, pac_man_c), Maze.maze);
             }
-            return BST(new intPos(ghost_r, ghost_c), probingPos, Maze.maze);
+        } else if (strategy.equals("escaping")){
+            if (Math.abs(pac_man_r - ghost_r) <= 10 && Math.abs(pac_man_c - ghost_c) <= 10) {
+                Pos.Direction d = posGhost.getDirection(posPacman);
+                for (Pos.Direction ds : Pos.Direction.values()){
+                    if (ds != d && ds != Pos.Direction.Stay && new intPos(ghost_r, ghost_c).moveJudge(ds, Maze.maze)) return ds;
+                }
+            }
         }
+
+        //Randomly choose a probing position
+        while ((probingPos.x == ghost_r && probingPos.y == ghost_c) || Maze.maze[probingPos.x][probingPos.y] >= 3) {
+            Random random = new Random();
+            probingPos.x = random.nextInt(Maze.maze.length);
+            probingPos.y = random.nextInt(Maze.maze[0].length);
+        }
+        return BST(new intPos(ghost_r, ghost_c), probingPos, Maze.maze);
     }
 
     /*
@@ -45,7 +51,7 @@ public class AI {
      *
      * Description: Using the breadth first searching algorithm for find the path from ghost to pacman
      */
-    private static Pos.Direction BST(intPos root, intPos destination, short[][] maze){
+    static Pos.Direction BST(intPos root, intPos destination, short[][] maze){
         Queue<intPos> queue = new LinkedList<>();
         Short[][] searching_status = new Short[maze.length][maze[0].length];
 
@@ -96,6 +102,14 @@ public class AI {
             this.x = x;
             this.y = y;
             this.parent = parent;
+        }
+
+        boolean moveJudge(Pos.Direction d, short[][] maze){
+            if (d == Pos.Direction.Up) return maze[x-1][y] <= 2;
+            if (d == Pos.Direction.Down) return maze[x+1][y] <= 2;
+            if (d == Pos.Direction.Left) return maze[x][y-1] <= 2;
+            if (d == Pos.Direction.Right) return maze[x][y+1] <= 2;
+            return false;
         }
     }
 }

@@ -34,7 +34,7 @@ public class Inky extends Ghost {
     void step(Pos pacManPos) {
 
         super.step(pacManPos);
-        if(!blueMode) getMove(AI.chasing(pacManPos, this.pos, probingPos));
+        if(!blueMode) getMove(AI.movingAI(pacManPos, this.pos, probingPos, "chasing"));
     }
 }
 
