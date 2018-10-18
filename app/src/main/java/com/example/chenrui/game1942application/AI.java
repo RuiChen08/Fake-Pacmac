@@ -15,7 +15,7 @@ public class AI {
      * Authors: Chucheng Qian, Rui Chen
      * Date: 17/10/2018
      */
-    static Pos.Direction movingAI(Pos posPacman, Pos posGhost, intPos probingPos, String strategy){
+    Pos.Direction movingAI(Pos posPacman, Pos posGhost, intPos probingPos, String strategy){
         // Get the coordinate of pacman and ghost
         int pac_man_r = (int) (posPacman.y / (2 * Maze.offsetH));
         int pac_man_c = (int) (posPacman.x / (2 * Maze.offsetW));
@@ -41,7 +41,7 @@ public class AI {
             probingPos.x = random.nextInt(Maze.maze.length);
             probingPos.y = random.nextInt(Maze.maze[0].length);
         }
-        return BST(new intPos(ghost_r, ghost_c), probingPos, Maze.maze);
+        return BFS(new intPos(ghost_r, ghost_c), probingPos, Maze.maze);
     }
 
     /*
@@ -50,7 +50,7 @@ public class AI {
      *
      * Description: Using the breadth first searching algorithm for find the path from ghost to pacman
      */
-    static Pos.Direction BST(intPos root, intPos destination, short[][] maze){
+    public static Pos.Direction BFS(intPos root, intPos destination, short[][] maze){
         Queue<intPos> queue = new LinkedList<>();
         Short[][] searching_status = new Short[maze.length][maze[0].length];
 
@@ -86,7 +86,7 @@ public class AI {
      * Author: Rui Chen
      * Date: 17/10/2018
      *
-     * This class is for helping the BST algorithm for searching
+     * This class is for helping the BFS algorithm for searching
      */
     static class intPos{
         int x;

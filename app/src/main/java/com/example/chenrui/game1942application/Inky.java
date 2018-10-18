@@ -40,7 +40,8 @@ public class Inky extends Ghost {
      */
     void step(PacMan pacMan) {
         super.step(pacMan);
-        if(!blueMode) getMove(AI.movingAI(pacMan.pos, this.pos, probingPos, "chasing"));
+        AI ai = new AI();
+        if (!blueMode) getMove(ai.movingAI(pacMan.pos, this.pos, probingPos, "chasing"));
     }
 }
 
