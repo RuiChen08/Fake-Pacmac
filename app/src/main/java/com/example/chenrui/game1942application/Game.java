@@ -44,9 +44,9 @@ class Game {
      * Date: 14/10/2018
      */
     void onDraw(Canvas canvas, Paint paint) {
-        ghosts.onDraw(canvas, paint);
-        pacman.onDraw(canvas, paint);
         maze.onDraw(canvas, paint);
+        pacman.onDraw(canvas, paint);
+        ghosts.onDraw(canvas, paint);
 
         // Drawing the marks and life counter
         Paint pp = new Paint(Color.RED);
@@ -61,9 +61,9 @@ class Game {
      * Date: 14/10/2018
      */
     void step() {
+        if (maze.step(pacman.pos)) ghosts.inBlue();
         ghosts.step(pacman.pos);
         pacman.step();
-        if (maze.step(pacman.pos)) ghosts.inBlue();
         if (life <= 0) observer.update();
 
     }

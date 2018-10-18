@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.nfc.tech.NfcA;
 import android.util.AttributeSet;
 import android.view.SurfaceView;
 import android.view.View;
@@ -13,9 +14,9 @@ import android.view.View;
  * Date: 2018/10/12
  */
 
-abstract class Maze{
+class Maze{
 
-    static short[][] maze = new short[][] {
+    static final short[][] MAZE = new short[][] {
             {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3},
             {3, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 3},
             {3, 1, 3, 3, 3, 1, 3, 3, 1, 3, 3, 3, 1, 3},
@@ -26,7 +27,7 @@ abstract class Maze{
             {3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3},
             {3, 1, 3, 1, 3, 3, 3, 3, 3, 3, 1, 3, 1, 3},
             {3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3},
-            {3, 1, 3, 1, 3, 3, 0, 0, 3, 3, 1, 3, 1, 3},
+            {3, 1, 3, 1, 3, 3, 4, 4, 3, 3, 1, 3, 1, 3},
             {3, 1, 3, 1, 3, 0, 0, 0, 0, 3, 1, 3, 1, 3},
             {3, 1, 3, 1, 3, 3, 3, 3, 3, 3, 1, 3, 1, 3},
             {3, 1, 1, 2, 1, 1, 1, 1, 1, 1, 2, 1, 1, 3},
@@ -42,10 +43,20 @@ abstract class Maze{
             {3, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 3},
             {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3},
     };
+    static short[][] maze = new short[MAZE.length][MAZE[0].length];
     static float widthSize = maze[0].length;
     static float heightSize = maze.length;
     static float offsetW = 1 / (2 * widthSize);
     static float offsetH = 1 / (2 * heightSize);
+
+    {
+        /* This is ugly codes
+         * You might be able to found a better way without big refactoring, if you can. Please change it.
+         */
+        for (int r = 0; r < maze.length; r++) {
+            for (int c = 0; c < maze[0].length; c++) maze[r][c] = MAZE[r][c];
+        }
+    }
 
     /*
      * Author: Rui Chen
