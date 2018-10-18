@@ -26,6 +26,10 @@ public class GameView extends View implements Runnable, View.OnTouchListener, Ob
     Observer observer;
     boolean finished = false;
 
+    /*
+     * Authors: Rui Chen
+     * Date: 14/09/2018
+     */
     public GameView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         paint = new Paint();
@@ -37,6 +41,10 @@ public class GameView extends View implements Runnable, View.OnTouchListener, Ob
         this.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
     }
 
+    /*
+     * Authors: Rui Chen
+     * Date: 14/09/2018
+     */
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
