@@ -47,5 +47,8 @@ public class UnitTest {
 
         }
     }
-
+    @Test
+    public void changeDirection_test() throws Exception{
+        
+    }
 }
