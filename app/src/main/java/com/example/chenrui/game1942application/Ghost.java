@@ -11,7 +11,7 @@ import android.graphics.Paint;
 
 abstract class Ghost {
 
-    static final float Radius = PacMan.Radius;
+    float Radius = Math.min(Maze.offsetW * Game.ScreenWidth, Maze.offsetH * Game.ScreenHeight) - 8f;
     static final int timeInBlue = 20;
 
     Pos start_position;
@@ -39,7 +39,6 @@ abstract class Ghost {
     void onDraw(Canvas canvas, Paint paint) {
         if (blueMode){
             paint.setColor(Color.BLUE);
-            blueMode = time-- != 0;
         }
         canvas.drawCircle(pos.x * canvas.getWidth(), pos.y * canvas.getHeight(), Radius, paint);
     }
@@ -49,17 +48,17 @@ abstract class Ghost {
      * Date: 14/10/2018
      */
     void step(PacMan pacMan) {
-        Pos pacManPos = pacMan.pos;
         Pos realGhost = new Pos(pos.x * Game.ScreenWidth, pos.y * Game.ScreenHeight);
-        Pos realPacman = new Pos(pacManPos.x * Game.ScreenWidth, pacManPos.y * Game.ScreenHeight);
+        Pos realPacman = new Pos(pacMan.pos.x * Game.ScreenWidth, pacMan.pos.y * Game.ScreenHeight);
         // in the blue mode the player will not loss life
         AI ai = new AI();
         if (blueMode){
-            getMove(ai.movingAI(pacManPos, this.pos, probingPos, "escaping"));
-            if (realGhost.getDistance(realPacman) <= PacMan.Radius + Radius) {Game.mark += 10; this.reset();}
+            blueMode = time-- != 0;
+            getMove(ai.movingAI(pacMan.pos, this.pos, probingPos, "escaping"));
+            if (realGhost.getDistance(realPacman) <= pacMan.Radius + Radius) {Game.mark += 10; this.reset();}
         } else {
             getMove(ai.movingAI(pacMan.pos, this.pos, probingPos, "chasing"));
-            if (realGhost.getDistance(realPacman) <= PacMan.Radius + Radius) {pacMan.life--; pacMan.reset();}
+            if (realGhost.getDistance(realPacman) <= pacMan.Radius + Radius) {pacMan.life--; pacMan.reset();}
         }
     }
 

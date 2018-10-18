@@ -15,7 +15,7 @@ class PacMan {
 
     Pos pos = new Pos(START_POS);
     Pos.Direction direction = Pos.Direction.Stay;
-    static float Radius = Math.min(Maze.offsetW * Game.ScreenWidth, Maze.offsetH * Game.ScreenHeight) - 10f;
+    float Radius = Math.min(Maze.offsetW * Game.ScreenWidth, Maze.offsetH * Game.ScreenHeight) - 10f;
     int life = 3;
 
     /*

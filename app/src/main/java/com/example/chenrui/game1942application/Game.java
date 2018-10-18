@@ -16,11 +16,11 @@ class Game {
     static float ScreenWidth;
     static float ScreenHeight;
 
-    private Observer observer;
+    Observer observer;
 
-    private Ghosts ghosts;
-    private PacMan pacman;
-    private Maze maze;
+    Ghosts ghosts;
+    PacMan pacman;
+    Maze maze;
 
     /*
 

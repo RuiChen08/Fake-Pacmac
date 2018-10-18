@@ -22,7 +22,7 @@ public class MazeTest {
      * Date: 19/10/2018
      */
     @Test
-    public void mazeStep_test() throws Exception {
+    public void mazeStepTest() throws Exception {
 
        { for (int r = 0; r < Maze.maze.length; r++) {
             for (int c = 0; c < Maze.maze[0].length; c++) Maze.maze[r][c] = MAZE[r][c];

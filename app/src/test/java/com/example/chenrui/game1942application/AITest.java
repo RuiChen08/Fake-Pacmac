@@ -2,6 +2,9 @@ package com.example.chenrui.game1942application;
 
 import org.junit.Test;
 
+import java.util.Random;
+
+import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertTrue;
 
 /**
@@ -59,5 +62,40 @@ public class AITest {
         bst_2 = AI.BFS(new AI.intPos(3,2), new AI.intPos(3,1) , maze1);
         assertTrue("The direction should be expected,but is " + bst_2, bst_2 == Pos.Direction.Left);
     }
+
+    /*
+     * Author: Rui Chen
+     * Date: 19/10/2018
+     */
+    @Test
+    public void movingAITest(){
+        Pos posPacman = new Pos(3 * Maze.offsetW, 3 * Maze.offsetH);
+        Pos posGhost = new Pos(3 * Maze.offsetW, 5 * Maze.offsetH);
+        AI.intPos probingPos = new AI.intPos(1, 9);
+
+        AI ai = new AI();
+
+        // Going up as the pacman is up to ghost
+        Pos.Direction d = ai.movingAI(posPacman, posGhost, probingPos, "chasing");
+        assertEquals(Pos.Direction.Up, d);
+
+        posPacman = new Pos(3 * Maze.offsetW, 7 * Maze.offsetH);
+        d = ai.movingAI(posPacman, posGhost, probingPos, "chasing");
+        assertEquals(Pos.Direction.Down, d);
+
+        posPacman = new Pos(3 * Maze.offsetW, 27 * Maze.offsetH);
+        d = ai.movingAI(posPacman, posGhost, probingPos, "chasing");
+        assertEquals(Pos.Direction.Down, d);
+
+        posGhost = new Pos(3 * Maze.offsetW, 3 * Maze.offsetH);
+        probingPos = new AI.intPos(3, 1);
+        d = ai.movingAI(posPacman, posGhost, probingPos, "escaping");
+        assertEquals(Pos.Direction.Down, d);
+
+        posPacman = new Pos(3 * Maze.offsetW, 3 * Maze.offsetH);
+        d = ai.movingAI(posPacman, posGhost, probingPos, "escaping");
+        assertEquals(Pos.Direction.Down, d);
+    }
+
 
 }
