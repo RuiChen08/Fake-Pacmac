@@ -10,7 +10,7 @@ import static junit.framework.Assert.assertTrue;
 
 /*
  *White board test
- * Authors: Chucheng Qian, Rui Chen
+ * Authors: Chucheng Qian
  * Date: 18/10/2018
  */
 
