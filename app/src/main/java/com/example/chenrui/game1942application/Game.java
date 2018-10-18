@@ -62,6 +62,7 @@ class Game {
         ghosts.step(pacman);
         pacman.step();
         if (pacman.life <= 0) observer.update();
+        if (maze.noDots()) observer.update();
     }
 
     /* Authors: Rui Chen

@@ -43,6 +43,7 @@ class Maze{
             {3, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 3},
             {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3},
     };
+
     static short[][] maze = new short[MAZE.length][MAZE[0].length];
     static float widthSize = maze[0].length;
     static float heightSize = maze.length;
@@ -96,5 +97,11 @@ class Maze{
         if (v == 1) Game.mark += 1;
         if (v == 2) Game.mark += 5;
         return v == 2;
+    }
+
+    boolean noDots() {
+        for (int r = 0; r < maze.length; r++) {
+            for (int c = 0; c < maze[0].length; c++) { if (maze[r][c] == 1 || maze[r][c] == 2) return false;}}
+        return true;
     }
 }
