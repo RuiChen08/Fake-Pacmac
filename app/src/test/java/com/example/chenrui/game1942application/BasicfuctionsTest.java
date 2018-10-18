@@ -33,7 +33,6 @@ public class BasicfuctionsTest {
         Pos p2 =new Pos(0.1f,0.05f);
         maze.step(p2);
         assertTrue("The mark should be 5 but is "+Game.mark,Game.mark==6);
-        System.out.println(Game.mark);
 
 
     }
@@ -45,6 +44,39 @@ public class BasicfuctionsTest {
         Maze.maze=new short[MAZE.length][MAZE[0].length];
         assertTrue("There should be no dots,but returns noDots==true" ,maze.noDots()==true);
         }
+
+    @Test
+    public void getMoveTest() throws Exception {
+        Clyde g = new Clyde();
+        g.pos.x=1.0f;
+        g.pos.y=1.0f;
+        g.getMove(Pos.Direction.Up);
+        g.getMove(Pos.Direction.Up);
+        assertEquals(1.0f, g.pos.x);
+        assertEquals(1.0f, g.pos.y);
+
+        g.pos.x=0.05f;
+        g.pos.y=0.2f;
+        g.getMove(Pos.Direction.Left);
+
+        assertEquals(0.05f, g.pos.x);
+        assertEquals(0.2f, g.pos.y);
+
+        g.getMove(Pos.Direction.Right);
+        assertEquals(0.12142858f, g.pos.x);
+        assertEquals(0.2f, g.pos.y);
+
+        g.getMove(Pos.Direction.Down);
+        assertEquals(0.12142858f, g.pos.x);
+        assertEquals(0.24000001f, g.pos.y);
+
+        g.pos.x=0.12f;
+        g.pos.y=0.00f;
+        g.getMove(Pos.Direction.Right);
+        assertEquals(0.12f, g.pos.x);
+        assertEquals(0.00f, g.pos.y);
+
+    }
 
 
 
