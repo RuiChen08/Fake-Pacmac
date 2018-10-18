@@ -29,10 +29,43 @@ public class ExampleUnitTest {
         // Todo. some auto-generated test, however, it is not a good way for writing testing as we are writing test after implementation
     }
 
-    @Test
+    /*@Test
     public void aiChasing_test(){
         assertTrue("The direction should be UP,but is "+AI.chasing(new Pos(1.0f, 1.0f),new Pos(1.0f, 2.0f), probingPos), AI.chasing(new Pos(1.0f, 1.0f),new Pos(1.0f, 2.0f), probingPos) == Pos.Direction.Up);
         //Todo
+    }*/
+    /*
+     *  Author: Ruiyi Sun
+     *  Date: 18/10/2018
+     * write some codes to BST in AI class
+     * */
+    @Test
+    public void BST_Test()throws ArrayIndexOutOfBoundsException{
+        //  the branch coverage test
+        //1: if player not move ,the ghost will not move
+        short[][] maze = new short[][]{
+                {1,1,1,1,1,1,1,1},
+                {1,1,1,1,1,1,1,1},
+                {1,1,1,1,1,1,1,1}
+        };
+        Pos.Direction bst = AI.BST(new AI.intPos(2,2), new AI.intPos(2,2) , maze);
+        assertTrue("The direction should be expected,but is "+bst, bst == Pos.Direction.Stay);
+        // the other test in the branch
+        short[][] maze1 = new short[][]{
+                {1,1,1,1,1,1,1,1},
+                {1,1,1,1,1,1,1,1},
+                {1,1,1,1,1,1,1,1},
+                {1,1,1,1,1,1,1,1},
+                {1,1,1,1,1,1,1,1},
+                {1,1,1,1,1,1,1,1},
+                {1,1,1,1,1,1,1,1},
+                {1,1,1,1,1,1,1,1}
+        };
+        Pos.Direction bst_1 = AI.BST(new AI.intPos(1,2), new AI.intPos(2,2) , maze);
+        assertTrue("The direction should be expected,but is "+bst_1, bst_1 == Pos.Direction.Down);
+
+
+
     }
 
     @Test
