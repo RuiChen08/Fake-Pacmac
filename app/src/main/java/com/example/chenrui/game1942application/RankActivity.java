@@ -1,5 +1,6 @@
 package com.example.chenrui.game1942application;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Environment;
@@ -31,7 +32,6 @@ public class RankActivity extends AppCompatActivity {
         Intent intent = getIntent();
         message = intent.getStringExtra(GameOverActivity.EXTRA_MESSAGE);
 
-
         TextView textView = findViewById(R.id.textView4);
         textView.setText(names(result()));
 
@@ -39,20 +39,18 @@ public class RankActivity extends AppCompatActivity {
         textView2.setText(marks(result()));
     }
 
-
-
     /**
      * @author Chucheng Qian, Rui Chen
      * @Date 17/10/2018
      */
-    public ArrayList<RankBoard> result (){
-        String path = this.getExternalFilesDir(Environment.DIRECTORY_NOTIFICATIONS) + "/RankData";
+    public ArrayList<RankBoard> result(){
+        String path = this.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS) + "/RankData";
         File f = new File(path);
-        if(f==null){
+        if(!f.exists()){
             RankBoard.create(path);
         }
 
-        RankBoard data = new RankBoard(message,Game.mark);
+        RankBoard data = new RankBoard(message, Game.mark);
         //RankBoard data1 = new RankBoard("Hugh",Game.mark);
 
         data.save(path);
@@ -72,7 +70,6 @@ public class RankActivity extends AppCompatActivity {
         for (int i =0;i<dataload.size();i++){
             namess += "\n" + dataload.get(i).name + "\n";
         }
-        System.out.println(namess);
         return namess;
     }
 
@@ -96,13 +93,4 @@ public class RankActivity extends AppCompatActivity {
         Log.d("back", "back button pressed");
         finish();
     }
-
-
-
-
-
-
-
-
-
 }

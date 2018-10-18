@@ -21,7 +21,7 @@ public class GhostTest {
      * Date: 18/10/2018
      */
     @Test
-    public void getDirection_test() throws Exception {
+    public void getDirectionTest() throws Exception {
         Ghosts gs = new Ghosts();
         Random random = new Random();
         for (int c = 0; c < 5000; c++) {

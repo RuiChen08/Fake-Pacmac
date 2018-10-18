@@ -17,6 +17,7 @@ public class AITest {
      * write some codes to BFS in AI class
      *
      * The maze is assumed to have walls surrounded outsides !!
+     * Black box testing, we know the codes
      * */
     @Test
     public void BFS_Test(){
@@ -38,12 +39,13 @@ public class AITest {
                 {3,1,1,3,1,1,1,3},
                 {3,1,1,1,1,1,1,3},
                 {3,1,1,1,1,1,1,3},
-                {3,1,1,1,1,1,1,3},
-                {3,1,1,1,1,1,1,3},
-                {3,1,1,1,1,1,1,3},
+                {3,1,1,3,1,1,1,3},
+                {3,1,1,3,1,1,1,3},
+                {3,1,1,3,1,1,1,3},
                 {3,1,1,1,1,1,1,3},
                 {3,3,3,3,3,3,3,3}
         };
+        // This is a black box testing, it is branch complete
         // this is the Down test
         Pos.Direction bst_1 = AI.BFS(new AI.intPos(1,2), new AI.intPos(2,2) , maze);
         assertTrue("The direction should be expected,but is " + bst_1, bst_1 == Pos.Direction.Down);

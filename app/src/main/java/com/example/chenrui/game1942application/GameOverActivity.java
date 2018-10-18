@@ -28,7 +28,6 @@ public class GameOverActivity extends AppCompatActivity {
      */
     public void backButtonPressed(View view) {
         Log.d("gameover", "back button pressed");
-
         finish();
     }
 

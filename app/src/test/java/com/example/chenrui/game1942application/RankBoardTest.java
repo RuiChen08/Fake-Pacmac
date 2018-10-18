@@ -15,7 +15,12 @@ import static junit.framework.Assert.assertTrue;
  */
 
 public class RankBoardTest {
-    public ArrayList<RankBoard> getResults()  {
+
+    /*
+     * Author: ChuCheng Qian
+     * Date: 19/10/2018
+     */
+    private ArrayList<RankBoard> getResults()  {
         RankBoard data1 = new RankBoard("a",10);
         RankBoard data2 = new RankBoard("b",60);
         RankBoard data3 = new RankBoard("c",5);
@@ -30,11 +35,21 @@ public class RankBoardTest {
 
         return dataload;
     }
+
+    /*
+     * Author: ChuCheng Qian
+     * Date: 19/10/2018
+     */
     @Test
     public void testSavingMutiplePlayer(){
         assertTrue("The number of players stored should be 4,but is "+getResults().size(), getResults().size()==4);
 
     }
+
+    /*
+     * Author: ChuCheng Qian
+     * Date: 19/10/2018
+     */
     @Test
     public void testorder(){
         assertTrue("The top1 should be d,but is "+getResults().get(0).name, getResults().get(0).name.equals("d"));
@@ -44,6 +59,11 @@ public class RankBoardTest {
 
 
     }
+
+    /*
+     * Author: ChuCheng Qian
+     * Date: 19/10/2018
+     */
     @Test
     public void testMark(){
         for (int i =0;i<getResults().size();i++) {
