@@ -19,7 +19,6 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
-
 /**
  *
  * Use PersistantDataXML load and store the Mark Rank
@@ -41,7 +40,6 @@ public class RankBoard {
         this.mark = mark;
     }
     RankBoard() {}
-
 
 
     static ArrayList<RankBoard> load(String filename) {

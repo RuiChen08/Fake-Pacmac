@@ -41,17 +41,16 @@ public class RankActivity extends AppCompatActivity {
 
 
 
+    /**
+     * @author Chucheng Qian, Rui Chen
+     * @Date 17/10/2018
+     */
     public ArrayList<RankBoard> result (){
         String path = this.getExternalFilesDir(Environment.DIRECTORY_NOTIFICATIONS) + "/RankData";
         File f = new File(path);
         if(f==null){
             RankBoard.create(path);
         }
-
-
-
-
-
 
         RankBoard data = new RankBoard(message,Game.mark);
         //RankBoard data1 = new RankBoard("Hugh",Game.mark);
@@ -64,6 +63,10 @@ public class RankActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * @author Chucheng Qian
+     * @Date 17/10/2018
+     */
     public String names (ArrayList<RankBoard> dataload){
         String namess="";
         for (int i =0;i<dataload.size();i++){
@@ -73,6 +76,10 @@ public class RankActivity extends AppCompatActivity {
         return namess;
     }
 
+    /**
+     * @author Chucheng Qian
+     * @Date 17/10/2018
+     */
     public String marks (ArrayList<RankBoard> dataload){
         String namess="";
         for (int i =0;i<dataload.size();i++){
@@ -81,6 +88,10 @@ public class RankActivity extends AppCompatActivity {
         return namess;
     }
 
+    /**
+     * @author Chucheng Qian
+     * @Date 17/10/2018
+     */
     public void back2ButtonPressed(View view) {
         Log.d("back", "back button pressed");
 
