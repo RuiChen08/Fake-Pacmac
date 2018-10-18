@@ -79,7 +79,6 @@ class Maze{
                         Food.drawPowerPellet(canvas, paint, offsetW + c / widthSize, offsetH + r / heightSize);
                         break;
                     case 3:
-                        //paint.setColor(Color.BLUE);
                         paint.setColor(Color.parseColor("#FFB6C1"));
                         canvas.drawRect(c / widthSize * canvas.getWidth(), r / heightSize * canvas.getHeight(),
                                 (2 * offsetW + c / widthSize) * canvas.getWidth(), (2 * offsetH + r / heightSize) * canvas.getHeight(), paint);

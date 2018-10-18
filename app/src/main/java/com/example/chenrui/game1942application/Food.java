@@ -9,17 +9,19 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 
+import java.awt.Color;
+
 abstract class Food {
 
     private static float dotRadius = 0.004f;
     private static float pelletRadius = 0.008f;
 
     /*
-     * Author: Rui Chen
+     * Author: Rui Chen,Ruiyi Sun
      * Date: 18/10/2018
      */
     static void drawPacDot(Canvas canvas, Paint paint, float x, float y) {
-        paint.setColor(Color.RED);// the PacDot should be a red dot
+        paint.setColor(Color.WHITE);// the PacDot should be a white dot
         canvas.drawCircle(x * canvas.getWidth(), y * canvas.getHeight(), dotRadius * canvas.getHeight(), paint);
     }
 
