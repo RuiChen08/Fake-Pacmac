@@ -14,6 +14,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    /*
+     * Author: Rui Chen
+     * Date: 18/10/2018
+     */
     public void startButtonPressed(View view) {
         Log.d("game", "start button pressed");
 
@@ -22,8 +26,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * @author Chucheng Qian
-     * @Date 17/10/2018
+     * Author Chucheng Qian
+     * Date 17/10/2018
      *
      * Showing the rank of previous players, previous players marks should be stored when game is finished
      */

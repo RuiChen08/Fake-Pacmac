@@ -22,6 +22,10 @@ public class Pos {
         this.y = y;
     }
 
+    /*
+     * Author: Rui Chen
+     * Date: 14/09/2018
+     */
     float getDistance(Pos pos){
         return (float) Math.sqrt(Math.pow(pos.x - x, 2) + Math.pow(pos.y - y, 2));
     }
@@ -52,6 +56,10 @@ public class Pos {
         }
     }
 
+    /*
+     * Author: Rui Chen
+     * Date: 14/10/2018
+     */
     static enum Direction {
         Up, Down, Right, Left, Stay;
     }

@@ -35,6 +35,10 @@ public class RankBoard {
     String name;
     int mark;
 
+    /*
+     * @author: ChuCheng Qian
+     * @date: 18/10/2018
+     */
     RankBoard(String name, int mark) {
         this.name = name;
         this.mark = mark;
@@ -42,6 +46,10 @@ public class RankBoard {
     RankBoard() {}
 
 
+    /*
+     * @author: ChuCheng Qian
+     * @date: 18/10/2018
+     */
     static ArrayList<RankBoard> load(String filename) {
         File f = new File(filename);
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -84,6 +92,10 @@ public class RankBoard {
         return rankList;
     }
 
+    /*
+     * @author: ChuCheng Qian
+     * @date: 18/10/2018
+     */
     static Document create(String filename) {
         File f = new File(filename);
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -117,7 +129,11 @@ public class RankBoard {
     }
 
 
-    public void save(String filename) {
+    /*
+     * @author: ChuCheng Qian
+     * @date: 18/10/2018
+     */
+    void save(String filename) {
         File f = new File(filename);
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         DocumentBuilder db;
@@ -158,8 +174,6 @@ public class RankBoard {
                 }else{
                     rank.appendChild(player);
                 }
-
-
             }
 
             for(int i=0;i<players.getLength()-1;i++){
@@ -177,11 +191,7 @@ public class RankBoard {
                     }else if(mark<=m2){
                     rank.appendChild(player);
                 }
-
-
             }
-
-
 
             // save the xml file
             TransformerFactory transformerFactory = TransformerFactory
@@ -199,6 +209,10 @@ public class RankBoard {
         }
     }
 
+    /*
+     * @author: ChuCheng Qian
+     * @date: 18/10/2018
+     */
     public void show() {
         System.out.println("Name : " + name);
         System.out.println("Mark : " + mark);
@@ -217,8 +231,5 @@ public class RankBoard {
             dataload.get(i).show();
         }
     }*/
-
-
-
 }
 

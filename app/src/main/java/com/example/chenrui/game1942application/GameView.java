@@ -92,6 +92,10 @@ public class GameView extends View implements Runnable, View.OnTouchListener, Ob
         return true;
     }
 
+    /*
+     * Author: Rui Chen
+     * Date: 18/10/2018
+     */
     @Override
     public void run() {
         if (!finished) {
@@ -101,18 +105,23 @@ public class GameView extends View implements Runnable, View.OnTouchListener, Ob
         }
     }
 
+
+    /*
+     * Author: ChuCheng Qian
+     * Date: 18/10/2018
+     */
     void registerObserver(Observer observer) {
         this.observer = observer;
     }
 
+    /*
+     * Author: ChuCheng Qian
+     * Date: 18/10/2018
+     */
     @Override
     public void update() {
         finished = true;
         observer.update();
     }
-
-    /*private void invalidateHelper(Rect[] rects) {
-        for (Rect r : rects) this.invalidate(r);
-    }*/
 
 }

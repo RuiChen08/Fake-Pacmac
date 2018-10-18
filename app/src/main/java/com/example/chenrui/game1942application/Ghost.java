@@ -15,12 +15,18 @@ abstract class Ghost {
     static final int timeInBlue = 20;
 
     Pos start_position;
+
     boolean blueMode = false;
-    int time = timeInBlue;
-    Pos pos;
     AI.intPos probingPos = new AI.intPos(9, 6);
+    int time = timeInBlue;
+
+    Pos pos;
     Pos.Direction direction = Pos.Direction.Stay;
 
+    /*
+     * Author: Rui Chen
+     * Date: 18/10/2018
+     */
     Ghost(Pos start_position){
         this.start_position = start_position;
         this.pos = new Pos(start_position);

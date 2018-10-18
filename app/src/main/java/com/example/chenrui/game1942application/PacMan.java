@@ -17,6 +17,10 @@ class PacMan {
     static float Radius = Math.min(Maze.offsetW * Game.ScreenWidth, Maze.offsetH * Game.ScreenHeight) - 10f;
     int life = 3;
 
+    /*
+     * Author: Rui Chen
+     * Date: 18/10/2018
+     */
     void onDraw(Canvas canvas, Paint paint) {
         paint.setColor(Color.WHITE);
         //paint.setColor(Color.rgb(244, 164, 66));

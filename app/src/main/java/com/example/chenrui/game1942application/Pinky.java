@@ -15,10 +15,12 @@ public class Pinky extends Ghost {
 
     static final Pos START_POS = new Pos(17 * Maze.offsetW,23 * Maze.offsetH);
 
-    Pinky(){
-        super(START_POS);
-    }
+    Pinky(){super(START_POS);}
 
+    /*
+     * Author: Rui Chen
+     * Date: 18/10/2018
+     */
     @Override
     void onDraw(Canvas canvas, Paint paint) {
         paint.setColor(Color.rgb(244, 65, 175)); // The pink one

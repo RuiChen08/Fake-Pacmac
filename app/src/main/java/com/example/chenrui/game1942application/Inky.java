@@ -23,6 +23,10 @@ public class Inky extends Ghost {
         super(START_POS);
     }
 
+    /*
+     * Author: Rui Chen
+     * Date: 18/10/2018
+     */
     @Override
     void onDraw(Canvas canvas, Paint paint) {
         paint.setColor(Color.BLUE);

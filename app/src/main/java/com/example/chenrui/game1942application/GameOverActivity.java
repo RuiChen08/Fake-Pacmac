@@ -14,7 +14,6 @@ public class GameOverActivity extends AppCompatActivity {
      * Authors: Chucheng Qian
      * Date: 17/10/2018
      */
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,12 +22,20 @@ public class GameOverActivity extends AppCompatActivity {
     public static final String EXTRA_MESSAGE ="com.example.chenrui.game1942application.MESSAGE";
 
 
+    /*
+     * Author: ChuCheng Qian
+     * Date: 18/10/2018
+     */
     public void backButtonPressed(View view) {
         Log.d("gameover", "back button pressed");
 
         finish();
     }
 
+    /*
+     * Author: ChuCheng Qian
+     * Date: 18/10/2018
+     */
     public void rankButtonPressed(View view) {
         Log.d("gameover", "rank button pressed");
 

@@ -51,6 +51,10 @@ class Maze{
     static float offsetW = 1 / (2 * widthSize);
     static float offsetH = 1 / (2 * heightSize);
 
+    /*
+     * Author: Rui Chen
+     * Date: 18/10/2018
+     */
     {
         /* This is ugly codes
          * You might be able to found a better way without big refactoring, if you can. Please change it.
@@ -64,7 +68,7 @@ class Maze{
      * Author: Rui Chen
      * Date: 15/10/2018
      */
-    static void onDraw(Canvas canvas, Paint paint) {
+    void onDraw(Canvas canvas, Paint paint) {
         for (int r = 0; r < maze.length; r++) {
             for (int c = 0; c < maze[0].length; c++) {
                 switch (maze[r][c]) {
@@ -93,7 +97,7 @@ class Maze{
      * Author: Rui Chen
      * Date: 15/10/2018
      */
-    static boolean step(Pos pos) {
+    boolean step(Pos pos) {
         int v = maze[(int) (pos.y / (2 * Maze.offsetH))][(int) (pos.x / (2*Maze.offsetW))];
         maze[(int) (pos.y / (2 * Maze.offsetH))][(int) (pos.x / (2*Maze.offsetW))] = 0;
         if (v == 1) Game.mark += 1;
@@ -101,6 +105,10 @@ class Maze{
         return v == 2;
     }
 
+    /*
+     * Author: Rui Chen
+     * Date: 18/10/2018
+     */
     boolean noDots() {
         for (int r = 0; r < maze.length; r++) {
             for (int c = 0; c < maze[0].length; c++) { if (maze[r][c] == 1 || maze[r][c] == 2) return false;}}

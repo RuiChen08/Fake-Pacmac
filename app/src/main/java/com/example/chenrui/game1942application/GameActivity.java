@@ -20,7 +20,10 @@ public class GameActivity extends AppCompatActivity implements Observer{
         gameView.registerObserver(this);
     }
 
-
+    /*
+     * Author: Rui Chen, ChuCheng Qian
+     * Date: 18/10/2018
+     */
     @Override
     public void update() {
         Log.d("finish", "game over");

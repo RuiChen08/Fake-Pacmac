@@ -103,13 +103,5 @@ public class AI {
             this.y = y;
             this.parent = parent;
         }
-
-        boolean moveJudge(Pos.Direction d, short[][] maze){
-            if (d == Pos.Direction.Up) return maze[x-1][y] <= 2;
-            if (d == Pos.Direction.Down) return maze[x+1][y] <= 2;
-            if (d == Pos.Direction.Left) return maze[x][y-1] <= 2;
-            if (d == Pos.Direction.Right) return maze[x][y+1] <= 2;
-            return false;
-        }
     }
 }
