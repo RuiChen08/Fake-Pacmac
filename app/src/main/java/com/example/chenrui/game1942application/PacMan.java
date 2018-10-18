@@ -19,7 +19,7 @@ class PacMan {
 
     void onDraw(Canvas canvas, Paint paint) {
         paint.setColor(Color.WHITE);
-        //paint.setColor(Color.rgb(244, 164, 66));
+        // In this game, we write the white dot as the PacMan.
         canvas.drawCircle(pos.x * canvas.getWidth(), pos.y * canvas.getHeight(), Radius, paint);
     }
 
