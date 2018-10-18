@@ -26,6 +26,10 @@ public class GameView extends View implements Runnable, View.OnTouchListener, Ob
     Observer observer;
     boolean finished = false;
 
+    /*
+     * Authors: Rui Chen
+     * Date: 14/09/2018
+     */
     public GameView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         paint = new Paint();
@@ -37,34 +41,14 @@ public class GameView extends View implements Runnable, View.OnTouchListener, Ob
         this.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
     }
 
+    /*
+     * Authors: Rui Chen
+     * Date: 14/09/2018
+     */
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         game.onDraw(canvas, paint);
-    }
-
-    /*
-     * Author: Rui Chen
-     * Date: 23/09/2018
-     *
-     * This is about drawing the virtual keys. Basically, it is a large circle and a small circle
-     * where the small circle represents the direction
-     */
-    void drawVirtualKeys(Canvas canvas){
-        paint.setColor(Color.GRAY);
-        paint.setAlpha(0x40);
-        float r = 0.1f * canvas.getWidth();
-        canvas.drawCircle(pre_pos.x, pre_pos.y, r, paint);
-
-        float l = pre_pos.getDistance(post_pos);
-        // If the small circle is not inside the large circle
-        if (l >= r){
-            // Adjust the coordinate so that the post pos is inside the large circle
-            post_pos.x += (l - r) * (pre_pos.x - post_pos.x) / l;
-            post_pos.y += (l - r) * (pre_pos.y - post_pos.y) / l;
-        }
-        paint.setAlpha(0x80);
-        canvas.drawCircle(post_pos.x, post_pos.y, 0.05f * canvas.getWidth(), paint);
     }
 
     /*
@@ -104,7 +88,6 @@ public class GameView extends View implements Runnable, View.OnTouchListener, Ob
             this.postDelayed(this, 500);
         }
     }
-
 
     /*
      * Author: ChuCheng Qian

@@ -11,7 +11,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 
-public class Clyde extends Ghost {
+class Clyde extends Ghost {
 
     static Pos START_POSITION = new Pos(13 * Maze.offsetW,23 * Maze.offsetH);
 
@@ -27,14 +27,5 @@ public class Clyde extends Ghost {
     void onDraw(Canvas canvas, Paint paint) {
         paint.setColor(Color.GREEN); // the orange one
         super.onDraw(canvas, paint);
-    }
-
-    /*
-     * Authors: Rui Chen, Chucheng Qian
-     * Date: 14/10/2019
-     */
-    void step(PacMan pacMan) {
-        super.step(pacMan);
-        if (!blueMode) getMove(AI.movingAI(pacMan.pos, this.pos, probingPos, "chasing"));
     }
 }
