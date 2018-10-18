@@ -7,6 +7,12 @@ import java.util.Random;
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertTrue;
 
+
+/*
+ * white box test
+ * Authors: Chucheng Qian
+ * Date: 18/10/2018
+ */
 public class BasicfuctionsTest {
     @Test
     public void getDirection_test() throws Exception {
@@ -22,9 +28,9 @@ public class BasicfuctionsTest {
         g.getMove(Pos.Direction.Right);
         assertEquals(1.0f, g.pos.x);
         assertEquals(0.96f, g.pos.y);
-        /*g.getMove(Pos.Direction.Down);
+        g.getMove(Pos.Direction.Down);
         assertEquals(g.pos.x, 1.0f);
-        assertEquals(g.pos.y, 1.0f);*/
+        assertEquals(g.pos.y, 1.0f);
 
         /*g.pos.x=0.12f;
         g.pos.y=0.00f;

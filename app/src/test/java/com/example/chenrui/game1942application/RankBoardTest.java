@@ -9,7 +9,7 @@ import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertTrue;
 
 /*
- * black board test
+ * black box test
  * Authors: Chucheng Qian
  * Date: 18/10/2018
  */
