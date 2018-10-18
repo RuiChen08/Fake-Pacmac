@@ -11,20 +11,15 @@ import android.graphics.Paint;
 
 class PacMan {
 
-    Pos pos;
+    static final Pos START_POS = new Pos(13 * Maze.offsetW,47 * Maze.offsetH);
+    Pos pos = START_POS;
     Pos.Direction direction = Pos.Direction.Stay;
     static float Radius = Math.min(Maze.offsetW * Game.ScreenWidth, Maze.offsetH * Game.ScreenHeight) - 10f;
-    //static int life = 3;
-
-
-    public PacMan(Pos pos) {
-        this.pos = pos;
-    }
+    int life = 3;
 
     void onDraw(Canvas canvas, Paint paint) {
         paint.setColor(Color.rgb(244, 164, 66));
         canvas.drawCircle(pos.x * canvas.getWidth(), pos.y * canvas.getHeight(), Radius, paint);
-
     }
 
     /*

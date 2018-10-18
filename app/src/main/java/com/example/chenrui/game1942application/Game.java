@@ -12,9 +12,7 @@ import android.graphics.Paint;
 class Game {
 
     static int mark;
-    static int life;
 
-    static final Pos START_POS= new Pos(13 * Maze.offsetW,47 * Maze.offsetH);
     static float ScreenWidth;
     static float ScreenHeight;
 
@@ -31,12 +29,11 @@ class Game {
     Game(int heightPixels, int widthPixels, Observer observer) {
         ScreenWidth = widthPixels;
         ScreenHeight = heightPixels;
-        pacman = new PacMan(new Pos(START_POS));
         ghosts = new Ghosts();
         maze = new Maze();
+        pacman = new PacMan();
         this.observer = observer;
         mark = 0;
-        life = 3;
     }
 
 
@@ -53,7 +50,7 @@ class Game {
         pp.setTextSize(40);
         canvas.drawText("LIFE:", Maze.offsetW * canvas.getWidth(), Maze.offsetH * canvas.getHeight(), pp);
         canvas.drawText("MARK:",ScreenWidth - Maze.offsetW * canvas.getWidth() * 6, Maze.offsetH * canvas.getHeight(), pp);
-        canvas.drawText(""+Game.life,150 + Maze.offsetW * canvas.getWidth(),Maze.offsetH * canvas.getHeight(),pp);
+        canvas.drawText(""+pacman.life,150 + Maze.offsetW * canvas.getWidth(),Maze.offsetH * canvas.getHeight(),pp);
         canvas.drawText(""+Game.mark, 150 + ScreenWidth - Maze.offsetW * canvas.getWidth() * 6,Maze.offsetH * canvas.getHeight(),pp);
     }
 
@@ -62,10 +59,9 @@ class Game {
      */
     void step() {
         if (maze.step(pacman.pos)) ghosts.inBlue();
-        ghosts.step(pacman.pos);
+        ghosts.step(pacman);
         pacman.step();
-        if (life <= 0) observer.update();
-
+        if (pacman.life <= 0) observer.update();
     }
 
     /* Authors: Rui Chen

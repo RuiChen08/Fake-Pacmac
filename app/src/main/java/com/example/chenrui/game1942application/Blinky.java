@@ -31,9 +31,9 @@ class Blinky extends Ghost {
      * Authors: Rui Chen, Chucheng Qian
      * Date: 14/10/2019
      */
-    void step(Pos pacManPos) {
-        super.step(pacManPos);
-        if (!blueMode) getMove(AI.movingAI(pacManPos, this.pos, probingPos, "chasing"));
+    void step(PacMan pacMan) {
+        super.step(pacMan);
+        if (!blueMode) getMove(AI.movingAI(pacMan.pos, this.pos, probingPos, "chasing"));
     }
 }
 

@@ -51,7 +51,7 @@ class Ghosts extends ArrayList<Ghost>{
      * Author: Rui Chen
      * Date: 15/10/2018
      */
-    public void step(Pos pos) {
-        for (Ghost g : this) g.step(pos);
+    public void step(PacMan pacMan) {
+        for (Ghost g : this) g.step(pacMan);
     }
 }

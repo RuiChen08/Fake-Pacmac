@@ -39,11 +39,12 @@ abstract class Ghost {
      * Authors: Rui Chen,Chucheng Qian, Ruiyi Sun
      * Date: 14/10/2018
      */
-    void step(Pos pacManPos) {
+    void step(PacMan pacMan) {
+        Pos pacManPos = pacMan.pos;
         Pos realGhost = new Pos(pos.x * Game.ScreenWidth, pos.y * Game.ScreenHeight);
         Pos realPacman = new Pos(pacManPos.x * Game.ScreenWidth, pacManPos.y * Game.ScreenHeight);
         // in the blue mode the player will not loss life
-        if (realGhost.getDistance(realPacman) <= PacMan.Radius+Radius && !blueMode){ Game.life--;}
+        if (realGhost.getDistance(realPacman) <= PacMan.Radius+Radius && !blueMode){ pacMan.life--;}
         if(blueMode) getMove(AI.movingAI(pacManPos, this.pos, probingPos, "escaping"));
     }
 

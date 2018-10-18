@@ -31,10 +31,9 @@ public class Inky extends Ghost {
      * Date: 17/10/2018
      * add some code to move Inky
      */
-    void step(Pos pacManPos) {
-
-        super.step(pacManPos);
-        if(!blueMode) getMove(AI.movingAI(pacManPos, this.pos, probingPos, "chasing"));
+    void step(PacMan pacMan) {
+        super.step(pacMan);
+        if(!blueMode) getMove(AI.movingAI(pacMan.pos, this.pos, probingPos, "chasing"));
     }
 }
 
