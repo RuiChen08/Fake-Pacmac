@@ -25,7 +25,8 @@ public class AI {
         // If the ghost is too far away to from pac-man, it will try to get to different probing position until finding pac-man
         if (strategy.equals("chasing")) {
             if (Math.abs(pac_man_r - ghost_r) <= 3 && Math.abs(pac_man_c - ghost_c) <= 3) {
-                return BST(new intPos(ghost_r, ghost_c), new intPos(pac_man_r, pac_man_c), Maze.maze);
+                probingPos.x = pac_man_r;
+                probingPos.y = pac_man_c;
             }
         } else if (strategy.equals("escaping")){
             if (Math.abs(pac_man_r - ghost_r) <= 10 && Math.abs(pac_man_c - ghost_c) <= 10) {
@@ -60,19 +61,19 @@ public class AI {
         while(true) {
             if (destination.x == current.x && destination.y == current.y) break;
             // Searching the 4 adjacent cells of the root coordinate
-            if (maze[current.x - 1][current.y] <= 2 && searching_status[current.x - 1][current.y] == null){
+            if (maze[current.x - 1][current.y] != 3 && searching_status[current.x - 1][current.y] == null){
                 queue.offer(new intPos(current.x - 1, current.y, current == root ? null : current));
                 searching_status[current.x - 1][current.y] = 1;
             }
-            if (maze[current.x + 1][current.y] <= 2 && searching_status[current.x + 1][current.y] == null){
+            if (maze[current.x + 1][current.y] != 3 && searching_status[current.x + 1][current.y] == null){
                 queue.offer(new intPos(current.x + 1, current.y, current == root ? null : current));
                 searching_status[current.x + 1][current.y] = 1;
             }
-            if (maze[current.x][current.y + 1] <= 2 && searching_status[current.x][current.y + 1] == null){
+            if (maze[current.x][current.y + 1] != 3 && searching_status[current.x][current.y + 1] == null){
                 queue.offer(new intPos(current.x, current.y + 1, current == root ? null : current));
                 searching_status[current.x][current.y + 1] = 1;
             }
-            if (maze[current.x][current.y - 1] <= 2 && searching_status[current.x][current.y - 1] == null){
+            if (maze[current.x][current.y - 1] != 3 && searching_status[current.x][current.y - 1] == null){
                 queue.offer(new intPos(current.x, current.y - 1, current == root ? null : current));
                 searching_status[current.x][current.y - 1] = 1;
             }
