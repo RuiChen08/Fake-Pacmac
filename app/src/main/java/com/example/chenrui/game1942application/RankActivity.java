@@ -94,9 +94,7 @@ public class RankActivity extends AppCompatActivity {
      */
     public void back2ButtonPressed(View view) {
         Log.d("back", "back button pressed");
-
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+        finish();
     }
 
 

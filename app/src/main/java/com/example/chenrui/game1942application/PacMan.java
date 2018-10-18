@@ -12,7 +12,7 @@ import android.graphics.Paint;
 class PacMan {
 
     static final Pos START_POS = new Pos(13 * Maze.offsetW,47 * Maze.offsetH);
-    Pos pos = START_POS;
+    Pos pos = new Pos(START_POS);
     Pos.Direction direction = Pos.Direction.Stay;
     static float Radius = Math.min(Maze.offsetW * Game.ScreenWidth, Maze.offsetH * Game.ScreenHeight) - 10f;
     int life = 3;

@@ -19,7 +19,8 @@
         <activity android:name=".GameActivity"
             android:noHistory="true"/>
         <activity android:name=".RankActivity" />
-        <activity android:name=".GameOverActivity"></activity>
+        <activity android:name=".GameOverActivity"
+            android:noHistory="true"/>
     </application>
 
 </manifest>
