@@ -16,10 +16,13 @@ import java.util.Random;
 
 public class Inky extends Ghost {
 
-    Inky(Pos pos){
-        super(pos);
-    }
+    static final Pos START_POS = new Pos(15 * Maze.offsetW,23 * Maze.offsetH);
     int timer = 40;
+
+    Inky(){
+        super(START_POS);
+    }
+
     @Override
     void onDraw(Canvas canvas, Paint paint) {
         paint.setColor(Color.BLUE);

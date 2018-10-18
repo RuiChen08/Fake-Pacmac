@@ -13,8 +13,10 @@ import android.graphics.Paint;
 
 class Blinky extends Ghost {
 
-    Blinky(Pos pos) {
-        super(pos);
+    static Pos START_POSITION = new Pos(11 * Maze.offsetW,23 * Maze.offsetH);
+
+    Blinky() {
+        super(START_POSITION);
     }
 
     /*

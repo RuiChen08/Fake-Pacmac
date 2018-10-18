@@ -13,8 +13,10 @@ import android.graphics.Paint;
 
 public class Pinky extends Ghost {
 
-    Pinky(Pos pos){
-        super(pos);
+    static final Pos START_POS = new Pos(17 * Maze.offsetW,23 * Maze.offsetH);
+
+    Pinky(){
+        super(START_POS);
     }
 
     @Override

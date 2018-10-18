@@ -12,20 +12,15 @@ import java.util.ArrayList;
 
 class Ghosts extends ArrayList<Ghost>{
 
-    static final Pos START_POS_Blinky = new Pos(11 * Maze.offsetW,23 * Maze.offsetH);
-    static final Pos START_POS_Clyde = new Pos(13 * Maze.offsetW,23 * Maze.offsetH);
-    static final Pos START_POS_Inky = new Pos(15 * Maze.offsetW,23 * Maze.offsetH);
-    static final Pos START_POS_Pinky = new Pos(17 * Maze.offsetW,23 * Maze.offsetH);
-
     /*
      * Author: Rui Chen
      * Date: 14/10/2018
      */
     Ghosts() {
-        this.add(new Blinky(new Pos(START_POS_Blinky)));
-        this.add(new Clyde(new Pos(START_POS_Clyde)));
-        this.add(new Inky(new Pos(START_POS_Inky)));
-        this.add(new Pinky(new Pos(START_POS_Pinky)));
+        this.add(new Blinky());
+        this.add(new Clyde());
+        this.add(new Inky());
+        this.add(new Pinky());
     }
 
     /*

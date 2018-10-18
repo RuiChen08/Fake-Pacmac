@@ -14,13 +14,16 @@ abstract class Ghost {
     static final float Radius = PacMan.Radius;
     static final int timeInBlue = 20;
 
+    Pos start_position;
     boolean blueMode = false;
     int time = timeInBlue;
     Pos pos;
     AI.intPos probingPos = new AI.intPos(9, 6);
     Pos.Direction direction = Pos.Direction.Stay;
-    Ghost(Pos pos){
-        this.pos = pos;
+
+    Ghost(Pos start_position){
+        this.start_position = start_position;
+        this.pos = start_position;
     }
 
     /*
@@ -44,8 +47,13 @@ abstract class Ghost {
         Pos realGhost = new Pos(pos.x * Game.ScreenWidth, pos.y * Game.ScreenHeight);
         Pos realPacman = new Pos(pacManPos.x * Game.ScreenWidth, pacManPos.y * Game.ScreenHeight);
         // in the blue mode the player will not loss life
-        if (realGhost.getDistance(realPacman) <= PacMan.Radius+Radius && !blueMode){ pacMan.life--; pacMan.reset();}
-        if(blueMode) getMove(AI.movingAI(pacManPos, this.pos, probingPos, "escaping"));
+        if (blueMode) getMove(AI.movingAI(pacManPos, this.pos, probingPos, "escaping"));
+        if (!blueMode && realGhost.getDistance(realPacman) <= PacMan.Radius + Radius){pacMan.life--; pacMan.reset();}
+        else if (blueMode && realGhost.getDistance(realPacman) <= PacMan.Radius + Radius){Game.mark += 10; this.reset();}
+    }
+
+    private void reset() {
+        this.pos = start_position;
     }
 
     /*
