@@ -24,6 +24,7 @@ public class GameView extends View implements Runnable, View.OnTouchListener, Ob
     Paint paint;
     Game game;
     Observer observer;
+    boolean finished = false;
 
     public GameView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -92,9 +93,11 @@ public class GameView extends View implements Runnable, View.OnTouchListener, Ob
 
     @Override
     public void run() {
-        game.step();
-        this.invalidate();
-        this.postDelayed(this, 500);
+        if (!finished) {
+            game.step();
+            this.invalidate();
+            this.postDelayed(this, 500);
+        }
     }
 
     void registerObserver(Observer observer) {
@@ -103,6 +106,7 @@ public class GameView extends View implements Runnable, View.OnTouchListener, Ob
 
     @Override
     public void update() {
+        finished = true;
         observer.update();
     }
 
