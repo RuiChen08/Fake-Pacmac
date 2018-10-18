@@ -19,9 +19,13 @@ public class Clyde extends Ghost {
         super(START_POSITION);
     }
 
+    /*
+     * Author: Rui Chen
+     * Date: 14/10/2019
+     */
     @Override
     void onDraw(Canvas canvas, Paint paint) {
-        paint.setColor(Color.rgb(244, 155, 66)); // the orange one
+        paint.setColor(Color.GREEN); // the orange one
         super.onDraw(canvas, paint);
     }
 
