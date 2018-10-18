@@ -18,7 +18,8 @@ class PacMan {
     int life = 3;
 
     void onDraw(Canvas canvas, Paint paint) {
-        paint.setColor(Color.rgb(244, 164, 66));
+        paint.setColor(Color.WHITE);
+        //paint.setColor(Color.rgb(244, 164, 66));
         canvas.drawCircle(pos.x * canvas.getWidth(), pos.y * canvas.getHeight(), Radius, paint);
     }
 
