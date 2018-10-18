@@ -10,7 +10,7 @@ import static junit.framework.Assert.assertTrue;
 public class UnitTest {
 
     /*
-     * Authors: Chucheng Qian, Rui Chen
+     * Authors: Chucheng Qian, Rui Chen,weiwei Liang
      * Date: 14/10/2018
      */
     @Test
@@ -47,8 +47,22 @@ public class UnitTest {
 
         }
     }
+
     @Test
-    public void changeDirection_test() throws Exception{
-        
+    public void changeDirection_test(){
+        PacMan pc = new PacMan();
+        pc.changeDirection(Pos.Direction.Down);
+        if (Maze.maze[(int) (pc.pos.y / (2 * Maze.offsetH)) + 1][(int) (pc.pos.x / (2*Maze.offsetW))] < 3){
+            assertTrue("The direction should be Down, but is " + pc.direction, pc.direction == Pos.Direction.Down);
+        }else if (Maze.maze[(int) (pc.pos.y / (2 * Maze.offsetH)) - 1][(int) (pc.pos.x / (2*Maze.offsetW))] < 3){
+            assertTrue("The direction should be Up, but is " + pc.direction, pc.direction == Pos.Direction.Up);
+
+        }else if (Maze.maze[(int) (pc.pos.y / (2 * Maze.offsetH))][(int) (pc.pos.x / (2*Maze.offsetW)) - 1] < 3){
+            assertTrue("The direction should be Left, but is " + pc.direction, pc.direction == Pos.Direction.Left);
+
+        }else if (Maze.maze[(int) (pc.pos.y / (2 * Maze.offsetH))][(int) (pc.pos.x / (2*Maze.offsetW)) + 1] < 3){
+            assertTrue("The direction should be Right, but is " + pc.direction, pc.direction == Pos.Direction.Right);
+
+        }
     }
 }
