@@ -23,13 +23,8 @@ public class GameActivity extends AppCompatActivity implements Observer{
 
     @Override
     public void update() {
-        if(!Game.gameNotFinish){
         Log.d("finish", "game over");
         Intent intent = new Intent(this, GameOverActivity.class);
         startActivity(intent);
-        }
-    }
-    public void restart(){
-
     }
 }
