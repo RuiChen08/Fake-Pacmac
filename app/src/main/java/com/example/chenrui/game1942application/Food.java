@@ -9,8 +9,6 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 
-import java.awt.Color;
-
 abstract class Food {
 
     private static float dotRadius = 0.004f;
