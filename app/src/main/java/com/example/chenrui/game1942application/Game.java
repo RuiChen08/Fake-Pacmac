@@ -11,8 +11,8 @@ import android.graphics.Paint;
 
 class Game {
 
-    static int mark = 0;
-    static int life = 3;
+    static int mark;
+    static int life;
 
     static final Pos START_POS= new Pos(13 * Maze.offsetW,47 * Maze.offsetH);
     static float ScreenWidth;
@@ -21,7 +21,7 @@ class Game {
     private Ghosts ghosts;
     private PacMan pacman;
     private Observer observer;
-    protected static boolean gameNotFinish = true;
+    private Maze maze;
 
     /*
 
@@ -33,7 +33,10 @@ class Game {
         ScreenHeight = heightPixels;
         pacman = new PacMan(new Pos(START_POS));
         ghosts = new Ghosts();
+        maze = new Maze();
         this.observer = observer;
+        mark = 0;
+        life = 3;
     }
 
 
@@ -43,7 +46,7 @@ class Game {
     void onDraw(Canvas canvas, Paint paint) {
         ghosts.onDraw(canvas, paint);
         pacman.onDraw(canvas, paint);
-        Maze.onDraw(canvas, paint);
+        maze.onDraw(canvas, paint);
 
         // Drawing the marks and life counter
         Paint pp = new Paint(Color.RED);
@@ -60,11 +63,9 @@ class Game {
     void step() {
         ghosts.step(pacman.pos);
         pacman.step();
-        if (Maze.step(pacman.pos)) ghosts.inBlue();
-        if (life <= 0 && gameNotFinish){
-            gameNotFinish = false;
-            observer.update();
-        }
+        if (maze.step(pacman.pos)) ghosts.inBlue();
+        if (life <= 0) observer.update();
+
     }
 
     /* Authors: Rui Chen
