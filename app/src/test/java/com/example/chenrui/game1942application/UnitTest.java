@@ -7,7 +7,7 @@ import java.util.Random;
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertTrue;
 
-public class ExampleUnitTest {
+public class UnitTest {
 
     /*
      * Authors: Chucheng Qian, Rui Chen
@@ -47,11 +47,5 @@ public class ExampleUnitTest {
 
         }
     }
-
-
-    //White box testing for ghost AI
-    //public void movingAI()
-
-
 
 }
