@@ -23,7 +23,7 @@ abstract class Ghost {
 
     Ghost(Pos start_position){
         this.start_position = start_position;
-        this.pos = start_position;
+        this.pos = new Pos(start_position);
     }
 
     /*
@@ -53,7 +53,7 @@ abstract class Ghost {
     }
 
     private void reset() {
-        this.pos = start_position;
+        this.pos = new Pos(start_position);
     }
 
     /*

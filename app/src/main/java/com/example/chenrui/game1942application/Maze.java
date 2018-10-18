@@ -43,7 +43,7 @@ class Maze{
             {3, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 3},
             {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3},
     };
-    
+
 
     static short[][] maze = new short[MAZE.length][MAZE[0].length];
     static float widthSize = maze[0].length;

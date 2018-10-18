@@ -13,7 +13,7 @@ import android.graphics.Paint;
 
 public class Clyde extends Ghost {
 
-    static Pos START_POSITION = new Pos(11 * Maze.offsetW,25 * Maze.offsetH);
+    static Pos START_POSITION = new Pos(13 * Maze.offsetW,23 * Maze.offsetH);
 
     Clyde() {
         super(START_POSITION);
