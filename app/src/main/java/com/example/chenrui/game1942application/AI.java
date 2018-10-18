@@ -77,6 +77,7 @@ public class AI {
             }
             current = queue.poll();
         }
+        // Keep looking for it parents until it found the root
         while (current.parent != null) current = current.parent;
         return (new Pos(root.y, root.x)).getDirection(new Pos(current.y, current.x));
     }

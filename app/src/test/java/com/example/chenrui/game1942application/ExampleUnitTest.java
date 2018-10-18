@@ -69,8 +69,4 @@ public class ExampleUnitTest {
         assertTrue("The direction should be expected,but is " + bst_1, bst_1 == Pos.Direction.Down);
     }
 
-    @Test
-    public void aiInFront_test(){
-        //Todo
-    }
 }

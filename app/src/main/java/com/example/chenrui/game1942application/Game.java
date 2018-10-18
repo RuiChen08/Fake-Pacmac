@@ -47,11 +47,11 @@ class Game {
 
         // Drawing the marks and life counter
         Paint pp = new Paint(Color.RED);
-        pp.setTextSize(50);
+        pp.setTextSize(Maze.offsetH * canvas.getHeight());
         canvas.drawText("LIFE:", Maze.offsetW * canvas.getWidth(), Maze.offsetH * canvas.getHeight(), pp);
         canvas.drawText("MARK:",ScreenWidth - Maze.offsetW * canvas.getWidth() * 6, Maze.offsetH * canvas.getHeight(), pp);
-        canvas.drawText(""+pacman.life,150 + Maze.offsetW * canvas.getWidth(),Maze.offsetH * canvas.getHeight(),pp);
-        canvas.drawText(""+Game.mark, 150 + ScreenWidth - Maze.offsetW * canvas.getWidth() * 6,Maze.offsetH * canvas.getHeight(),pp);
+        canvas.drawText(""+pacman.life, 3 * Maze.offsetW * canvas.getWidth(),Maze.offsetH * canvas.getHeight(),pp);
+        canvas.drawText(""+Game.mark, ScreenWidth - Maze.offsetW * canvas.getWidth() * 3,Maze.offsetH * canvas.getHeight(),pp);
     }
 
     /* Authors: Ruiyi Sun, Weiwei Liang,Chucheng Qian, Rui Chen
