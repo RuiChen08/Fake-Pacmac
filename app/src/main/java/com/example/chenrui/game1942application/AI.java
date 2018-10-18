@@ -30,18 +30,18 @@ public class AI {
             }
         } else if (strategy.equals("escaping")){
             if (Math.abs(pac_man_r - ghost_r) <= 3 && Math.abs(pac_man_c - ghost_c) <= 3) {
-                probingPos.x = pac_man_r > ghost_r ? 1 : Maze.maze.length - 2;
-                probingPos.y = pac_man_c > ghost_c ? 1 : Maze.maze[0].length - 2;
+                probingPos.x = pac_man_r > ghost_r ? 1 : Maze.MAZE.length - 2;
+                probingPos.y = pac_man_c > ghost_c ? 1 : Maze.MAZE[0].length - 2;
             }
         }
 
         //Randomly choose a probing position
-        while ((probingPos.x == ghost_r && probingPos.y == ghost_c) || Maze.maze[probingPos.x][probingPos.y] >= 3) {
+        while ((probingPos.x == ghost_r && probingPos.y == ghost_c) || Maze.MAZE[probingPos.x][probingPos.y] >= 3) {
             Random random = new Random();
-            probingPos.x = random.nextInt(Maze.maze.length);
-            probingPos.y = random.nextInt(Maze.maze[0].length);
+            probingPos.x = random.nextInt(Maze.MAZE.length);
+            probingPos.y = random.nextInt(Maze.MAZE[0].length);
         }
-        return BFS(new intPos(ghost_r, ghost_c), probingPos, Maze.maze);
+        return BFS(new intPos(ghost_r, ghost_c), probingPos, Maze.MAZE);
     }
 
     /*

@@ -82,7 +82,7 @@ abstract class Ghost {
         else if (direction == Pos.Direction.Left) {pos.x -= Maze.offsetW * 2;this.direction = Pos.Direction.Right;}
 
         // backing up the original position if current position is inside the wall
-        if (Maze.maze[(int) (this.pos.y / (2 * Maze.offsetH))][(int) (this.pos.x / (2*Maze.offsetW))] == 3) {
+        if (Maze.MAZE[(int) (this.pos.y / (2 * Maze.offsetH))][(int) (this.pos.x / (2*Maze.offsetW))] == 3) {
             this.pos = p;
         }
     }
