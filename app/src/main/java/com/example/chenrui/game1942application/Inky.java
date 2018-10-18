@@ -29,7 +29,7 @@ public class Inky extends Ghost {
      */
     @Override
     void onDraw(Canvas canvas, Paint paint) {
-        paint.setColor(Color.BLUE);
+        paint.setColor(Color.parseColor("#00FFFF"));
         super.onDraw(canvas, paint);
     }
 
