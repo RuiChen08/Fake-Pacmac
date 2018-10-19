@@ -13,7 +13,7 @@ Pac-Man is an arcade game developed by Namco and first released in Japan as Puck
 ## Design Documentation 
 + [Design Summary](https://gitlab.cecs.anu.edu.au/u5958754/RetroGame2018s2/wikis/Design-Summary)
 + [UML Diagram](https://gitlab.cecs.anu.edu.au/u5958754/RetroGame2018s2/wikis/UML-diagram)
-+ [Testing Summary](testingsummary)
++ [Testing Summary](https://gitlab.cecs.anu.edu.au/u5958754/RetroGame2018s2/wikis/Testing-plan-summary)
 + [Game Summary](https://gitlab.cecs.anu.edu.au/u5958754/RetroGame2018s2/wikis/Game-Summary)
 
 ## Minuted Meetings
