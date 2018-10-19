@@ -2,8 +2,8 @@
 
 ## Team structure and roles 
 + Rui Chen u5958754 - Software Developer, Documentation Checker, Plan Designer
-+ Weiwei Liang u6642464 - Software Developer, Note Taker, 
-+ Ruiyi Sun u6233314 - Software Developer, 
++ Weiwei Liang u6642464 - Software Developer, Note Taker
++ Ruiyi Sun u6233314 - Software Developer, Game Tester
 + Chucheng Qian u6451847 - Software Developer, Game Tester
 
 ## Game Overview 
@@ -39,11 +39,7 @@ assignment is entirely my own work, with exceptions given below.
 
 ### Inspiration
 
-_add references from where you obtained the idea form the game and ideas about aspects of the game_
-
 ### Code
-
-_reference all the code or ideas for code from other sources_
 
 ### Assets 
 The background image refers from [this website] (https://pngtree.com/freebackground/wallpaper-art-design-digital-background_844014.html). The image can be used with noncommericial reuse with modification.
