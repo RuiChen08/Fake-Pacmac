@@ -32,8 +32,8 @@ public class IntegratedTest{
         assertTrue("This life of pac man should be 3, but is: " + pacMan.life, pacMan.life == 3);
         Ghosts gs = new Ghosts();
         // Set Radius to possible minimal value as Radius is calculated during run time.
-        pacMan.Radius = 0;
-        for (Ghost g : gs) g.Radius = 0;
+        pacMan.Radius = 0.1f;
+        for (Ghost g : gs) g.Radius = 0.1f;
         for (int i = 0; i < 500; i++) {
             for (Ghost g : gs) {
                 g.step(pacMan);
@@ -43,7 +43,7 @@ public class IntegratedTest{
         assertTrue("This life of pac man should be less than or equals to 0, but is: " + pacMan.life, pacMan.life <= 0);
 
         pacMan = new PacMan();
-        pacMan.Radius = 0;
+        pacMan.Radius = 0.1f;
         assertTrue("This life of pac man should be 3, but is: " + pacMan.life, pacMan.life == 3);
         for (Ghost g : gs) g.blueMode = true;
         for (int i = 0; i < 500; i++) {
@@ -56,7 +56,7 @@ public class IntegratedTest{
 
 
         pacMan = new PacMan();
-        pacMan.Radius = 0;
+        pacMan.Radius = 0.1f;
         assertTrue("This life of pac man should be 3, but is: " + pacMan.life, pacMan.life == 3);
 
         for (int i = 0; i < 500; i++) {
@@ -138,6 +138,7 @@ public class IntegratedTest{
             }
             assertTrue(game.pacman.life == 3);
             assertTrue(Game.mark > 0);
+            Game.mark = 0;
         }
     }
 

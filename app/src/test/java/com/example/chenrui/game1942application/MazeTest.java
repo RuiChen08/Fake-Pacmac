@@ -24,6 +24,7 @@ public class MazeTest {
     @Test
     public void mazeStepTest() throws Exception {
 
+        Game.mark =0 ;
        { for (int r = 0; r < Maze.maze.length; r++) {
             for (int c = 0; c < Maze.maze[0].length; c++) Maze.maze[r][c] = MAZE[r][c];
         }
