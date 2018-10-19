@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Game1942Application</string>
+    <string name="app_name">Pacman</string>
     <string name="title_activity_game">GameActivity</string>
     <string name="start">Start</string>
     <string name="rank">Rank</string>
