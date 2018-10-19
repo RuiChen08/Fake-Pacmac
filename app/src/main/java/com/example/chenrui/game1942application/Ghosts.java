@@ -6,14 +6,14 @@ import android.graphics.Paint;
 import java.util.ArrayList;
 
 /**
- * Author: Rui Chen
+ * Author: Rui Chen(u5958754)
  * Date: 2018/10/14
  */
 
 class Ghosts extends ArrayList<Ghost>{
 
     /*
-     * Author: Rui Chen
+     * Author: Rui Chen(u5958754)
      * Date: 14/10/2018
      */
     Ghosts() {
@@ -24,7 +24,7 @@ class Ghosts extends ArrayList<Ghost>{
     }
 
     /*
-     * Author: Rui Chen
+     * Author: Rui Chen(u5958754)
      * Date: 14/10/2018
      */
     void onDraw(Canvas canvas, Paint paint) {
@@ -32,7 +32,7 @@ class Ghosts extends ArrayList<Ghost>{
     }
 
     /*
-     * Author: Rui Chen
+     * Author: Rui Chen(u5958754)
      * Date: 15/10/2018
      */
     void inBlue() {
@@ -43,7 +43,7 @@ class Ghosts extends ArrayList<Ghost>{
     }
 
     /*
-     * Author: Rui Chen
+     * Author: Rui Chen(u5958754)
      * Date: 15/10/2018
      */
     public void step(PacMan pacMan) {

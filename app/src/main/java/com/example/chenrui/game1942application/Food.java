@@ -1,7 +1,7 @@
 package com.example.chenrui.game1942application;
 
 /*
- * Authors: Rui Chen
+ * Authors: Rui Chen(u5958754)
  * Date: 19/09/2018
  */
 
@@ -15,7 +15,7 @@ abstract class Food {
     private static float pelletRadius = 0.008f;
 
     /*
-     * Author: Rui Chen,Ruiyi Sun
+     * Author: Rui Chen(u5958754),Ruiyi Sun(u6233314)
      * Date: 18/10/2018
      */
     static void drawPacDot(Canvas canvas, Paint paint, float x, float y) {
@@ -24,7 +24,7 @@ abstract class Food {
     }
 
     /*
-     * Author: Rui Chen
+     * Author: Rui Chen(u5958754)
      * Date: 18/10/2018
      */
     static void drawPowerPellet(Canvas canvas, Paint paint, float x, float y) {

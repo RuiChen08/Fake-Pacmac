@@ -22,7 +22,7 @@ import javax.xml.transform.stream.StreamResult;
 /**
  *
  * Use PersistantDataXML load and store the Mark Rank
- * @author Chucheng Qian
+ * @author Chucheng Qian(u6451847)
  * @Date 17/10/2018
  */
 
@@ -36,7 +36,7 @@ public class RankBoard {
     int mark;
 
     /*
-     * @author: ChuCheng Qian
+     * @author: Chucheng Qian(u6451847)
      * @date: 18/10/2018
      */
     RankBoard(String name, int mark) {
@@ -49,7 +49,7 @@ public class RankBoard {
 
 
     /*
-     * @author: ChuCheng Qian
+     * @author: Chucheng Qian(u6451847)
      * @date: 18/10/2018
      */
     static ArrayList<RankBoard> load(String filename) {
@@ -95,7 +95,7 @@ public class RankBoard {
     }
 
     /*
-     * @author: ChuCheng Qian
+     * @author: Chucheng Qian(u6451847)
      * @date: 18/10/2018
      */
     static Document create(String filename) {
@@ -132,7 +132,7 @@ public class RankBoard {
 
 
     /*
-     * @author: ChuCheng Qian
+     * @author: Chucheng Qian(u6451847)
      * @date: 18/10/2018
      */
     void save(String filename) {

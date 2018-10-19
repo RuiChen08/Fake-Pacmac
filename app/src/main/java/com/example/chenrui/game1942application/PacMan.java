@@ -1,7 +1,7 @@
 package com.example.chenrui.game1942application;
 
 /*
- * Authors: Rui Chen
+ * Authors: Rui Chen(u5958754)
  * Date: 19/09/2018
  */
 
@@ -19,7 +19,7 @@ class PacMan {
     int life = 3;
 
     /*
-     * Author: Rui Chen
+     * Author: Rui Chen(u5958754)
      * Date: 18/10/2018
      */
     void onDraw(Canvas canvas, Paint paint) {
@@ -29,7 +29,7 @@ class PacMan {
     }
 
     /*
-     * Author: Rui Chen
+     * Author: Rui Chen(u5958754)
      * Date: 12/10/2018
      *
      * Increase the x or y of pac-man's position according to direction. The origin is the left up connor of the canvas.
@@ -52,7 +52,7 @@ class PacMan {
     }
 
     /*
-     * Author: Rui Chen
+     * Author: Rui Chen(u5958754)
      * Date: 12/10/2018
      */
     void changeDirection(Pos.Direction direction){

@@ -1,7 +1,7 @@
 package com.example.chenrui.game1942application;
 
 /*
- * Authors: Rui Chen, Chucheng Qian
+ * Authors: Rui Chen(u5958754), Chucheng Qian(u6451847)
  * Date: 14/10/2019
  *
  * Blinky is one of the Ghosts: Blinky, is a red ghost who, in the original arcade game, follows behind Pac-Man. He is considered the leader of the ghosts.
@@ -21,7 +21,7 @@ class Blinky extends Ghost {
     }
 
     /*
-     * Authors: Rui Chen, Chucheng Qian
+     * Authors: Rui Chen(u5958754), Chucheng Qian(u6451847)
      * Date: 15/10/2019
      */
     @Override

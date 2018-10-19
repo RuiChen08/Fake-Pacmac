@@ -20,7 +20,7 @@ public class RankActivity extends AppCompatActivity {
     String message;
 
     /**
-     * @author Chucheng Qian
+     * @author Chucheng Qian(u6451847)
      * @Date 17/10/2018
      */
 
@@ -40,7 +40,7 @@ public class RankActivity extends AppCompatActivity {
     }
 
     /**
-     * @author Chucheng Qian, Rui Chen
+     * @author Chucheng Qian(u6451847), Rui Chen(u5958754)
      * @Date 17/10/2018
      */
     public ArrayList<RankBoard> result(){
@@ -62,7 +62,7 @@ public class RankActivity extends AppCompatActivity {
 
 
     /**
-     * @author Chucheng Qian
+     * @author Chucheng Qian(u6451847)
      * @Date 17/10/2018
      */
     public String names (ArrayList<RankBoard> dataload){
@@ -74,7 +74,7 @@ public class RankActivity extends AppCompatActivity {
     }
 
     /**
-     * @author Chucheng Qian
+     * @author Chucheng Qian(u6451847)
      * @Date 17/10/2018
      */
     public String marks (ArrayList<RankBoard> dataload){
@@ -86,7 +86,7 @@ public class RankActivity extends AppCompatActivity {
     }
 
     /**
-     * @author Chucheng Qian
+     * @author Chucheng Qian(u6451847)
      * @Date 17/10/2018
      */
     public void back2ButtonPressed(View view) {

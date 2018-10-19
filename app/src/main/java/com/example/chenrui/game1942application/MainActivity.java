@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /*
-     * Author: Rui Chen
+     * Author: Rui Chen(u5958754)
      * Date: 18/10/2018
      */
     public void startButtonPressed(View view) {
@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Author Chucheng Qian
+     * Author Chucheng Qian(u6451847)
      * Date 17/10/2018
      *
      * Showing the rank of previous players, previous players marks should be stored when game is finished

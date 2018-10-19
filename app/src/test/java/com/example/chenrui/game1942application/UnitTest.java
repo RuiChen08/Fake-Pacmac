@@ -10,7 +10,7 @@ import static junit.framework.Assert.assertTrue;
 public class UnitTest {
 
     /*
-     * Authors: Chucheng Qian, Rui Chen,weiwei Liang
+     * Authors: Chucheng Qian(u6451847), Rui Chen(u5958754),Weiwei Liang(u6642464)
      * Date: 18/10/2018
      */
     @Test
@@ -50,7 +50,7 @@ public class UnitTest {
     }
 
     /*
-     * Author: Weiwei Liang, Rui Chen
+     * Author: Weiwei Liang(u6642464), Rui Chen(u5958754)
      * Date: 19/10/2018
      */
     @Test
@@ -97,7 +97,7 @@ public class UnitTest {
 
     @Test
     /*
-     * Author: Rui Chen
+     * Author: Rui Chen(u5958754)
      * Date: 19/10/2018
      *
      * White box testing, only considering the functional requirements

@@ -10,14 +10,14 @@ import static junit.framework.Assert.assertTrue;
 
 /*
  * white box test
- * Authors: Chucheng Qian
+ * Authors: Chucheng Qian(u6451847)
  * Date: 18/10/2018
  */
 public class GhostTest {
 
 
     /*
-     * Author: Rui Chen
+     * Author: Rui Chen(u5958754)
      * Date: 18/10/2018
      */
     @Test

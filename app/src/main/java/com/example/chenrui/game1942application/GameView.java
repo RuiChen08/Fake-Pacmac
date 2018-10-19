@@ -11,7 +11,7 @@ import android.view.MotionEvent;
 import android.view.View;
 
 /*
- * Authors: Rui Chen
+ * Authors: Rui Chen(u5958754)
  * Date: 22/09/2018
  */
 
@@ -27,7 +27,7 @@ public class GameView extends View implements Runnable, View.OnTouchListener, Ob
     boolean finished = false;
 
     /*
-     * Authors: Rui Chen
+     * Authors: Rui Chen(u5958754)
      * Date: 14/09/2018
      */
     public GameView(Context context, @Nullable AttributeSet attrs) {
@@ -42,7 +42,7 @@ public class GameView extends View implements Runnable, View.OnTouchListener, Ob
     }
 
     /*
-     * Authors: Rui Chen
+     * Authors: Rui Chen(u5958754)
      * Date: 14/09/2018
      */
     @Override
@@ -52,7 +52,7 @@ public class GameView extends View implements Runnable, View.OnTouchListener, Ob
     }
 
     /*
-     * Author: Rui Chen
+     * Author: Rui Chen(u5958754)
      * Date: 22/09/2018
      *
      * Pass Direction to game so that pac-man could changeDirection
@@ -77,7 +77,7 @@ public class GameView extends View implements Runnable, View.OnTouchListener, Ob
     }
 
     /*
-     * Author: Rui Chen
+     * Author: Rui Chen(u5958754)
      * Date: 18/10/2018
      */
     @Override
@@ -90,7 +90,7 @@ public class GameView extends View implements Runnable, View.OnTouchListener, Ob
     }
 
     /*
-     * Author: ChuCheng Qian
+     * Author: Chucheng Qian(u6451847)
      * Date: 18/10/2018
      */
     void registerObserver(Observer observer) {
@@ -98,7 +98,7 @@ public class GameView extends View implements Runnable, View.OnTouchListener, Ob
     }
 
     /*
-     * Author: ChuCheng Qian
+     * Author: Chucheng Qian(u6451847)
      * Date: 18/10/2018
      */
     @Override

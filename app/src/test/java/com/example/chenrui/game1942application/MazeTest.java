@@ -11,14 +11,14 @@ import static junit.framework.Assert.assertTrue;
 
 /*
  * white box test
- * Authors: Chucheng Qian
+ * Authors: Chucheng Qian(u6451847)
  * Date: 18/10/2018
  */
 public class MazeTest {
 
 
     /*
-     * Author: ChuCheng Qian
+     * Author: Chucheng Qian(u6451847)
      * Date: 19/10/2018
      */
     @Test
@@ -45,7 +45,7 @@ public class MazeTest {
     }
 
     /*
-     * Author: ChuCheng Qian
+     * Author: Chucheng Qian(u6451847)
      * Date: 19/10/2018
      */
     @Test

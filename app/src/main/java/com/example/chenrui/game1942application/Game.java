@@ -1,7 +1,7 @@
 package com.example.chenrui.game1942application;
 
 /*
- * Authors: Rui Chen
+ * Authors: Rui Chen(u5958754)
  * Date: 22/09/2018
  */
 
@@ -24,7 +24,7 @@ class Game {
 
     /*
 
-     * @author Chucheng Qian, Rui Chen
+     * @author Chucheng Qian(u6451847), Rui Chen(u5958754)
      * @Date 14/10/2018
      */
     Game(int heightPixels, int widthPixels, Observer observer) {
@@ -38,7 +38,7 @@ class Game {
     }
 
 
-    /* Authors: Ruiyi Sun, Weiwei Liang, Rui Chen
+    /* Authors: Ruiyi Sun(u6233314), Weiwei Liang(u6642464), Rui Chen(u5958754)
      * Date: 14/10/2018
      */
     void onDraw(Canvas canvas, Paint paint) {
@@ -55,7 +55,7 @@ class Game {
         canvas.drawText(""+Game.mark, ScreenWidth - Maze.offsetW * canvas.getWidth() * 3,Maze.offsetH * canvas.getHeight(),pp);
     }
 
-    /* Authors: Ruiyi Sun, Weiwei Liang,Chucheng Qian, Rui Chen
+    /* Authors: Ruiyi Sun(u6233314), Weiwei Liang(u6642464),Chucheng Qian(u6451847), Rui Chen(u5958754)
      * Date: 14/10/2018
      */
     void step() {
@@ -66,7 +66,7 @@ class Game {
         if (maze.noDots()) observer.update();
     }
 
-    /* Authors: Rui Chen
+    /* Authors: Rui Chen(u5958754)
      * Date: 14/10/2018
      */
     void move(Pos.Direction direction){

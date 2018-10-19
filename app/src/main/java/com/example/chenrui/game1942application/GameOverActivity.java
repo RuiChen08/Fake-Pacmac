@@ -11,7 +11,7 @@ public class GameOverActivity extends AppCompatActivity {
 
 
     /*
-     * Authors: Chucheng Qian
+     * Authors: Chucheng Qian(u6451847)
      * Date: 17/10/2018
      */
     @Override
@@ -23,7 +23,7 @@ public class GameOverActivity extends AppCompatActivity {
 
 
     /*
-     * Author: ChuCheng Qian
+     * Author: Chucheng Qian(u6451847)
      * Date: 18/10/2018
      */
     public void backButtonPressed(View view) {
@@ -32,7 +32,7 @@ public class GameOverActivity extends AppCompatActivity {
     }
 
     /*
-     * Author: ChuCheng Qian
+     * Author: Chucheng Qian(u6451847)
      * Date: 18/10/2018
      */
     public void rankButtonPressed(View view) {

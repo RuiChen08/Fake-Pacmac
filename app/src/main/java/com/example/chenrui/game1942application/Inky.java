@@ -1,7 +1,7 @@
 package com.example.chenrui.game1942application;
 
 /*
- * Authors: Rui Chen
+ * Authors: Rui Chen(u5958754)
  * Date: 19/09/2019
  *
  * Inky is one of the Ghosts: Inky is a baby blue ghost who, in the original arcade game, has a fickle mood. He can be unpredictable.
@@ -24,7 +24,7 @@ class Inky extends Ghost {
     }
 
     /*
-     * Author: Rui Chen
+     * Author: Rui Chen(u5958754)
      * Date: 18/10/2018
      */
     @Override

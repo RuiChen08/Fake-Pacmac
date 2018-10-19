@@ -10,14 +10,14 @@ import static junit.framework.Assert.assertTrue;
 
 /*
  * black box test
- * Authors: Chucheng Qian
+ * Authors: Chucheng Qian(u6451847)
  * Date: 18/10/2018
  */
 
 public class RankBoardTest {
 
     /*
-     * Author: ChuCheng Qian
+     * Author: Chucheng Qian(u6451847)
      * Date: 19/10/2018
      */
     private ArrayList<RankBoard> getResults()  {
@@ -37,7 +37,7 @@ public class RankBoardTest {
     }
 
     /*
-     * Author: ChuCheng Qian
+     * Author: Chucheng Qian(u6451847)
      * Date: 19/10/2018
      */
     @Test
@@ -47,7 +47,7 @@ public class RankBoardTest {
     }
 
     /*
-     * Author: ChuCheng Qian
+     * Author: Chucheng Qian(u6451847)
      * Date: 19/10/2018
      */
     @Test
@@ -61,7 +61,7 @@ public class RankBoardTest {
     }
 
     /*
-     * Author: ChuCheng Qian
+     * Author: Chucheng Qian(u6451847)
      * Date: 19/10/2018
      */
     @Test

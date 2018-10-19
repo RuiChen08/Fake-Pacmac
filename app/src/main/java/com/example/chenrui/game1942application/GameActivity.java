@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 /*
- * Authors: Rui Chen,Chucheng Qian
+ * Authors: Rui Chen(u5958754),Chucheng Qian(u6451847)
  * Date: 17/10/2018
  */
 
@@ -21,7 +21,7 @@ public class GameActivity extends AppCompatActivity implements Observer{
     }
 
     /*
-     * Author: Rui Chen, ChuCheng Qian
+     * Author: Rui Chen(u5958754), Chucheng Qian(u6451847)
      * Date: 18/10/2018
      */
     @Override

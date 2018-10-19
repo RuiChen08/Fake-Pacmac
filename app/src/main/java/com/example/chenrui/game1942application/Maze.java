@@ -10,7 +10,7 @@ import android.view.SurfaceView;
 import android.view.View;
 
 /**
- * Author: Rui Chen, Ruiyi Sun, Weiwei Liang
+ * Author: Rui Chen(u5958754), Ruiyi Sun(u6233314), Weiwei Liang(u6642464)
  * Date: 2018/10/12
  */
 
@@ -52,7 +52,7 @@ class Maze{
     static float offsetH = 1 / (2 * heightSize);
 
     /*
-     * Author: Rui Chen
+     * Author: Rui Chen(u5958754)
      * Date: 18/10/2018
      */
     {
@@ -65,7 +65,7 @@ class Maze{
     }
 
     /*
-     * Author: Rui Chen
+     * Author: Rui Chen(u5958754)
      * Date: 15/10/2018
      */
     void onDraw(Canvas canvas, Paint paint) {
@@ -93,7 +93,7 @@ class Maze{
     }
 
     /*
-     * Author: Rui Chen
+     * Author: Rui Chen(u5958754)
      * Date: 15/10/2018
      */
     boolean step(Pos pos) {
@@ -105,7 +105,7 @@ class Maze{
     }
 
     /*
-     * Author: Rui Chen
+     * Author: Rui Chen(u5958754)
      * Date: 18/10/2018
      */
     boolean noDots() {

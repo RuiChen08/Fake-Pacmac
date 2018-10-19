@@ -8,14 +8,14 @@ import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertTrue;
 
 /**
- * Author: Rui Chen
+ * Author: Rui Chen(u5958754)
  * Date: 2018/10/18
  */
 
 public class AITest {
 
     /*
-     *  Author: Ruiyi Sun, Rui Chen
+     *  Author: Ruiyi Sun(u6233314), Rui Chen(u5958754)
      *  Date: 18/10/2018
      * write some codes to BFS in AI class
      *
@@ -64,7 +64,7 @@ public class AITest {
     }
 
     /*
-     * Author: Rui Chen
+     * Author: Rui Chen(u5958754)
      * Date: 19/10/2018
      */
     @Test

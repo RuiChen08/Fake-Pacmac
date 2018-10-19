@@ -1,7 +1,7 @@
 package com.example.chenrui.game1942application;
 
 /*
- * Authors: Rui Chen,Chucheng Qian, Ruiyi Sun
+ * Authors: Rui Chen(u5958754),Chucheng Qian(u6451847), Ruiyi Sun(u6233314)
  * Date: 14/10/2018
  */
 
@@ -24,7 +24,7 @@ abstract class Ghost {
     Pos.Direction direction = Pos.Direction.Stay;
 
     /*
-     * Author: Rui Chen
+     * Author: Rui Chen(u5958754)
      * Date: 18/10/2018
      */
     Ghost(Pos start_position){
@@ -33,7 +33,7 @@ abstract class Ghost {
     }
 
     /*
-     * Authors: Rui Chen,Chucheng Qian, Ruiyi Sun
+     * Authors: Rui Chen(u5958754),Chucheng Qian(u6451847), Ruiyi Sun(u6233314)
      * Date: 14/10/2018
      */
     void onDraw(Canvas canvas, Paint paint) {
@@ -44,7 +44,7 @@ abstract class Ghost {
     }
 
     /*
-     * Authors: Rui Chen,Chucheng Qian, Ruiyi Sun
+     * Authors: Rui Chen(u5958754),Chucheng Qian(u6451847), Ruiyi Sun(u6233314)
      * Date: 14/10/2018
      */
     void step(PacMan pacMan) {
@@ -67,7 +67,7 @@ abstract class Ghost {
     }
 
     /*
-     * Author: Rui Chen, Ruiyi Sun
+     * Author: Rui Chen(u5958754), Ruiyi Sun(u6233314)
      * Date: 15/10/2018
      *
      * Common-Used codes

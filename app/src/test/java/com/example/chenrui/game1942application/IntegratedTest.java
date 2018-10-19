@@ -9,14 +9,14 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 /**
- * Author: Rui Chen
+ * Author: Rui Chen(u5958754)
  * Date: 2018/10/19
  */
 
 public class IntegratedTest{
 
     /*
-     * Author: Rui Chen
+     * Author: Rui Chen(u5958754)
      * Date: 19/10/2018
      */
     @Test
@@ -70,7 +70,7 @@ public class IntegratedTest{
     }
 
     /*
-     * Author: Rui Chen
+     * Author: Rui Chen(u5958754)
      * Date: 19/10/2018
      *
      * Automated integration testing for Game states testing. Three different cases.

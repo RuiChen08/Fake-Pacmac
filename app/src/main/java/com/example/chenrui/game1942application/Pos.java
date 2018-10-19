@@ -1,7 +1,7 @@
 package com.example.chenrui.game1942application;
 
 /*
- * Authors: Rui Chen
+ * Authors: Rui Chen(u5958754)
  * Date: 19/09/2018
  */
 
@@ -23,7 +23,7 @@ public class Pos {
     }
 
     /*
-     * Author: Rui Chen
+     * Author: Rui Chen(u5958754)
      * Date: 14/09/2018
      */
     float getDistance(Pos pos){
@@ -31,7 +31,7 @@ public class Pos {
     }
 
     /*
-     * Author: Rui Chen,Chucheng Qian
+     * Author: Rui Chen(u5958754),Chucheng Qian(u6451847)
      * Date: 22/09/2018
      *
      * Parameter: The post-pos. Pre-pos is the instance which called this method
@@ -57,7 +57,7 @@ public class Pos {
     }
 
     /*
-     * Author: Rui Chen
+     * Author: Rui Chen(u5958754)
      * Date: 14/10/2018
      */
     static enum Direction {

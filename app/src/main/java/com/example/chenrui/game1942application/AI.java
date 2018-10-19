@@ -5,14 +5,14 @@ import java.util.Queue;
 import java.util.Random;
 
 /**
- * Author: Chucheng Qian, Rui Chen
+ * Author: Chucheng Qian(u6451847), Rui Chen(u5958754)
  * Date: 17/10/2018
  */
 
 public class AI {
 
     /**
-     * Authors: Chucheng Qian, Rui Chen
+     * Authors: Chucheng Qian(u6451847), Rui Chen(u5958754)
      * Date: 17/10/2018
      */
     Pos.Direction movingAI(Pos posPacman, Pos posGhost, intPos probingPos, String strategy){
@@ -45,7 +45,7 @@ public class AI {
     }
 
     /*
-     * Authors: Rui Chen
+     * Authors: Rui Chen(u5958754)
      * Date: 17/10/2018
      *
      * Description: Using the breadth first searching algorithm for find the path from ghost to pacman
@@ -83,7 +83,7 @@ public class AI {
     }
 
     /*
-     * Author: Rui Chen
+     * Author: Rui Chen(u5958754)
      * Date: 17/10/2018
      *
      * This class is for helping the BFS algorithm for searching
