@@ -30,15 +30,17 @@ public class MazeTest {
         }
         Maze maze=new Maze();
 
-        Pos p =new Pos(0.2f,0.3f);
+        Pos p =new Pos(0,0);
         maze.step(p);
+        assertTrue("The mark should be 0 but is "+Game.mark,Game.mark==0);
+
+        Pos p1 =new Pos(0.2f,0.3f);
+        maze.step(p1);
         assertTrue("The mark should be 1 but is "+Game.mark,Game.mark==1);
 
         Pos p2 =new Pos(0.1f,0.05f);
         maze.step(p2);
         assertTrue("The mark should be 5 but is "+Game.mark,Game.mark==6);
-
-
     }
 
     /*

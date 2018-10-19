@@ -25,7 +25,7 @@ public class AITest {
     @Test
     public void BFS_Test(){
         //  the branch coverage test
-        //1: if player not move ,the ghost will not move
+        //1: if player not move ,the ghost will not move when they are at the same position
         short[][] maze = new short[][]{
                 {3,3,3,3,3,3,3,3},
                 {3,1,1,1,1,1,1,3},
@@ -34,7 +34,7 @@ public class AITest {
                 {3,3,3,3,3,3,3,3}
         };
         Pos.Direction bst = AI.BFS(new AI.intPos(2,2), new AI.intPos(2,2) , maze);
-        assertTrue("The direction should be expected,but is "+bst, bst == Pos.Direction.Stay);
+        assertTrue("The direction should be expected,but is " + bst, bst == Pos.Direction.Stay);
         // 2: the other test in the branch
         short[][] maze1 = new short[][]{
                 {3,3,3,3,3,3,3,3},
