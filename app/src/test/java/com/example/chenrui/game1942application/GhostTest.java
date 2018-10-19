@@ -27,6 +27,8 @@ public class GhostTest {
         for (int c = 0; c < 5000; c++) {
             int i = random.nextInt(4);
             switch (i) {
+
+                // Randomly testing for different direction
                 case 0:
                     for (Ghost g : gs) {
                         Pos ppos = new Pos(g.pos);

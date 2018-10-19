@@ -23,7 +23,8 @@ public class UnitTest {
         assertTrue("The direction should be Right,but is "+new Pos(100.0f, 110.0f).getDirection(new Pos(120.0f, 120.0f)), new Pos(100.0f, 110.0f).getDirection(new Pos(120.0f, 120.0f)) == Pos.Direction.Right);
         assertTrue("The direction should be Down,but is "+new Pos(100.0f, 110.0f).getDirection(new Pos(100.0f, 90.0f)), new Pos(100.0f, 110.0f).getDirection(new Pos(100.0f, 90.0f)) == Pos.Direction.Up);
         Random random = new Random();
-        for (int i = 0; i < 1000; i++){
+        // Random testing for the direction
+        for (int i = 0; i < 5000; i++){
             String s = "Right";
             int x = random.nextInt(100) + 1;
             int y = random.nextInt(100) + 1;
@@ -55,22 +56,43 @@ public class UnitTest {
     @Test
     public void changeDirection_test(){
         PacMan pc = new PacMan();
+        Random random = new Random();
+        int c;
+        for (int i = 0; i < 1000; i++) {
+            Pos.Direction d = pc.direction;
+            c = random.nextInt(4);
+            if (c == 0) {
+                pc.changeDirection(Pos.Direction.Down);
+                if (Maze.MAZE[(int) (pc.pos.y / (2 * Maze.offsetH)) - 1][(int) (pc.pos.x / (2 * Maze.offsetW))] < 3)
+                    assertTrue("The direction should be Up, but is " + pc.direction, pc.direction == Pos.Direction.Up);
+                else
+                    assertTrue("The direction should be not be " + pc.direction, pc.direction == d);
 
-        pc.changeDirection(Pos.Direction.Down);
-        if (Maze.MAZE[(int) (pc.pos.y / (2 * Maze.offsetH)) + 1][(int) (pc.pos.x / (2*Maze.offsetW))] < 3) assertTrue("The direction should be Down, but is " + pc.direction, pc.direction == Pos.Direction.Down);
-        else assertTrue("The direction should be Stay, but is " + pc.direction, pc.direction == Pos.Direction.Stay);
+            }
+            else if (c == 1) {
+                pc.changeDirection(Pos.Direction.Left);
+                pc.changeDirection(Pos.Direction.Left);
+                if (Maze.MAZE[(int) (pc.pos.y / (2 * Maze.offsetH))][(int) (pc.pos.x / (2 * Maze.offsetW)) - 1] < 3)
+                    assertTrue("The direction should be Left, but is " + pc.direction, pc.direction == Pos.Direction.Left);
+                else
+                    assertTrue("The direction should be not be " + pc.direction, pc.direction == d);
+            }
+            else if (c == 2) {
+                pc.changeDirection(Pos.Direction.Right);
+                if (Maze.MAZE[(int) (pc.pos.y / (2 * Maze.offsetH))][(int) (pc.pos.x / (2 * Maze.offsetW)) + 1] < 3)
+                    assertTrue("The direction should be Right, but is " + pc.direction, pc.direction == Pos.Direction.Right);
+                else
+                    assertTrue("The direction should be not be " + pc.direction, pc.direction == d);
 
-        pc.changeDirection(Pos.Direction.Up);
-        if (Maze.MAZE[(int) (pc.pos.y / (2 * Maze.offsetH)) - 1][(int) (pc.pos.x / (2*Maze.offsetW))] < 3) assertTrue("The direction should be Up, but is " + pc.direction, pc.direction == Pos.Direction.Up);
-        else assertTrue("The direction should be Stay, but is " + pc.direction, pc.direction == Pos.Direction.Stay);
-
-        pc.changeDirection(Pos.Direction.Left);
-        if (Maze.MAZE[(int) (pc.pos.y / (2 * Maze.offsetH))][(int) (pc.pos.x / (2*Maze.offsetW)) - 1] < 3) assertTrue("The direction should be Left, but is " + pc.direction, pc.direction == Pos.Direction.Left);
-        else assertTrue("The direction should be Stay, but is " + pc.direction, pc.direction == Pos.Direction.Stay);
-
-        pc.changeDirection(Pos.Direction.Right);
-        if (Maze.MAZE[(int) (pc.pos.y / (2 * Maze.offsetH))][(int) (pc.pos.x / (2*Maze.offsetW)) + 1] < 3) assertTrue("The direction should be Right, but is " + pc.direction, pc.direction == Pos.Direction.Right);
-        else assertTrue("The direction should be Stay, but is " + pc.direction, pc.direction == Pos.Direction.Stay);
+            }
+            else if (c == 3) {
+                pc.changeDirection(Pos.Direction.Up);
+                if (Maze.MAZE[(int) (pc.pos.y / (2 * Maze.offsetH)) - 1][(int) (pc.pos.x / (2 * Maze.offsetW))] < 3)
+                    assertTrue("The direction should be Up, but is " + pc.direction, pc.direction == Pos.Direction.Up);
+                else
+                    assertTrue("The direction should be not be " + pc.direction, pc.direction == d);
+            }
+        }
     }
 
     @Test
@@ -82,6 +104,7 @@ public class UnitTest {
      */
     public void getDistanceTest(){
         Random random = new Random();
+        // Random testing for the distance
         for (int i = 0; i < 1000; i++) {
             float x = random.nextFloat();
             float y = random.nextFloat();
